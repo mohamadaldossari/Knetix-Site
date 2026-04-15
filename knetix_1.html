@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KNETIX — Performance-Only Paid Ads Agency</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0E0C0B;
+    --surface: #161210;
+    --card: #1C1815;
+    --burgundy: #8B2E2E;
+    --red: #B03030;
+    --beige: #C9B89A;
+    --cream: #EDE5D8;
+    --muted: #7A6E62;
+    --border: rgba(201,184,154,0.08);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--cream);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--red);
+    display: block;
+  }
+
+  /* ── HEADER ── */
+  header {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(14,12,11,0.94);
+    backdrop-filter: blur(14px);
+  }
+  header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .brand-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 0.18em;
+    color: var(--cream);
+  }
+  .brand-tag {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 400;
+    border-left: 1px solid rgba(201,184,154,0.2);
+    padding-left: 14px;
+    margin-left: 2px;
+  }
+  .header-cta {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-decoration: none;
+    border: 1px solid rgba(201,184,154,0.2);
+    padding: 10px 22px;
+    border-radius: 2px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .header-cta:hover { border-color: var(--beige); color: var(--beige); }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 120px 0 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(139,46,46,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(139,46,46,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 0%, transparent 100%);
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 0%, transparent 100%);
+  }
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+  .hero-eyebrow .tick {
+    width: 40px;
+    height: 1px;
+    background: var(--red);
+    opacity: 0.5;
+  }
+
+  h1.hero-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(56px, 8vw, 108px);
+    line-height: 0.95;
+    letter-spacing: 0.04em;
+    color: var(--cream);
+    margin-bottom: 14px;
+  }
+  h1.hero-headline .italic-serif {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: clamp(48px, 7vw, 92px);
+    color: var(--beige);
+    display: block;
+    letter-spacing: 0.01em;
+  }
+
+  .hero-sub {
+    max-width: 580px;
+    font-size: clamp(15px, 1.6vw, 17px);
+    color: var(--beige);
+    opacity: 0.8;
+    line-height: 1.8;
+    margin: 28px 0 48px;
+    font-weight: 300;
+  }
+  .hero-sub strong { color: var(--cream); font-weight: 500; opacity: 1; }
+
+  .hero-ctas {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-block;
+    background: var(--red);
+    color: var(--cream);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 18px 40px;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.3s;
+  }
+  .btn-primary:hover {
+    background: #c43535;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 40px rgba(176,48,48,0.3);
+  }
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--beige);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  .btn-ghost svg { transition: transform 0.2s; }
+  .btn-ghost:hover { opacity: 1; }
+  .btn-ghost:hover svg { transform: translateX(4px); }
+
+  /* ── STATS BAND ── */
+  .stats-band {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .stats-inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .stat {
+    padding: 36px 32px;
+    border-right: 1px solid var(--border);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    line-height: 1;
+    color: var(--cream);
+    letter-spacing: 0.04em;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .stat-num sup {
+    font-size: 28px;
+    vertical-align: super;
+    color: var(--red);
+  }
+  .stat-desc {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 100px 0; }
+
+  .section-header { margin-bottom: 64px; }
+  .section-header .label { margin-bottom: 14px; }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 4.5vw, 58px);
+    letter-spacing: 0.06em;
+    color: var(--cream);
+    line-height: 1;
+  }
+  .section-title .serif-it {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    color: var(--beige);
+    letter-spacing: 0.02em;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .step-card {
+    background: var(--bg);
+    padding: 48px 36px;
+    transition: background 0.25s;
+  }
+  .step-card:hover { background: var(--card); }
+  .step-num-display {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 80px;
+    color: rgba(139,46,46,0.12);
+    line-height: 1;
+    margin-bottom: 24px;
+    letter-spacing: 0.04em;
+    transition: color 0.25s;
+  }
+  .step-card:hover .step-num-display { color: rgba(176,48,48,0.22); }
+  .step-card h3 {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cream);
+    margin-bottom: 6px;
+  }
+  .step-card h3 span {
+    display: block;
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 20px;
+    letter-spacing: 0.02em;
+    color: var(--beige);
+    text-transform: none;
+    font-weight: 400;
+    margin-top: 4px;
+    margin-bottom: 16px;
+  }
+  .step-card p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.75;
+    font-weight: 300;
+  }
+  .step-card p strong { color: var(--beige); font-weight: 500; }
+
+  /* ── WHY PERFORMANCE ── */
+  .why-perf { background: var(--surface); }
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 56px;
+  }
+  .compare-col { background: var(--bg); padding: 48px 40px; }
+  .compare-col.kinetics { background: var(--card); }
+  .compare-col-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 7px 14px;
+    border-radius: 2px;
+    display: inline-block;
+    margin-bottom: 32px;
+  }
+  .compare-col.traditional .compare-col-label {
+    background: rgba(255,255,255,0.04);
+    color: var(--muted);
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+  .compare-col.kinetics .compare-col-label {
+    background: rgba(176,48,48,0.15);
+    color: var(--red);
+    border: 1px solid rgba(176,48,48,0.25);
+  }
+  .compare-items { list-style: none; }
+  .compare-items li {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    line-height: 1.65;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    color: var(--beige);
+    font-weight: 300;
+  }
+  .compare-items li:last-child { border-bottom: none; }
+  .compare-items li .icon { flex-shrink: 0; margin-top: 2px; width: 18px; height: 18px; }
+  .compare-col.traditional .icon { color: var(--muted); opacity: 0.5; }
+  .compare-col.kinetics .icon { color: var(--red); }
+
+  /* ── TRIPLE WHALE ── */
+  .tw-card {
+    background: var(--card);
+    border: 1px solid rgba(139,46,46,0.2);
+    padding: 64px 56px;
+    position: relative;
+    overflow: hidden;
+    max-width: 900px;
+  }
+  .tw-card::before {
+    content: 'TW';
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 280px;
+    color: rgba(139,46,46,0.04);
+    position: absolute;
+    right: -20px;
+    bottom: -40px;
+    line-height: 1;
+    pointer-events: none;
+  }
+  .tw-card .label { margin-bottom: 20px; }
+  .tw-card h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 4vw, 54px);
+    letter-spacing: 0.06em;
+    color: var(--cream);
+    margin-bottom: 28px;
+    line-height: 1;
+  }
+  .tw-card p {
+    font-size: 16px;
+    color: var(--beige);
+    opacity: 0.75;
+    line-height: 1.8;
+    max-width: 560px;
+    font-weight: 300;
+  }
+  .tw-card p strong { color: var(--cream); font-weight: 500; opacity: 1; }
+  .tw-pillars {
+    display: flex;
+    gap: 40px;
+    margin-top: 44px;
+    flex-wrap: wrap;
+  }
+  .tw-pillar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .tw-pillar .dot {
+    width: 6px;
+    height: 6px;
+    background: var(--red);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── CLOSER ── */
+  .closer {
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .closer-bg-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22vw;
+    color: rgba(139,46,46,0.04);
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    pointer-events: none;
+    letter-spacing: 0.06em;
+    line-height: 1;
+  }
+  .closer .container { position: relative; z-index: 1; }
+  .closer .label { margin-bottom: 20px; }
+  .closer h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 5vw, 64px);
+    letter-spacing: 0.05em;
+    color: var(--cream);
+    line-height: 1.05;
+    max-width: 720px;
+    margin-bottom: 28px;
+  }
+  .closer h2 em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    color: var(--beige);
+    letter-spacing: 0.02em;
+  }
+  .closer-body {
+    font-size: 16px;
+    color: var(--beige);
+    opacity: 0.75;
+    line-height: 1.8;
+    max-width: 560px;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+  .closer-body strong { color: var(--cream); opacity: 1; font-weight: 500; }
+  .btn-closer {
+    display: inline-block;
+    background: var(--red);
+    color: var(--cream);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 22px 56px;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.3s;
+  }
+  .btn-closer:hover {
+    background: #c43535;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 50px rgba(176,48,48,0.35);
+  }
+  .qualifier {
+    margin-top: 22px;
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: block;
+  }
+
+  /* ── TEAM LINE ── */
+  .team-line {
+    border-top: 1px solid var(--border);
+    padding: 32px 0;
+  }
+  .team-line .container {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .team-person {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid rgba(139,46,46,0.4);
+    background: var(--card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    color: var(--red);
+    letter-spacing: 0.05em;
+  }
+  .team-divider { width: 1px; height: 24px; background: var(--border); }
+  .team-line .label { margin-left: auto; }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 0;
+  }
+  footer .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  footer p {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(32px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { opacity: 0; animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) forwards; }
+  .d1 { animation-delay: 0.1s; }
+  .d2 { animation-delay: 0.25s; }
+  .d3 { animation-delay: 0.4s; }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .header-cta { display: none; }
+    .stats-inner { grid-template-columns: 1fr; }
+    .stat { border-right: none; border-bottom: 1px solid var(--border); }
+    .stat:last-child { border-bottom: none; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .compare-grid { grid-template-columns: 1fr; }
+    .tw-card { padding: 40px 28px; }
+    .tw-pillars { gap: 20px; }
+    .closer { padding: 80px 0; }
+    .team-line .label { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="container">
+    <div class="logo-wrap">
+      <svg width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="3" y="3" width="94" height="94" rx="2" stroke="#C9B89A" stroke-width="1" fill="none" opacity=".2"/>
+        <rect x="12" y="12" width="22" height="76" fill="#8B2E2E"/>
+        <polygon points="38,12 88,12 38,46" fill="#C9B89A"/>
+        <polygon points="38,56 88,88 38,88" fill="#8B2E2E"/>
+        <rect x="37" y="47" width="7" height="7" transform="rotate(45 40.5 50.5)" fill="#C9B89A" opacity=".8"/>
+      </svg>
+      <span class="brand-name">KNETIX</span>
+      <span class="brand-tag">Performance Agency</span>
+    </div>
+    <a href="#audit" class="header-cta">Free Audit</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="container">
+    <div class="hero-eyebrow fade-up">
+      <span class="tick"></span>
+      <span class="label">Zero Risk. Performance Only.</span>
+    </div>
+    <h1 class="hero-headline fade-up d1">
+      Momentum is Math.
+      <span class="italic-serif">Scale is Strategy.</span>
+    </h1>
+    <p class="hero-sub fade-up d2">
+      We partner with established brands to engineer high-ticket growth. No retainers. No signing fees. We only take a <strong>10% share of the new revenue we generate for you.</strong>
+    </p>
+    <div class="hero-ctas fade-up d3">
+      <a href="#audit" class="btn-primary">Claim Your Free Performance Audit</a>
+      <a href="#attribution" class="btn-ghost">
+        Watch How We Track Revenue
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<div class="stats-band">
+  <div class="container">
+    <div class="stats-inner">
+      <div class="stat reveal">
+        <span class="stat-num">10<sup>%</sup></span>
+        <span class="stat-desc">Revenue share — the only fee we ever charge</span>
+      </div>
+      <div class="stat reveal">
+        <span class="stat-num">$3<sup>K</sup></span>
+        <span class="stat-desc">Minimum monthly ad spend to qualify</span>
+      </div>
+      <div class="stat reveal">
+        <span class="stat-num">30<sup>%</sup></span>
+        <span class="stat-desc">Guaranteed bottom-line growth or we walk</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section>
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="label">The Process</p>
+      <h2 class="section-title">How the <span class="serif-it">Partnership</span> Works</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card reveal">
+        <div class="step-num-display">01</div>
+        <h3>The Audit &amp; Integration
+          <span>Find the leaks. Fix the data.</span>
+        </h3>
+        <p>We identify every data leak in your current funnel and install <strong>Triple Whale</strong> for 100% transparent, iOS14-proof tracking. You see exactly where every dollar goes before we spend a single cent.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num-display">02</div>
+        <h3>The Creative Brief
+          <span>Engineer the hook.</span>
+        </h3>
+        <p><strong>Mohamad (Technical Lead)</strong> scripts high-conversion hooks tailored for high-ticket buyers. You film the raw footage — we engineer the ads. No creative guesswork; every frame serves a conversion objective.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num-display">03</div>
+        <h3>The Scale Phase
+          <span>Deploy. Optimize. Dominate.</span>
+        </h3>
+        <p>We deploy <strong>Meta Advantage+ AI systems</strong> to locate your buyers at the lowest possible cost. We scale the winners. We kill the losers. No sentiment — only data.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY PERFORMANCE -->
+<section class="why-perf">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="label">The Model</p>
+      <h2 class="section-title">Why <span class="serif-it">Performance-Only</span> Wins</h2>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-col traditional reveal">
+        <span class="compare-col-label">Traditional Agencies</span>
+        <ul class="compare-items">
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            Charge $3,000–$5,000/month regardless of whether you make a single sale.
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            Incentivized to retain you as a client — not to actually grow you.
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            Opaque dashboards. Vanity metrics. No direct revenue attribution.
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            Long-term contracts. Your leverage disappears on day one.
+          </li>
+        </ul>
+      </div>
+      <div class="compare-col kinetics reveal">
+        <span class="compare-col-label">KNETIX</span>
+        <ul class="compare-items">
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Zero monthly fees. Zero signing fees. We profit only when you profit.
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Our incentive is 100% aligned with your bank account — period.
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Triple Whale attribution. Real-time revenue tracking. Total transparency.
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            No contracts. Walk away anytime. We stay because we're performing.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRIPLE WHALE / ATTRIBUTION -->
+<section id="attribution">
+  <div class="container">
+    <div class="tw-card reveal">
+      <p class="label">Technical Authority</p>
+      <h2>Zero-Dispute Attribution.</h2>
+      <p>
+        We use <strong>Triple Whale</strong> to bypass iOS14 tracking limitations entirely. You see exactly which sales came from our ads — in real-time, with total transparency and total accuracy. No black-box dashboards. No faith-based reporting.
+        <br><br>
+        When we say we generated $X in revenue, you can verify it yourself in 30 seconds. That's not a promise. That's infrastructure.
+      </p>
+      <div class="tw-pillars">
+        <div class="tw-pillar"><span class="dot"></span> iOS14 Bypass</div>
+        <div class="tw-pillar"><span class="dot"></span> Real-Time Revenue Tracking</div>
+        <div class="tw-pillar"><span class="dot"></span> Multi-Touch Attribution</div>
+        <div class="tw-pillar"><span class="dot"></span> Client-Accessible Dashboard</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CLOSER / AUDIT CTA -->
+<section class="closer" id="audit">
+  <div class="closer-bg-text">AUDIT</div>
+  <div class="container">
+    <p class="label reveal">Ready to Scale?</p>
+    <h2 class="reveal">We've already done <em>the research.</em><br>Now let us show you the results.</h2>
+    <p class="closer-body reveal">
+      We don't do discovery calls. We do <strong>technical audits.</strong><br><br>
+      If we find that we can't add at least 30% to your bottom line, we'll tell you upfront and won't take the project. No pressure. No pitch deck. Just data.
+    </p>
+    <a href="#audit" class="btn-closer reveal">Schedule Your 15-Minute Audit</a>
+    <span class="qualifier reveal">Qualified for brands spending $3,000+/month on paid ads only.</span>
+  </div>
+</section>
+
+<!-- TEAM LINE -->
+<div class="team-line">
+  <div class="container">
+    <div class="team-person">
+      <div class="avatar">M</div>
+      <span>Mohamad — Technical Lead</span>
+    </div>
+    <div class="team-divider"></div>
+    <div class="team-person">
+      <div class="avatar">B</div>
+      <span>Brody — Management</span>
+    </div>
+    <p class="label">KNETIX Est. 2026</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p>© 2026 KNETIX — Performance Ad Agency</p>
+    <p>No retainers. No guesswork. Only results.</p>
+  </div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), 60);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
