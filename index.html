@@ -775,16 +775,44 @@ async function handleSubmit() {
   if (submitting) return;
   submitting = true;
   render();
-  // ── Wire your backend here ──────────────────────────────────────────
-  // await fetch('/api/audit-request', {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify({ ...formData, submittedAt: new Date().toISOString() })
-  // });
-  await new Promise(r => setTimeout(r, 1400)); // stub delay — remove when wired
-  // ───────────────────────────────────────────────────────────────────
-  submitting = false;
-  goTo(STEPS.SUCCESS);
+
+  // ── THE KNETIX BACKEND ──
+  const FORMSPREE_URL = "https://formspree.io/f/maqaoool"; 
+
+  try {
+    const response = await fetch(FORMSPREE_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        ...formData,
+        subject: `🚨 NEW KNETIX AUDIT: ${formData.name}`,
+        _replyto: formData.email,
+        message: `
+          New Performance Audit Request:
+          -----------------------------
+          Brand Name: ${formData.name}
+          Website: ${formData.websiteUrl}
+          Monthly Spend: ${formData.monthlySpend}
+          AOV: $${formData.aov}
+          Current Agency: ${formData.hasAgency}
+          Friction Points: ${formData.agencyFriction}
+          Contact Email: ${formData.email}
+        `
+      })
+    });
+
+    if (response.ok) {
+      submitting = false;
+      goTo(STEPS.SUCCESS);
+    } else {
+      throw new Error('Formspree response not ok');
+    }
+  } catch (error) {
+    console.error("Submission Error:", error);
+    alert("Audit submission failed. Please try again or contact us directly.");
+    submitting = false;
+    render();
+  }
 }
 
 function binaryBtns(field, opts) {
