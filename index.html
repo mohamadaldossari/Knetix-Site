@@ -253,7 +253,6 @@ footer p{font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:u
   overflow-y:auto;
 }
 .modal-overlay.open{opacity:1;visibility:visible;}
-
 .modal-close{
   position:absolute;top:20px;right:24px;
   background:transparent;border:none;cursor:pointer;
@@ -265,12 +264,7 @@ footer p{font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:u
 /* ═══════════════════════════════════════════════
    FUNNEL SHELL
 ═══════════════════════════════════════════════ */
-.kf-shell{
-  width:100%;max-width:620px;position:relative;
-  margin:auto;
-}
-
-/* Brand inside funnel */
+.kf-shell{width:100%;max-width:620px;position:relative;margin:auto;}
 .kf-brand{display:flex;align-items:center;gap:12px;margin-bottom:40px;}
 .kf-brand-name{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.18em;color:var(--cream);}
 .kf-brand-tag{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);border-left:1px solid rgba(201,184,154,.15);padding-left:12px;}
@@ -284,10 +278,7 @@ footer p{font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:u
 .kf-progress-fill{height:100%;background:var(--red);border-radius:2px;transition:width .5s cubic-bezier(.16,1,.3,1);}
 
 /* Card */
-.kf-card{
-  background:var(--card);border:1px solid var(--border);
-  padding:48px 44px 44px;position:relative;overflow:hidden;
-}
+.kf-card{background:var(--card);border:1px solid var(--border);padding:48px 44px 44px;position:relative;overflow:hidden;}
 .kf-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red),transparent);}
 
 /* Step animation */
@@ -320,11 +311,7 @@ footer p{font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:u
 }
 .kf-choice-btn:hover{border-color:rgba(176,48,48,.4);background:rgba(176,48,48,.06);color:var(--cream);}
 .kf-choice-btn.selected{border-color:var(--red);background:rgba(176,48,48,.1);color:var(--cream);}
-.kf-choice-indicator{
-  width:14px;height:14px;border:1px solid var(--muted);border-radius:50%;
-  flex-shrink:0;transition:border-color .2s,background .2s;
-  display:flex;align-items:center;justify-content:center;
-}
+.kf-choice-indicator{width:14px;height:14px;border:1px solid var(--muted);border-radius:50%;flex-shrink:0;transition:border-color .2s,background .2s;display:flex;align-items:center;justify-content:center;}
 .kf-choice-btn.selected .kf-choice-indicator{border-color:var(--red);background:var(--red);}
 .kf-choice-inner-dot{width:5px;height:5px;border-radius:50%;background:var(--cream);display:none;}
 .kf-choice-btn.selected .kf-choice-inner-dot{display:block;}
@@ -332,66 +319,33 @@ footer p{font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:u
 /* Inputs */
 .kf-input-wrap{margin-bottom:8px;}
 .kf-input-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;display:block;margin-bottom:10px;}
-.kf-input{
-  width:100%;background:var(--surface);border:1px solid var(--border);
-  color:var(--cream);font-family:'DM Sans',sans-serif;font-size:15px;font-weight:400;
-  padding:16px 18px;border-radius:2px;outline:none;transition:border-color .2s;
-}
+.kf-input{width:100%;background:var(--surface);border:1px solid var(--border);color:var(--cream);font-family:'DM Sans',sans-serif;font-size:15px;font-weight:400;padding:16px 18px;border-radius:2px;outline:none;transition:border-color .2s;}
 .kf-input::placeholder{color:var(--muted);opacity:.6;}
 .kf-input:focus{border-color:var(--border-f);}
 .kf-input-group{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:8px;}
-.kf-textarea{
-  width:100%;background:var(--surface);border:1px solid var(--border);
-  color:var(--cream);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:300;
-  padding:16px 18px;border-radius:2px;outline:none;resize:vertical;min-height:100px;
-  line-height:1.6;transition:border-color .2s;
-}
+.kf-textarea{width:100%;background:var(--surface);border:1px solid var(--border);color:var(--cream);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:300;padding:16px 18px;border-radius:2px;outline:none;resize:vertical;min-height:100px;line-height:1.6;transition:border-color .2s;}
 .kf-textarea::placeholder{color:var(--muted);opacity:.6;}
 .kf-textarea:focus{border-color:var(--border-f);}
 
 /* Nav row */
 .kf-nav{display:flex;align-items:center;justify-content:space-between;margin-top:36px;gap:12px;}
-.kf-back-btn{
-  background:transparent;border:1px solid var(--border);color:var(--muted);
-  font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;
-  letter-spacing:.1em;text-transform:uppercase;padding:14px 22px;
-  border-radius:2px;cursor:pointer;transition:border-color .2s,color .2s;outline:none;
-}
+.kf-back-btn{background:transparent;border:1px solid var(--border);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:14px 22px;border-radius:2px;cursor:pointer;transition:border-color .2s,color .2s;outline:none;}
 .kf-back-btn:hover{border-color:var(--beige);color:var(--beige);}
-.kf-next-btn{
-  flex:1;background:var(--red);color:var(--cream);border:none;
-  font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;
-  letter-spacing:.12em;text-transform:uppercase;padding:16px 32px;
-  border-radius:2px;cursor:pointer;transition:background .2s,transform .15s,box-shadow .25s,opacity .2s;
-  outline:none;display:flex;align-items:center;justify-content:center;gap:8px;
-}
+.kf-next-btn{flex:1;background:var(--red);color:var(--cream);border:none;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:16px 32px;border-radius:2px;cursor:pointer;transition:background .2s,transform .15s,box-shadow .25s,opacity .2s;outline:none;display:flex;align-items:center;justify-content:center;gap:8px;}
 .kf-next-btn:hover:not(:disabled){background:var(--red-h);transform:translateY(-1px);box-shadow:0 8px 28px rgba(176,48,48,.3);}
 .kf-next-btn:disabled{opacity:.35;cursor:not-allowed;}
 
 /* Soft-reject */
-.kf-reject-card{
-  background:#18140E;border:1px solid rgba(92,74,30,.4);
-  padding:52px 44px;text-align:center;position:relative;overflow:hidden;
-  animation:kf-in .5s cubic-bezier(.16,1,.3,1) both;
-}
+.kf-reject-card{background:#18140E;border:1px solid rgba(92,74,30,.4);padding:52px 44px;text-align:center;position:relative;overflow:hidden;animation:kf-in .5s cubic-bezier(.16,1,.3,1) both;}
 .kf-reject-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#5C4A1E,transparent);}
 .kf-reject-icon{font-size:40px;margin-bottom:24px;display:block;color:var(--beige);opacity:.5;}
 .kf-reject-title{font-family:'Bebas Neue',sans-serif;font-size:34px;letter-spacing:.07em;color:var(--cream);margin-bottom:16px;line-height:1;}
 .kf-reject-body{font-size:14px;color:var(--beige);opacity:.7;line-height:1.75;max-width:420px;margin:0 auto 32px;font-weight:300;}
-.kf-reject-cta{
-  font-size:11px;letter-spacing:.14em;text-transform:uppercase;
-  border:1px solid var(--border);background:transparent;color:var(--muted);
-  padding:14px 28px;border-radius:2px;font-family:'DM Sans',sans-serif;
-  cursor:pointer;transition:border-color .2s,color .2s;outline:none;
-}
+.kf-reject-cta{font-size:11px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--border);background:transparent;color:var(--muted);padding:14px 28px;border-radius:2px;font-family:'DM Sans',sans-serif;cursor:pointer;transition:border-color .2s,color .2s;outline:none;}
 .kf-reject-cta:hover{border-color:var(--beige);color:var(--beige);}
 
 /* Success */
-.kf-success-card{
-  background:var(--card);border:1px solid var(--border);
-  padding:52px 44px;text-align:center;position:relative;overflow:hidden;
-  animation:kf-in .5s cubic-bezier(.16,1,.3,1) both;
-}
+.kf-success-card{background:var(--card);border:1px solid var(--border);padding:52px 44px;text-align:center;position:relative;overflow:hidden;animation:kf-in .5s cubic-bezier(.16,1,.3,1) both;}
 .kf-success-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red),transparent);}
 .kf-success-check{width:52px;height:52px;border:1.5px solid var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;}
 .kf-success-title{font-family:'Bebas Neue',sans-serif;font-size:38px;letter-spacing:.06em;color:var(--cream);margin-bottom:14px;line-height:1;}
@@ -628,7 +582,7 @@ footer p{font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:u
 ════════════════════════════════════════════ -->
 <div class="modal-overlay" id="funnelModal" role="dialog" aria-modal="true" aria-label="Performance Audit Funnel">
   <div class="kf-shell" id="funnelShell">
-    <!-- Brand -->
+
     <div class="kf-brand">
       <svg width="30" height="30" viewBox="0 0 100 100" fill="none">
         <rect x="3" y="3" width="94" height="94" rx="2" stroke="#C9B89A" stroke-width="1" fill="none" opacity=".2"/>
@@ -641,7 +595,6 @@ footer p{font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:u
       <span class="kf-brand-tag">Performance Audit</span>
     </div>
 
-    <!-- Progress bar -->
     <div class="kf-progress-wrap" id="kfProgressWrap">
       <div class="kf-progress-meta">
         <span class="kf-step-label" id="kfStepLabel">Qualification</span>
@@ -652,10 +605,8 @@ footer p{font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:u
       </div>
     </div>
 
-    <!-- Step content rendered here -->
     <div id="kfContent"></div>
 
-    <!-- Close button -->
     <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
   </div>
 </div>
@@ -700,9 +651,9 @@ const STEP_LABELS = {
 
 const SPEND_OPTIONS = [
   { value: 'under_2k', label: 'Under $2,000' },
-  { value: '2k_5k',   label: '$2,000 – $5,000' },
-  { value: '5k_10k',  label: '$5,000 – $10,000' },
-  { value: '10k_plus',label: '$10,000+' },
+  { value: '2k_5k',    label: '$2,000 – $5,000' },
+  { value: '5k_10k',   label: '$5,000 – $10,000' },
+  { value: '10k_plus', label: '$10,000+' },
 ];
 
 let formData = { runningAds: null, monthlySpend: null, websiteUrl: '', hasAgency: null, agencyFriction: '', aov: '', name: '', email: '' };
@@ -735,7 +686,7 @@ function updateProgress() {
   if (!isTerminal) {
     const { current, total, pct } = getStepMeta();
     document.getElementById('kfStepLabel').textContent = STEP_LABELS[currentStep] || '';
-    document.getElementById('kfStepCount').textContent = `Step ${current} / ${total}`;
+    document.getElementById('kfStepCount').textContent = 'Step ' + current + ' / ' + total;
     document.getElementById('kfProgressFill').style.width = pct + '%';
   }
 }
@@ -770,71 +721,64 @@ function goBack() {
   if (idx > 0) goTo(seq[idx - 1]);
 }
 
+/* ── FORMSPREE SUBMISSION ── */
 async function handleSubmit() {
   if (formData.monthlySpend === 'under_2k') { goTo(STEPS.SOFT_REJECT); return; }
   if (submitting) return;
   submitting = true;
   render();
 
-  // ── THE KNETIX BACKEND ──
-  const FORMSPREE_URL = "https://formspree.io/f/maqaoool"; 
-
   try {
-    const response = await fetch(FORMSPREE_URL, {
+    const response = await fetch('https://formspree.io/f/maqaoool', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
       body: JSON.stringify({
-        ...formData,
-        subject: `🚨 NEW KNETIX AUDIT: ${formData.name}`,
-        _replyto: formData.email,
-        message: `
-          New Performance Audit Request:
-          -----------------------------
-          Brand Name: ${formData.name}
-          Website: ${formData.websiteUrl}
-          Monthly Spend: ${formData.monthlySpend}
-          AOV: $${formData.aov}
-          Current Agency: ${formData.hasAgency}
-          Friction Points: ${formData.agencyFriction}
-          Contact Email: ${formData.email}
-        `
+        name:            formData.name,
+        email:           formData.email,
+        website:         formData.websiteUrl,
+        monthly_spend:   formData.monthlySpend,
+        running_ads:     formData.runningAds,
+        has_agency:      formData.hasAgency,
+        agency_friction: formData.agencyFriction,
+        aov:             formData.aov,
+        _subject:        'New KNETIX Audit Request — ' + formData.name,
+        _replyto:        formData.email
       })
     });
 
-    if (response.ok) {
-      submitting = false;
+    const result = await response.json();
+
+    if (response.ok && result.ok) {
       goTo(STEPS.SUCCESS);
     } else {
-      throw new Error('Formspree response not ok');
+      throw new Error(result.error || 'Submission failed');
     }
   } catch (error) {
-    console.error("Submission Error:", error);
-    alert("Audit submission failed. Please try again or contact us directly.");
+    console.error('Formspree error:', error);
+    alert('Submission failed. Please try again or email us directly.');
+  } finally {
     submitting = false;
-    render();
+    if (currentStep === STEPS.CONTACT) render();
   }
 }
 
 function binaryBtns(field, opts) {
-  return opts.map(o => `
-    <button class="kf-binary-btn${formData[field] === o.v ? ' selected' : ''}"
-      onclick="formData['${field}']='${o.v}';render();">
-      ${o.label}
-    </button>`).join('');
+  return opts.map(o =>
+    '<button class="kf-binary-btn' + (formData[field] === o.v ? ' selected' : '') + '" onclick="formData[\'' + field + '\']=\'' + o.v + '\';render();">' + o.label + '</button>'
+  ).join('');
 }
 
-function navRow(showBack = true, lastStep = false) {
+function navRow(showBack, lastStep) {
+  if (showBack === undefined) showBack = true;
+  if (lastStep === undefined) lastStep = false;
   const disabled = !canAdvance() || submitting;
-  const nextLabel = lastStep
-    ? (submitting ? '<span class="kf-spinner"></span>' : 'Schedule My Audit')
-    : 'Continue';
-  const backBtn = showBack ? `<button class="kf-back-btn" onclick="goBack()">Back</button>` : `<div></div>`;
+  const nextLabel = lastStep ? (submitting ? '<span class="kf-spinner"></span>' : 'Schedule My Audit') : 'Continue';
+  const backBtn = showBack ? '<button class="kf-back-btn" onclick="goBack()">Back</button>' : '<div></div>';
   const nextFn = lastStep ? 'handleSubmit()' : 'advance()';
-  return `
-    <div class="kf-nav">
-      ${backBtn}
-      <button class="kf-next-btn" ${disabled ? 'disabled' : ''} onclick="${nextFn}">${nextLabel}</button>
-    </div>`;
+  return '<div class="kf-nav">' + backBtn + '<button class="kf-next-btn" ' + (disabled ? 'disabled' : '') + ' onclick="' + nextFn + '">' + nextLabel + '</button></div>';
 }
 
 function renderStep() {
@@ -842,130 +786,101 @@ function renderStep() {
 
   switch (currentStep) {
 
-    case STEPS.RUNNING_ADS: return `
-      <div class="kf-step-inner">
-        <p class="kf-question-label">Question 1 of ${total}</p>
-        <h2 class="kf-question">Are you currently running paid ads?</h2>
-        <p class="kf-sub">Meta, Google, TikTok — any active paid channel counts.</p>
-        <div class="kf-binary">
-          ${binaryBtns('runningAds', [{ v:'yes', label:'Yes, we\'re live' }, { v:'no', label:'No, not yet' }])}
-        </div>
-        ${navRow(false)}
-      </div>`;
+    case STEPS.RUNNING_ADS:
+      return '<div class="kf-step-inner">'
+        + '<p class="kf-question-label">Question 1 of ' + total + '</p>'
+        + '<h2 class="kf-question">Are you currently running paid ads?</h2>'
+        + '<p class="kf-sub">Meta, Google, TikTok — any active paid channel counts.</p>'
+        + '<div class="kf-binary">' + binaryBtns('runningAds', [{ v: 'yes', label: "Yes, we're live" }, { v: 'no', label: 'No, not yet' }]) + '</div>'
+        + navRow(false)
+        + '</div>';
 
-    case STEPS.MONTHLY_SPEND: return `
-      <div class="kf-step-inner">
-        <p class="kf-question-label">Question ${current} of ${total}</p>
-        <h2 class="kf-question">What is your current monthly ad spend?</h2>
-        <p class="kf-sub">This determines whether we can generate a meaningful return for both sides.</p>
-        <div class="kf-choices">
-          ${SPEND_OPTIONS.map(o => `
-            <button class="kf-choice-btn${formData.monthlySpend === o.value ? ' selected' : ''}"
-              onclick="formData.monthlySpend='${o.value}';render();">
-              <span class="kf-choice-indicator"><span class="kf-choice-inner-dot"></span></span>
-              ${o.label}
-            </button>`).join('')}
-        </div>
-        ${navRow()}
-      </div>`;
+    case STEPS.MONTHLY_SPEND:
+      return '<div class="kf-step-inner">'
+        + '<p class="kf-question-label">Question ' + current + ' of ' + total + '</p>'
+        + '<h2 class="kf-question">What is your current monthly ad spend?</h2>'
+        + '<p class="kf-sub">This determines whether we can generate a meaningful return for both sides.</p>'
+        + '<div class="kf-choices">'
+        + SPEND_OPTIONS.map(o =>
+            '<button class="kf-choice-btn' + (formData.monthlySpend === o.value ? ' selected' : '') + '" onclick="formData.monthlySpend=\'' + o.value + '\';render();">'
+            + '<span class="kf-choice-indicator"><span class="kf-choice-inner-dot"></span></span>' + o.label + '</button>'
+          ).join('')
+        + '</div>'
+        + navRow()
+        + '</div>';
 
-    case STEPS.WEBSITE_URL: return `
-      <div class="kf-step-inner">
-        <p class="kf-question-label">Question ${current} of ${total}</p>
-        <h2 class="kf-question">What is your website URL?</h2>
-        <p class="kf-sub">We'll run a technical audit of your funnel before we ever speak to you.</p>
-        <div class="kf-input-wrap" style="margin-bottom:0">
-          <label class="kf-input-label">Website URL</label>
-          <input class="kf-input" type="url" placeholder="https://yourstore.com"
-            value="${formData.websiteUrl}"
-            oninput="formData.websiteUrl=this.value;updateNextBtn();" />
-        </div>
-        ${navRow()}
-      </div>`;
+    case STEPS.WEBSITE_URL:
+      return '<div class="kf-step-inner">'
+        + '<p class="kf-question-label">Question ' + current + ' of ' + total + '</p>'
+        + '<h2 class="kf-question">What is your website URL?</h2>'
+        + '<p class="kf-sub">We\'ll run a technical audit of your funnel before we ever speak to you.</p>'
+        + '<div class="kf-input-wrap" style="margin-bottom:0">'
+        + '<label class="kf-input-label">Website URL</label>'
+        + '<input class="kf-input" type="url" placeholder="https://yourstore.com" value="' + formData.websiteUrl + '" oninput="formData.websiteUrl=this.value;updateNextBtn();" />'
+        + '</div>'
+        + navRow()
+        + '</div>';
 
-    case STEPS.HAS_AGENCY: return `
-      <div class="kf-step-inner">
-        <p class="kf-question-label">Question ${current} of ${total}</p>
-        <h2 class="kf-question">Are you currently working with an agency?</h2>
-        <p class="kf-sub">No judgement — this helps us understand your current situation.</p>
-        <div class="kf-binary">
-          ${binaryBtns('hasAgency', [{ v:'yes', label:'Yes, currently' }, { v:'no', label:'No, flying solo' }])}
-        </div>
-        ${navRow()}
-      </div>`;
+    case STEPS.HAS_AGENCY:
+      return '<div class="kf-step-inner">'
+        + '<p class="kf-question-label">Question ' + current + ' of ' + total + '</p>'
+        + '<h2 class="kf-question">Are you currently working with an agency?</h2>'
+        + '<p class="kf-sub">No judgement — this helps us understand your current situation.</p>'
+        + '<div class="kf-binary">' + binaryBtns('hasAgency', [{ v: 'yes', label: 'Yes, currently' }, { v: 'no', label: 'No, flying solo' }]) + '</div>'
+        + navRow()
+        + '</div>';
 
-    case STEPS.AGENCY_FRICTION: return `
-      <div class="kf-step-inner">
-        <p class="kf-question-label">Question ${current} of ${total}</p>
-        <h2 class="kf-question">What's the biggest friction point with your current agency?</h2>
-        <p class="kf-sub">Be specific. This is the first thing we address in your audit report.</p>
-        <div class="kf-input-wrap" style="margin-bottom:0">
-          <label class="kf-input-label">Your answer</label>
-          <textarea class="kf-textarea" placeholder="e.g. Poor reporting, no clear ROI, slow creative turnaround..."
-            oninput="formData.agencyFriction=this.value;updateNextBtn();">${formData.agencyFriction}</textarea>
-        </div>
-        ${navRow()}
-      </div>`;
+    case STEPS.AGENCY_FRICTION:
+      return '<div class="kf-step-inner">'
+        + '<p class="kf-question-label">Question ' + current + ' of ' + total + '</p>'
+        + '<h2 class="kf-question">What\'s the biggest friction point with your current agency?</h2>'
+        + '<p class="kf-sub">Be specific. This is the first thing we address in your audit report.</p>'
+        + '<div class="kf-input-wrap" style="margin-bottom:0">'
+        + '<label class="kf-input-label">Your answer</label>'
+        + '<textarea class="kf-textarea" placeholder="e.g. Poor reporting, no clear ROI, slow creative turnaround..." oninput="formData.agencyFriction=this.value;updateNextBtn();">' + formData.agencyFriction + '</textarea>'
+        + '</div>'
+        + navRow()
+        + '</div>';
 
-    case STEPS.AOV: return `
-      <div class="kf-step-inner">
-        <p class="kf-question-label">Question ${current} of ${total}</p>
-        <h2 class="kf-question">What is your average order value?</h2>
-        <p class="kf-sub">This determines the revenue potential per conversion. Our model only works when the math works for both sides.</p>
-        <div class="kf-input-wrap" style="margin-bottom:0">
-          <label class="kf-input-label">Average Order Value (USD)</label>
-          <input class="kf-input" type="number" placeholder="e.g. 250" min="1"
-            value="${formData.aov}"
-            oninput="formData.aov=this.value;updateNextBtn();" />
-        </div>
-        ${navRow()}
-      </div>`;
+    case STEPS.AOV:
+      return '<div class="kf-step-inner">'
+        + '<p class="kf-question-label">Question ' + current + ' of ' + total + '</p>'
+        + '<h2 class="kf-question">What is your average order value?</h2>'
+        + '<p class="kf-sub">This determines the revenue potential per conversion. Our model only works when the math works for both sides.</p>'
+        + '<div class="kf-input-wrap" style="margin-bottom:0">'
+        + '<label class="kf-input-label">Average Order Value (USD)</label>'
+        + '<input class="kf-input" type="number" placeholder="e.g. 250" min="1" value="' + formData.aov + '" oninput="formData.aov=this.value;updateNextBtn();" />'
+        + '</div>'
+        + navRow()
+        + '</div>';
 
-    case STEPS.CONTACT: return `
-      <div class="kf-step-inner">
-        <p class="kf-question-label">Final Step</p>
-        <h2 class="kf-question">Who should we send the technical audit to?</h2>
-        <p class="kf-sub">We'll send your audit report within 24 hours. No calls, no pitches — just data.</p>
-        <div class="kf-input-group">
-          <div>
-            <label class="kf-input-label">Full Name</label>
-            <input class="kf-input" type="text" placeholder="Your name"
-              value="${formData.name}"
-              oninput="formData.name=this.value;updateNextBtn();" autocomplete="name" />
-          </div>
-          <div>
-            <label class="kf-input-label">Email Address</label>
-            <input class="kf-input" type="email" placeholder="you@company.com"
-              value="${formData.email}"
-              oninput="formData.email=this.value;updateNextBtn();" autocomplete="email" />
-          </div>
-        </div>
-        ${navRow(true, true)}
-      </div>`;
+    case STEPS.CONTACT:
+      return '<div class="kf-step-inner">'
+        + '<p class="kf-question-label">Final Step</p>'
+        + '<h2 class="kf-question">Who should we send the technical audit to?</h2>'
+        + '<p class="kf-sub">We\'ll send your audit report within 24 hours. No calls, no pitches — just data.</p>'
+        + '<div class="kf-input-group">'
+        + '<div><label class="kf-input-label">Full Name</label><input class="kf-input" type="text" placeholder="Your name" value="' + formData.name + '" oninput="formData.name=this.value;updateNextBtn();" autocomplete="name" /></div>'
+        + '<div><label class="kf-input-label">Email Address</label><input class="kf-input" type="email" placeholder="you@company.com" value="' + formData.email + '" oninput="formData.email=this.value;updateNextBtn();" autocomplete="email" /></div>'
+        + '</div>'
+        + navRow(true, true)
+        + '</div>';
 
-    case STEPS.SOFT_REJECT: return `
-      <div class="kf-reject-card">
-        <span class="kf-reject-icon">◈</span>
-        <h2 class="kf-reject-title">Not a Fit — Yet.</h2>
-        <p class="kf-reject-body">
-          Our performance model requires a minimum $2,000/month in active ad spend to generate a meaningful return for both parties. At your current stage, the numbers don't stack up — and we won't take a project we can't win.<br><br>
-          Come back when you're ready to scale. We'll be here.
-        </p>
-        <button class="kf-reject-cta" onclick="resetFunnel()">Start Over</button>
-      </div>`;
+    case STEPS.SOFT_REJECT:
+      return '<div class="kf-reject-card">'
+        + '<span class="kf-reject-icon">◈</span>'
+        + '<h2 class="kf-reject-title">Not a Fit — Yet.</h2>'
+        + '<p class="kf-reject-body">Our performance model requires a minimum $2,000/month in active ad spend to generate a meaningful return for both parties. At your current stage, the numbers don\'t stack up — and we won\'t take a project we can\'t win.<br><br>Come back when you\'re ready to scale. We\'ll be here.</p>'
+        + '<button class="kf-reject-cta" onclick="resetFunnel()">Start Over</button>'
+        + '</div>';
 
-    case STEPS.SUCCESS: return `
-      <div class="kf-success-card">
-        <div class="kf-success-check">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B03030" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-        <h2 class="kf-success-title">Audit <em>Scheduled.</em></h2>
-        <p class="kf-success-body">
-          ${formData.name ? formData.name + ', your' : 'Your'} technical audit is in the queue. Mohamad will review your funnel and send your report to
-          <strong style="color:var(--cream);font-weight:500;">${formData.email}</strong> within 24 hours.
-        </p>
-        <p class="kf-success-meta">No calls. No fluff. Just data.</p>
-      </div>`;
+    case STEPS.SUCCESS:
+      return '<div class="kf-success-card">'
+        + '<div class="kf-success-check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B03030" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>'
+        + '<h2 class="kf-success-title">Audit <em>Scheduled.</em></h2>'
+        + '<p class="kf-success-body">' + (formData.name ? formData.name + ', your' : 'Your') + ' technical audit is in the queue. Mohamad will review your funnel and send your report to <strong style="color:var(--cream);font-weight:500;">' + formData.email + '</strong> within 24 hours.</p>'
+        + '<p class="kf-success-meta">No calls. No fluff. Just data.</p>'
+        + '</div>';
 
     default: return '';
   }
@@ -1005,14 +920,9 @@ function closeFunnel() {
 
 document.querySelectorAll('.open-funnel').forEach(el => el.addEventListener('click', openFunnel));
 document.getElementById('modalClose').addEventListener('click', closeFunnel);
-
-// Close on backdrop click
 modal.addEventListener('click', e => { if (e.target === modal) closeFunnel(); });
-
-// Close on Escape
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) closeFunnel(); });
 
-// Init render
 render();
 </script>
 
