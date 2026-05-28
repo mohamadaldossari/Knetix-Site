@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KNETIX Loyalty — Every Visit Tracked. Every Customer Yours.</title>
+<meta name="description" content="A done-for-you loyalty and referral platform for service businesses. Your brand, your data, your regulars — built and delivered by KNETIX in 24 hours.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='12' fill='%230E0C0B'/%3E%3Crect x='12' y='12' width='22' height='76' fill='%238B2E2E'/%3E%3Cpolygon points='38,12 88,12 38,46' fill='%23C9B89A'/%3E%3Cpolygon points='38,56 88,88 38,88' fill='%238B2E2E'/%3E%3Crect x='37' y='47' width='7' height='7' transform='rotate(45 40.5 50.5)' fill='%23C9B89A' opacity='.8'/%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════
+   GLOBAL TOKENS — matches index.html exactly
+═══════════════════════════════════════════════ */
+:root {
+  --bg:       #0E0C0B;
+  --surface:  #161210;
+  --card:     #1C1815;
+  --burgundy: #8B2E2E;
+  --red:      #B03030;
+  --red-h:    #c43535;
+  --beige:    #C9B89A;
+  --cream:    #EDE5D8;
+  --muted:    #7A6E62;
+  --border:   rgba(201,184,154,0.08);
+  --border-f: rgba(176,48,48,0.45);
+}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--bg);
+  color:var(--cream);
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ═══════════════════════════════════════════════
+   UTILITIES
+═══════════════════════════════════════════════ */
+.container{max-width:1080px;margin:0 auto;padding:0 32px;}
+.label{
+  font-size:11px;font-weight:600;
+  letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--red);display:block;
+}
+
+/* ═══════════════════════════════════════════════
+   HEADER
+═══════════════════════════════════════════════ */
+header{
+  padding:24px 0;
+  border-bottom:1px solid var(--border);
+  position:sticky;top:0;z-index:200;
+  background:rgba(14,12,11,0.94);
+  backdrop-filter:blur(14px);
+  transition: box-shadow .4s ease, border-color .4s ease;
+}
+header.scrolled {
+  box-shadow: 0 4px 30px rgba(0,0,0,.4);
+  border-bottom-color: rgba(139,46,46,.15);
+}
+header .container{display:flex;align-items:center;justify-content:space-between;}
+.logo-wrap{display:flex;align-items:center;gap:14px;text-decoration:none;}
+.brand-name{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:0.18em;color:var(--cream);}
+.brand-tag{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);border-left:1px solid rgba(201,184,154,.2);padding-left:14px;}
+.header-cta{
+  font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--cream);text-decoration:none;
+  border:1px solid rgba(201,184,154,.2);padding:10px 22px;border-radius:2px;
+  transition:border-color .2s,color .2s, background .3s;cursor:pointer;background:transparent;
+}
+.header-cta:hover{border-color:var(--red);color:var(--cream);background:rgba(176,48,48,.1);}
+
+.logo-wrap svg {
+  transition: transform .4s cubic-bezier(.16,1,.3,1), filter .4s ease;
+}
+.logo-wrap:hover svg {
+  transform: rotate(-8deg) scale(1.08);
+  filter: drop-shadow(0 0 12px rgba(176,48,48,.35));
+}
+
+/* ═══════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════ */
+.hero{padding:120px 0 100px;position:relative;overflow:hidden;}
+.hero-grid-bg{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(139,46,46,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(139,46,46,.04) 1px,transparent 1px);
+  background-size:60px 60px;
+  -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black 0%,transparent 100%);
+  mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black 0%,transparent 100%);
+}
+
+.hero-glow {
+  position: absolute;
+  width: 600px; height: 600px;
+  top: -100px; left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(139,46,46,.12) 0%, transparent 70%);
+  pointer-events: none;
+  animation: glowPulse 6s ease-in-out infinite;
+}
+@keyframes glowPulse {
+  0%,100% { opacity:.6; transform: translateX(-50%) scale(1); }
+  50% { opacity:1; transform: translateX(-50%) scale(1.15); }
+}
+
+.hero-particles {
+  position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+}
+.particle {
+  position: absolute;
+  width: 3px; height: 3px;
+  background: var(--red);
+  border-radius: 50%;
+  opacity: 0;
+  animation: particleFloat linear infinite;
+}
+@keyframes particleFloat {
+  0% { opacity: 0; transform: translateY(0) scale(0); }
+  10% { opacity: .5; transform: scale(1); }
+  90% { opacity: .3; }
+  100% { opacity: 0; transform: translateY(-600px) scale(0); }
+}
+
+.hero-eyebrow{display:flex;align-items:center;gap:16px;margin-bottom:36px;position:relative;z-index:2;}
+.hero-eyebrow .tick{width:40px;height:1px;background:var(--red);opacity:.5;transform-origin: left;animation: lineGrow .6s .3s cubic-bezier(.16,1,.3,1) both;}
+@keyframes lineGrow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.hero .container{position:relative;z-index:2;}
+
+h1.hero-headline{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(56px,8vw,108px);line-height:.95;letter-spacing:.04em;color:var(--cream);
+  position: relative;
+}
+h1.hero-headline .italic-serif{
+  font-family:'Instrument Serif',serif;font-style:italic;
+  font-size:clamp(48px,7vw,92px);color:var(--beige);display:block;letter-spacing:.01em;
+}
+h1.hero-headline::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    transparent 35%,
+    rgba(201,184,154,.15) 45%,
+    rgba(237,229,216,.18) 50%,
+    rgba(201,184,154,.15) 55%,
+    transparent 65%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  pointer-events: none;
+  animation: shimmer 3s 1.5s ease-in-out forwards;
+  mix-blend-mode: screen;
+}
+@keyframes shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+.hero-sub{
+  max-width:580px;font-size:clamp(15px,1.6vw,17px);
+  color:var(--beige);opacity:.8;line-height:1.8;margin:28px 0 48px;font-weight:300;
+}
+.hero-sub strong{color:var(--cream);font-weight:500;opacity:1;}
+.hero-ctas{display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+
+/* ═══════════════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════════════ */
+.btn-primary{
+  display:inline-block;background:var(--red);color:var(--cream);
+  text-decoration:none;font-weight:600;font-size:13px;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:18px 40px;border-radius:2px;border:none;cursor:pointer;
+  transition:background .2s,transform .2s,box-shadow .3s;
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 0; height: 0;
+  background: rgba(255,255,255,.08);
+  border-radius: 50%;
+  transform: translate(-50%,-50%);
+  transition: width .5s ease, height .5s ease;
+}
+.btn-primary:hover::after { width: 300px; height: 300px; }
+.btn-primary:hover{background:var(--red-h);transform:translateY(-2px);box-shadow:0 10px 40px rgba(176,48,48,.3);}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:10px;
+  color:var(--beige);text-decoration:none;font-weight:500;font-size:13px;
+  letter-spacing:.08em;text-transform:uppercase;opacity:.7;transition:opacity .2s;
+  background:transparent;border:none;cursor:pointer;
+}
+.btn-ghost svg{transition:transform .3s cubic-bezier(.16,1,.3,1);}
+.btn-ghost:hover{opacity:1;}
+.btn-ghost:hover svg{transform:translateX(6px);}
+
+/* ═══════════════════════════════════════════════
+   STATS BAND
+═══════════════════════════════════════════════ */
+.stats-band{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--surface);}
+.stats-inner{display:grid;grid-template-columns:repeat(3,1fr);}
+.stat{padding:36px 32px;border-right:1px solid var(--border);transition: background .3s ease;}
+.stat:last-child{border-right:none;}
+.stat:hover { background: rgba(139,46,46,.04); }
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:52px;line-height:1;color:var(--cream);letter-spacing:.04em;display:block;margin-bottom:6px;}
+.stat-num sup{font-size:28px;vertical-align:super;color:var(--red);}
+.stat-desc{font-size:12px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;font-weight:500;line-height:1.5;}
+
+/* ═══════════════════════════════════════════════
+   SECTIONS COMMON
+═══════════════════════════════════════════════ */
+section{padding:100px 0;}
+.section-header{margin-bottom:64px;}
+.section-header .label{margin-bottom:14px;}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4.5vw,58px);letter-spacing:.06em;color:var(--cream);line-height:1;}
+.section-title .serif-it{font-family:'Instrument Serif',serif;font-style:italic;color:var(--beige);letter-spacing:.02em;}
+.section-lede{font-family:'Instrument Serif',serif;font-style:italic;font-size:18px;color:var(--beige);opacity:.85;line-height:1.65;max-width:620px;margin-top:24px;}
+
+/* ═══════════════════════════════════════════════
+   TWO-SIDE PRODUCT
+═══════════════════════════════════════════════ */
+.two-side{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);}
+.side-card{background:var(--bg);padding:48px 40px;transition: background .35s;}
+.side-card:hover{background:var(--card);}
+.side-tag{font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:18px;display:flex;align-items:center;gap:12px;}
+.side-tag::before{content:'';width:26px;height:1px;background:var(--red);}
+.side-title{font-family:'Bebas Neue',sans-serif;font-size:34px;letter-spacing:.05em;color:var(--cream);line-height:1.05;margin-bottom:6px;}
+.side-title .serif-it{font-family:'Instrument Serif',serif;font-style:italic;color:var(--beige);font-size:30px;display:block;letter-spacing:.02em;margin-top:4px;}
+.side-sub{font-size:13px;color:var(--muted);margin-bottom:28px;font-weight:300;line-height:1.6;}
+.side-list{list-style:none;}
+.side-list li{padding:14px 0;border-bottom:1px solid var(--border);font-size:14px;line-height:1.65;color:var(--beige);font-weight:300;display:flex;gap:14px;align-items:flex-start;transition: transform .25s ease;}
+.side-list li:last-child{border-bottom:none;}
+.side-list li:hover{transform:translateX(4px);}
+.side-list li strong{color:var(--cream);font-weight:500;}
+.side-list .icon{flex-shrink:0;margin-top:3px;width:14px;height:14px;color:var(--red);}
+
+/* ═══════════════════════════════════════════════
+   HOW IT WORKS — 3 STEPS
+═══════════════════════════════════════════════ */
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
+.step-card{background:var(--bg);padding:48px 36px;transition:background .35s, transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s; position: relative;}
+.step-card:hover{background:var(--card); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,.3);}
+.step-num-display{font-family:'Bebas Neue',sans-serif;font-size:80px;color:rgba(139,46,46,.12);line-height:1;margin-bottom:24px;letter-spacing:.04em;transition:color .35s, transform .35s;}
+.step-card:hover .step-num-display{color:rgba(176,48,48,.28); transform: translateX(6px);}
+.step-card h3{font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--cream);margin-bottom:6px;}
+.step-card h3 span{display:block;font-family:'Instrument Serif',serif;font-style:italic;font-size:20px;letter-spacing:.02em;color:var(--beige);text-transform:none;font-weight:400;margin-top:4px;margin-bottom:16px;}
+.step-card p{font-size:14px;color:var(--muted);line-height:1.75;font-weight:300;}
+.step-card p strong{color:var(--beige);font-weight:500;}
+.step-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .4s cubic-bezier(.16,1,.3,1);
+}
+.step-card:hover::after { transform: scaleX(1); }
+
+/* ═══════════════════════════════════════════════
+   WHY KNETIX vs ALTERNATIVES
+═══════════════════════════════════════════════ */
+.why-section{background:var(--surface);}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);border:1px solid var(--border);margin-top:56px;}
+.compare-col{background:var(--bg);padding:48px 40px;}
+.compare-col.kinetics{background:var(--card);}
+.compare-col-label{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;padding:7px 14px;border-radius:2px;display:inline-block;margin-bottom:32px;}
+.compare-col.traditional .compare-col-label{background:rgba(255,255,255,.04);color:var(--muted);border:1px solid rgba(255,255,255,.07);}
+.compare-col.kinetics .compare-col-label{background:rgba(176,48,48,.15);color:var(--red);border:1px solid rgba(176,48,48,.25);}
+.compare-items{list-style:none;}
+.compare-items li{padding:16px 0;border-bottom:1px solid var(--border);font-size:14px;line-height:1.65;display:flex;gap:14px;align-items:flex-start;color:var(--beige);font-weight:300;transition: transform .25s ease;}
+.compare-items li:last-child{border-bottom:none;}
+.compare-items li:hover { transform: translateX(4px); }
+.compare-items li .icon{flex-shrink:0;margin-top:2px;width:18px;height:18px;transition: transform .3s ease;}
+.compare-items li:hover .icon { transform: scale(1.2); }
+.compare-col.traditional .icon{color:var(--muted);opacity:.5;}
+.compare-col.kinetics .icon{color:var(--red);}
+.compare-items li strong{color:var(--cream);font-weight:500;}
+
+/* ═══════════════════════════════════════════════
+   WHAT YOU GET — FEATURE GRID
+═══════════════════════════════════════════════ */
+.feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
+.feature{background:var(--bg);padding:32px 26px;transition: background .35s, transform .35s;}
+.feature:hover{background:var(--card); transform: translateY(-3px);}
+.feature-icon{width:32px;height:32px;color:var(--red);margin-bottom:20px;transition: transform .3s;}
+.feature:hover .feature-icon{transform: scale(1.12);}
+.feature-title{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);margin-bottom:10px;}
+.feature-body{font-family:'Instrument Serif',serif;font-style:italic;font-size:14px;line-height:1.5;color:var(--beige);opacity:.85;}
+
+/* ═══════════════════════════════════════════════
+   WHO IT'S FOR
+═══════════════════════════════════════════════ */
+.niche-section .section-header{margin-bottom:40px;}
+.niche-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(170px, 1fr));gap:10px;}
+.niche-chip{background:var(--card);border:1px solid var(--border);padding:18px 20px;transition: border-color .25s, transform .25s, background .25s;}
+.niche-chip:hover{border-color:rgba(176,48,48,.3); background:rgba(176,48,48,.04); transform: translateY(-2px);}
+.niche-name{font-size:13px;font-weight:500;color:var(--cream);margin-bottom:4px;letter-spacing:.02em;}
+.niche-tag{font-family:'Instrument Serif',serif;font-style:italic;font-size:12px;color:var(--muted);}
+
+/* ═══════════════════════════════════════════════
+   ATTRIBUTION-STYLE CARD (Owner Dashboard)
+═══════════════════════════════════════════════ */
+.dash-card{
+  background:var(--card);border:1px solid rgba(139,46,46,.2);
+  padding:64px 56px;position:relative;overflow:hidden;max-width:900px;
+  transition: border-color .4s ease, box-shadow .4s ease;
+}
+.dash-card:hover { border-color: rgba(176,48,48,.4); box-shadow: 0 0 60px rgba(139,46,46,.08); }
+.dash-card::before{
+  content:'QR';font-family:'Bebas Neue',sans-serif;font-size:280px;
+  color:rgba(139,46,46,.04);position:absolute;right:-20px;bottom:-40px;
+  line-height:1;pointer-events:none;
+  transition: transform .6s cubic-bezier(.16,1,.3,1), color .4s;
+}
+.dash-card:hover::before { transform: translate(-10px, -10px); color: rgba(139,46,46,.07); }
+.dash-card .label{margin-bottom:20px;}
+.dash-card h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,54px);letter-spacing:.06em;color:var(--cream);margin-bottom:28px;line-height:1;}
+.dash-card h2 em{font-family:'Instrument Serif',serif;font-style:italic;color:var(--beige);letter-spacing:.02em;}
+.dash-card p{font-size:16px;color:var(--beige);opacity:.75;line-height:1.8;max-width:560px;font-weight:300;}
+.dash-card p strong{color:var(--cream);font-weight:500;opacity:1;}
+.dash-pillars{display:flex;gap:40px;margin-top:44px;flex-wrap:wrap;}
+.dash-pillar{display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;transition: color .25s;}
+.dash-pillar:hover { color: var(--beige); }
+.dash-pillar .dot{width:6px;height:6px;background:var(--red);border-radius:50%;flex-shrink:0;transition: transform .3s, box-shadow .3s;}
+.dash-pillar:hover .dot { transform: scale(1.6); box-shadow: 0 0 10px rgba(176,48,48,.5); }
+
+/* ═══════════════════════════════════════════════
+   CLOSER / CTA
+═══════════════════════════════════════════════ */
+.closer{background:var(--card);border-top:1px solid var(--border);padding:120px 0;position:relative;overflow:hidden;}
+.closer-bg-text{
+  font-family:'Bebas Neue',sans-serif;font-size:22vw;
+  color:rgba(139,46,46,.04);position:absolute;bottom:-40px;left:50%;
+  transform:translateX(-50%);white-space:nowrap;pointer-events:none;
+  letter-spacing:.06em;line-height:1;
+}
+.closer-glow {
+  position: absolute;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139,46,46,.08) 0%, transparent 70%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity .4s;
+}
+.closer:hover .closer-glow { opacity: 1; }
+.closer .container{position:relative;z-index:1;}
+.closer .label{margin-bottom:20px;}
+.closer h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,64px);letter-spacing:.05em;color:var(--cream);line-height:1.05;max-width:720px;margin-bottom:28px;}
+.closer h2 em{font-family:'Instrument Serif',serif;font-style:italic;color:var(--beige);letter-spacing:.02em;}
+.closer-body{font-size:16px;color:var(--beige);opacity:.75;line-height:1.8;max-width:560px;margin-bottom:48px;font-weight:300;}
+.closer-body strong{color:var(--cream);opacity:1;font-weight:500;}
+.btn-closer{
+  display:inline-block;background:var(--red);color:var(--cream);
+  text-decoration:none;font-weight:700;font-size:14px;
+  letter-spacing:.12em;text-transform:uppercase;
+  padding:22px 56px;border-radius:2px;border:none;cursor:pointer;
+  transition:background .2s,transform .2s,box-shadow .3s;
+  position: relative;
+  overflow: hidden;
+}
+.btn-closer::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 0; height: 0;
+  background: rgba(255,255,255,.08);
+  border-radius: 50%;
+  transform: translate(-50%,-50%);
+  transition: width .5s ease, height .5s ease;
+}
+.btn-closer:hover::after { width: 400px; height: 400px; }
+.btn-closer:hover{background:var(--red-h);transform:translateY(-2px);box-shadow:0 12px 50px rgba(176,48,48,.35);}
+.qualifier{margin-top:22px;font-size:12px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;font-weight:500;display:block;}
+
+/* ═══════════════════════════════════════════════
+   TEAM LINE
+═══════════════════════════════════════════════ */
+.team-line{border-top:1px solid var(--border);padding:32px 0;}
+.team-line .container{display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
+.team-person{display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);transition: color .25s;}
+.team-person:hover { color: var(--beige); }
+.avatar{width:32px;height:32px;border-radius:50%;border:1px solid rgba(139,46,46,.4);background:var(--card);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:14px;color:var(--red);letter-spacing:.05em;transition: border-color .3s, box-shadow .3s, transform .3s;}
+.team-person:hover .avatar { border-color: var(--red); box-shadow: 0 0 14px rgba(176,48,48,.3); transform: scale(1.1); }
+.team-divider{width:1px;height:24px;background:var(--border);}
+.team-line .label{margin-left:auto;}
+.team-email{font-size:11px;letter-spacing:.06em;color:var(--muted);text-decoration:none;border-bottom:1px solid transparent;transition:color .25s, border-color .25s;text-transform:none;}
+.team-email:hover{color:var(--red);border-bottom-color:var(--red);}
+
+/* ═══════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════ */
+footer{border-top:1px solid var(--border);padding:32px 0;}
+footer .container{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+footer p{font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;}
+footer a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent;transition: color .2s, border-color .2s;}
+footer a:hover{color:var(--red);border-bottom-color:var(--red);}
+
+/* ═══════════════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════════════ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(32px);}to{opacity:1;transform:translateY(0);}}
+.fade-up{opacity:0;animation:fadeUp .8s cubic-bezier(.16,1,.3,1) forwards;}
+.d1{animation-delay:.1s;}.d2{animation-delay:.25s;}.d3{animation-delay:.4s;}
+
+.reveal{
+  opacity:0;
+  transform:translateY(30px);
+  transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);
+}
+.reveal.visible{opacity:1;transform:none;}
+
+.reveal-stagger .reveal-child {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .5s cubic-bezier(.16,1,.3,1), transform .5s cubic-bezier(.16,1,.3,1);
+}
+.reveal-stagger.visible .reveal-child { opacity: 1; transform: none; }
+.reveal-stagger.visible .reveal-child:nth-child(1) { transition-delay: .05s; }
+.reveal-stagger.visible .reveal-child:nth-child(2) { transition-delay: .12s; }
+.reveal-stagger.visible .reveal-child:nth-child(3) { transition-delay: .19s; }
+.reveal-stagger.visible .reveal-child:nth-child(4) { transition-delay: .26s; }
+.reveal-stagger.visible .reveal-child:nth-child(5) { transition-delay: .33s; }
+
+/* ═══════════════════════════════════════════════
+   MODAL OVERLAY
+═══════════════════════════════════════════════ */
+.modal-overlay{
+  position:fixed;inset:0;z-index:500;
+  background:rgba(8,6,5,0.88);
+  backdrop-filter:blur(8px);
+  display:flex;align-items:center;justify-content:center;
+  padding:24px 16px;
+  opacity:0;visibility:hidden;
+  transition:opacity .3s ease,visibility .3s ease;
+  overflow-y:auto;
+}
+.modal-overlay.open{opacity:1;visibility:visible;}
+.modal-close{
+  position:absolute;top:20px;right:24px;
+  background:transparent;border:none;cursor:pointer;
+  color:var(--muted);font-size:22px;line-height:1;
+  transition:color .2s, transform .3s;padding:4px;
+}
+.modal-close:hover{color:var(--cream); transform: rotate(90deg);}
+
+/* ═══════════════════════════════════════════════
+   FUNNEL SHELL — matches index.html
+═══════════════════════════════════════════════ */
+.kf-shell{width:100%;max-width:620px;position:relative;margin:auto;}
+.kf-brand{display:flex;align-items:center;gap:12px;margin-bottom:40px;}
+.kf-brand-name{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.18em;color:var(--cream);}
+.kf-brand-tag{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);border-left:1px solid rgba(201,184,154,.15);padding-left:12px;}
+
+.kf-progress-wrap{margin-bottom:40px;}
+.kf-progress-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+.kf-step-label{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--red);font-weight:600;}
+.kf-step-count{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500;}
+.kf-progress-track{height:2px;background:rgba(201,184,154,.08);border-radius:2px;overflow:hidden;}
+.kf-progress-fill{height:100%;background:var(--red);border-radius:2px;transition:width .5s cubic-bezier(.16,1,.3,1);}
+
+.kf-card{background:var(--card);border:1px solid var(--border);padding:48px 44px 44px;position:relative;overflow:hidden;}
+.kf-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red),transparent);}
+
+@keyframes kf-in{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+.kf-step-inner{animation:kf-in .4s cubic-bezier(.16,1,.3,1) both;}
+
+.kf-question-label{font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:14px;}
+.kf-question{font-family:'Bebas Neue',sans-serif;font-size:clamp(24px,4vw,34px);letter-spacing:.05em;color:var(--cream);line-height:1.05;margin-bottom:8px;}
+.kf-sub{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:32px;font-weight:300;}
+
+.kf-binary{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.kf-binary-btn{
+  background:transparent;border:1px solid var(--border);color:var(--beige);
+  padding:22px 16px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;
+  letter-spacing:.06em;cursor:pointer;transition:border-color .2s,background .2s,color .2s;
+  text-align:center;border-radius:2px;outline:none;
+}
+.kf-binary-btn:hover{border-color:var(--red);background:rgba(176,48,48,.08);color:var(--cream);}
+.kf-binary-btn.selected{border-color:var(--red);background:rgba(176,48,48,.12);color:var(--cream);}
+
+.kf-choices{display:grid;gap:10px;max-height:340px;overflow-y:auto;padding-right:4px;}
+.kf-choices::-webkit-scrollbar{width:4px;}
+.kf-choices::-webkit-scrollbar-thumb{background:rgba(201,184,154,.15);border-radius:2px;}
+.kf-choice-btn{
+  background:transparent;border:1px solid var(--border);color:var(--beige);
+  padding:16px 20px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:400;
+  letter-spacing:.04em;cursor:pointer;transition:border-color .2s,background .2s,color .2s;
+  text-align:left;border-radius:2px;display:flex;align-items:center;gap:14px;outline:none;
+}
+.kf-choice-btn:hover{border-color:rgba(176,48,48,.4);background:rgba(176,48,48,.06);color:var(--cream);}
+.kf-choice-btn.selected{border-color:var(--red);background:rgba(176,48,48,.1);color:var(--cream);}
+.kf-choice-indicator{width:14px;height:14px;border:1px solid var(--muted);border-radius:50%;flex-shrink:0;transition:border-color .2s,background .2s;display:flex;align-items:center;justify-content:center;}
+.kf-choice-btn.selected .kf-choice-indicator{border-color:var(--red);background:var(--red);}
+.kf-choice-inner-dot{width:5px;height:5px;border-radius:50%;background:var(--cream);display:none;}
+.kf-choice-btn.selected .kf-choice-inner-dot{display:block;}
+
+.kf-input-wrap{margin-bottom:8px;}
+.kf-input-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;display:block;margin-bottom:10px;}
+.kf-input{width:100%;background:var(--surface);border:1px solid var(--border);color:var(--cream);font-family:'DM Sans',sans-serif;font-size:15px;font-weight:400;padding:16px 18px;border-radius:2px;outline:none;transition:border-color .2s;}
+.kf-input::placeholder{color:var(--muted);opacity:.6;}
+.kf-input:focus{border-color:var(--border-f);}
+.kf-input-group{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:8px;}
+.kf-textarea{width:100%;background:var(--surface);border:1px solid var(--border);color:var(--cream);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:300;padding:16px 18px;border-radius:2px;outline:none;resize:vertical;min-height:100px;line-height:1.6;transition:border-color .2s;}
+.kf-textarea::placeholder{color:var(--muted);opacity:.6;}
+.kf-textarea:focus{border-color:var(--border-f);}
+
+.kf-nav{display:flex;align-items:center;justify-content:space-between;margin-top:36px;gap:12px;}
+.kf-back-btn{background:transparent;border:1px solid var(--border);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:14px 22px;border-radius:2px;cursor:pointer;transition:border-color .2s,color .2s;outline:none;}
+.kf-back-btn:hover{border-color:var(--beige);color:var(--beige);}
+.kf-next-btn{flex:1;background:var(--red);color:var(--cream);border:none;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:16px 32px;border-radius:2px;cursor:pointer;transition:background .2s,transform .15s,box-shadow .25s,opacity .2s;outline:none;display:flex;align-items:center;justify-content:center;gap:8px;}
+.kf-next-btn:hover:not(:disabled){background:var(--red-h);transform:translateY(-1px);box-shadow:0 8px 28px rgba(176,48,48,.3);}
+.kf-next-btn:disabled{opacity:.35;cursor:not-allowed;}
+
+.kf-success-card{background:var(--card);border:1px solid var(--border);padding:52px 44px;text-align:center;position:relative;overflow:hidden;animation:kf-in .5s cubic-bezier(.16,1,.3,1) both;}
+.kf-success-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red),transparent);}
+.kf-success-check{width:52px;height:52px;border:1.5px solid var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;}
+.kf-success-title{font-family:'Bebas Neue',sans-serif;font-size:38px;letter-spacing:.06em;color:var(--cream);margin-bottom:14px;line-height:1;}
+.kf-success-title em{font-family:'Instrument Serif',serif;font-style:italic;color:var(--beige);}
+.kf-success-body{font-size:14px;color:var(--beige);opacity:.7;line-height:1.75;max-width:400px;margin:0 auto 36px;font-weight:300;}
+.kf-success-meta{font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;}
+
+@keyframes kf-spin{to{transform:rotate(360deg);}}
+.kf-spinner{width:18px;height:18px;border:2px solid rgba(237,229,216,.2);border-top-color:var(--cream);border-radius:50%;animation:kf-spin .7s linear infinite;display:inline-block;}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════ */
+@media(max-width:768px){
+  .header-cta{display:none;}
+  .stats-inner{grid-template-columns:1fr;}
+  .stat{border-right:none;border-bottom:1px solid var(--border);}
+  .stat:last-child{border-bottom:none;}
+  .two-side{grid-template-columns:1fr;}
+  .steps-grid{grid-template-columns:1fr;}
+  .compare-grid{grid-template-columns:1fr;}
+  .feature-grid{grid-template-columns:repeat(2,1fr);}
+  .dash-card{padding:40px 28px;}
+  .dash-pillars{gap:20px;}
+  .closer{padding:80px 0;}
+  .team-line .label{display:none;}
+  .team-line .container{flex-direction:column;align-items:flex-start;gap:28px;}
+  .team-divider{width:40px;height:1px;}
+  .team-person{flex-wrap:wrap;gap:8px 10px;}
+  .team-email{width:100%;padding-left:42px;}
+  .kf-card{padding:32px 20px 28px;}
+  .kf-success-card{padding:36px 20px;}
+  .kf-input-group{grid-template-columns:1fr;}
+  .kf-binary{grid-template-columns:1fr;}
+  .hero-particles { display: none; }
+  .hero-glow { width: 350px; height: 350px; }
+}
+@media(max-width:480px){
+  .feature-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════
+     HEADER
+════════════════════════════════════════════ -->
+<header>
+  <div class="container">
+    <a href="index.html" class="logo-wrap" aria-label="KNETIX home">
+      <svg width="36" height="36" viewBox="0 0 100 100" fill="none">
+        <rect x="3" y="3" width="94" height="94" rx="2" stroke="#C9B89A" stroke-width="1" fill="none" opacity=".2"/>
+        <rect x="12" y="12" width="22" height="76" fill="#8B2E2E"/>
+        <polygon points="38,12 88,12 38,46" fill="#C9B89A"/>
+        <polygon points="38,56 88,88 38,88" fill="#8B2E2E"/>
+        <rect x="37" y="47" width="7" height="7" transform="rotate(45 40.5 50.5)" fill="#C9B89A" opacity=".8"/>
+      </svg>
+      <span class="brand-name">KNETIX</span>
+      <span class="brand-tag">Loyalty Platform</span>
+    </a>
+    <button class="header-cta open-funnel">Get Started</button>
+  </div>
+</header>
+
+<!-- ════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-particles" id="heroParticles"></div>
+  <div class="container">
+    <div class="hero-eyebrow fade-up">
+      <span class="tick"></span>
+      <span class="label">Done For You. Live in 24 Hours.</span>
+    </div>
+    <h1 class="hero-headline fade-up d1">
+      Every Visit, Tracked.
+      <span class="italic-serif">Every Customer, Yours.</span>
+    </h1>
+    <p class="hero-sub fade-up d2">
+      A done-for-you loyalty and referral platform for service businesses. Your branding. Your data. <strong>Your regulars — on autopilot.</strong> We build the whole thing for you in 24 hours.
+    </p>
+    <div class="hero-ctas fade-up d3">
+      <button class="btn-primary open-funnel">Get My Loyalty Page Built</button>
+      <button class="btn-ghost open-funnel">
+        See What You Get
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     STATS BAND
+════════════════════════════════════════════ -->
+<div class="stats-band">
+  <div class="container">
+    <div class="stats-inner">
+      <div class="stat reveal">
+        <span class="stat-num" data-target="30" data-suffix="s">30<sup>s</sup></span>
+        <span class="stat-desc">Customer sign-up time — one scan, name &amp; phone</span>
+      </div>
+      <div class="stat reveal">
+        <span class="stat-num" data-target="24" data-suffix="hr">24<sup>hr</sup></span>
+        <span class="stat-desc">From your details to a live, fully-branded page</span>
+      </div>
+      <div class="stat reveal">
+        <span class="stat-num" data-target="1" data-suffix="tap">1<sup>tap</sup></span>
+        <span class="stat-desc">Log a visit. Redeem a reward. From your phone.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     TWO SIDES — THE PRODUCT
+════════════════════════════════════════════ -->
+<section>
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="label">The Product</p>
+      <h2 class="section-title">Two Sides. <span class="serif-it">One System.</span></h2>
+      <p class="section-lede">A private dashboard for you. A fully-branded sign-up page for your customers. The loyalty card you've always wanted to run — without the paper, the lost punch cards, or the spreadsheet.</p>
+    </div>
+    <div class="two-side">
+      <div class="side-card reveal">
+        <div class="side-tag">For The Owner</div>
+        <h3 class="side-title">Your Private<span class="serif-it">dashboard.</span></h3>
+        <p class="side-sub">Everything you need to run loyalty, in one screen — on your phone.</p>
+        <ul class="side-list reveal-stagger">
+          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Live name &amp; phone search across every customer you've ever signed up.</li>
+          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>One-tap <strong>+1 Visit</strong> when a regular walks in — visit logged instantly.</li>
+          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Pending rewards queue — see who's earned a reward, redeem with one tap.</li>
+          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Referral tracking — see who's bringing in business, automatically.</li>
+          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Printable QR code for your counter, branded to your business.</li>
+        </ul>
+      </div>
+      <div class="side-card reveal">
+        <div class="side-tag">For Your Customers</div>
+        <h3 class="side-title">A Branded<span class="serif-it">join page — yours.</span></h3>
+        <p class="side-sub">Scan, sign up, see progress. No app to download. Ever.</p>
+        <ul class="side-list reveal-stagger">
+          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Customer scans a QR code in your shop — opens your branded page.</li>
+          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Signs up in 30 seconds with name and phone — no password.</li>
+          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Re-visits any time to see their progress and reward status.</li>
+          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Personal referral link to share with friends — credits track automatically.</li>
+          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Your colours, your font, your name, your logo. <strong>KNETIX stays invisible.</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     HOW IT WORKS
+════════════════════════════════════════════ -->
+<section style="padding-top:0;">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="label">The Process</p>
+      <h2 class="section-title">Live in <span class="serif-it">24 Hours.</span></h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card reveal">
+        <div class="step-num-display">01</div>
+        <h3>The Brief<span>Tell us about your business.</span></h3>
+        <p>A short form — your business name, what reward you want to offer, typical service price, and how you want it to look. We use it to set your loyalty thresholds correctly so <strong>the math actually works for your margins.</strong></p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num-display">02</div>
+        <h3>The Build<span>We build it to your brand.</span></h3>
+        <p>Within 24 hours, your loyalty page is live — your colours, your font, your business name, your logo. Your customers see <strong>your brand</strong>, not ours. We send you your login, your QR code, and a short walkthrough.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num-display">03</div>
+        <h3>The Launch<span>Start collecting regulars.</span></h3>
+        <p>Print the QR, put it on the counter. Customers scan and join. You tap +1 on every visit. Rewards pop up when they're earned. <strong>You finally own the relationship</strong> with every regular you have.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     WHY KNETIX vs ALTERNATIVES
+════════════════════════════════════════════ -->
+<section class="why-section">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="label">The Model</p>
+      <h2 class="section-title">Why This Beats <span class="serif-it">Punch Cards</span> &amp; <span class="serif-it">Generic Apps.</span></h2>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-col traditional reveal">
+        <span class="compare-col-label">The Old Way</span>
+        <ul class="compare-items reveal-stagger">
+          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>Punch cards get lost. Customers forget them. No way to recover data.</li>
+          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>Generic apps brand themselves, not you. Customers join "their" platform.</li>
+          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>Per-customer pricing — you get punished for growing your customer base.</li>
+          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>No referral system. No customer data you actually own. No way to find Sarah's number.</li>
+          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>You set it up. You configure it. You troubleshoot it. Your problem.</li>
+        </ul>
+      </div>
+      <div class="compare-col kinetics reveal">
+        <span class="compare-col-label">KNETIX</span>
+        <ul class="compare-items reveal-stagger">
+          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Nothing to lose. Progress lives in the customer's phone, every visit.</li>
+          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><strong>Your brand</strong> — colours, font, logo, name. KNETIX is invisible to your customers.</li>
+          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Flat retainer. Unlimited customers. We don't punish growth.</li>
+          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Every customer's name, phone, visit count, referrals — searchable and <strong>yours.</strong></li>
+          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>We build it. We deliver it. <strong>You don't configure anything.</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     WHAT YOU GET — FEATURES
+════════════════════════════════════════════ -->
+<section>
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="label">What You Get</p>
+      <h2 class="section-title">Built &amp; Delivered, <span class="serif-it">Not Configured.</span></h2>
+      <p class="section-lede">You don't set anything up. You don't install software. You tell us about your business — we hand you a finished platform.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature reveal">
+        <svg class="feature-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="6" y="6" width="10" height="10"/><rect x="20" y="6" width="10" height="10"/><rect x="6" y="20" width="10" height="10"/>
+          <rect x="22" y="22" width="3" height="3" fill="currentColor"/><rect x="27" y="22" width="3" height="3" fill="currentColor"/><rect x="22" y="27" width="3" height="3" fill="currentColor"/>
+        </svg>
+        <div class="feature-title">Printable QR</div>
+        <div class="feature-body">Branded to your business. Print it, stick it on the counter, done.</div>
+      </div>
+      <div class="feature reveal">
+        <svg class="feature-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="5" y="8" width="26" height="20" rx="1"/><path d="M5 14h26"/>
+          <circle cx="9" cy="11" r="0.8" fill="currentColor"/><circle cx="12" cy="11" r="0.8" fill="currentColor"/>
+          <path d="M10 19h12M10 23h8" stroke-linecap="round"/>
+        </svg>
+        <div class="feature-title">Owner Dashboard</div>
+        <div class="feature-body">Search, log visits, redeem rewards, track referrals — from your phone.</div>
+      </div>
+      <div class="feature reveal">
+        <svg class="feature-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M18 5l3.2 7.5L29 13l-5.8 5.2L25 26l-7-3.8L11 26l1.8-7.8L7 13l7.8-.5L18 5z" stroke-linejoin="round"/>
+        </svg>
+        <div class="feature-title">Your Branding</div>
+        <div class="feature-body">Three colours, your font, your logo, your name. KNETIX stays invisible.</div>
+      </div>
+      <div class="feature reveal">
+        <svg class="feature-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="11" cy="14" r="4"/><circle cx="24" cy="14" r="4"/>
+          <path d="M4 28c0-3.9 3.1-7 7-7s7 3.1 7 7M17 28c0-3.9 3.1-7 7-7s7 3.1 7 7"/>
+        </svg>
+        <div class="feature-title">Referral Engine</div>
+        <div class="feature-body">Every customer gets a referral link. Signups credit the right person.</div>
+      </div>
+      <div class="feature reveal">
+        <svg class="feature-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="5" y="9" width="26" height="18" rx="1"/><path d="M5 14h26"/>
+          <path d="M10 21h6M22 21h4" stroke-linecap="round"/>
+        </svg>
+        <div class="feature-title">Stripe Billing</div>
+        <div class="feature-body">Automated invoicing. No chasing payments, no awkward conversations.</div>
+      </div>
+      <div class="feature reveal">
+        <svg class="feature-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="8" y="6" width="20" height="24" rx="2"/>
+          <path d="M14 13h8M14 18h8M14 23h5" stroke-linecap="round"/>
+        </svg>
+        <div class="feature-title">Customer List</div>
+        <div class="feature-body">Every regular's name, phone, visit count, referrals — searchable, exportable.</div>
+      </div>
+      <div class="feature reveal">
+        <svg class="feature-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="7" y="5" width="22" height="26" rx="3"/>
+          <circle cx="18" cy="26" r="1.4" fill="currentColor"/>
+          <path d="M13 11h10M13 15h10M13 19h7" stroke-linecap="round"/>
+        </svg>
+        <div class="feature-title">Mobile-First</div>
+        <div class="feature-body">Customers don't download anything. Runs in any phone's browser.</div>
+      </div>
+      <div class="feature reveal">
+        <svg class="feature-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="6" y="12" width="24" height="16" rx="1"/>
+          <path d="M12 12V9a6 6 0 0112 0v3"/>
+          <circle cx="18" cy="20" r="1.6" fill="currentColor"/>
+        </svg>
+        <div class="feature-title">Data Isolation</div>
+        <div class="feature-body">Per-business isolation at the database layer. Your list is yours alone.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     OWNER-FACING SHOWPIECE
+════════════════════════════════════════════ -->
+<section>
+  <div class="container">
+    <div class="dash-card reveal">
+      <p class="label">Owner Authority</p>
+      <h2>You Own The <em>Customer Relationship.</em></h2>
+      <p>
+        Every loyalty platform you've used until now built <strong>their own brand</strong> on top of <strong>your customers</strong>. KNETIX flips it.<br><br>
+        Your customers see your colours, your font, your name, your logo — they don't even know we exist. The data they generate is searchable, exportable, and <strong>yours.</strong> Forever. No black-box dashboards. No platform lock-in. No customer list you can't access.
+      </p>
+      <div class="dash-pillars">
+        <div class="dash-pillar"><span class="dot"></span> Full Brand Control</div>
+        <div class="dash-pillar"><span class="dot"></span> Exportable Customer Data</div>
+        <div class="dash-pillar"><span class="dot"></span> Searchable By Name &amp; Phone</div>
+        <div class="dash-pillar"><span class="dot"></span> No App For Customers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     WHO IT'S FOR
+════════════════════════════════════════════ -->
+<section class="niche-section" style="padding-top:0;">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="label">Who It's For</p>
+      <h2 class="section-title">If Your Customers <span class="serif-it">Come Back,</span> This Works.</h2>
+      <p class="section-lede">Built for service-based businesses with repeat customers — local, online, anywhere in the world. If you have regulars, you have a loyalty program worth running.</p>
+    </div>
+    <div class="niche-grid">
+      <div class="niche-chip reveal"><div class="niche-name">Barbers</div><div class="niche-tag">Every 8th cut</div></div>
+      <div class="niche-chip reveal"><div class="niche-name">Nail Techs</div><div class="niche-tag">Every 10th set</div></div>
+      <div class="niche-chip reveal"><div class="niche-name">Lash &amp; Brow</div><div class="niche-tag">Every 6th fill</div></div>
+      <div class="niche-chip reveal"><div class="niche-name">Hair Salons</div><div class="niche-tag">Repeat colour</div></div>
+      <div class="niche-chip reveal"><div class="niche-name">Car Detailers</div><div class="niche-tag">Monthly washes</div></div>
+      <div class="niche-chip reveal"><div class="niche-name">Vape Shops</div><div class="niche-tag">Weekly regulars</div></div>
+      <div class="niche-chip reveal"><div class="niche-name">Tattoo Studios</div><div class="niche-tag">Return ink work</div></div>
+      <div class="niche-chip reveal"><div class="niche-name">Massage &amp; Spa</div><div class="niche-tag">Monthly clients</div></div>
+      <div class="niche-chip reveal"><div class="niche-name">Med-Spa</div><div class="niche-tag">Repeat treatments</div></div>
+      <div class="niche-chip reveal"><div class="niche-name">Pet Groomers</div><div class="niche-tag">Recurring grooms</div></div>
+      <div class="niche-chip reveal"><div class="niche-name">Cafés &amp; Boba</div><div class="niche-tag">Daily regulars</div></div>
+      <div class="niche-chip reveal"><div class="niche-name">Online Coaches</div><div class="niche-tag">Returning sessions</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     CLOSER / CTA
+════════════════════════════════════════════ -->
+<section class="closer">
+  <div class="closer-bg-text">LOYALTY</div>
+  <div class="closer-glow" id="closerGlow"></div>
+  <div class="container">
+    <p class="label reveal">Ready to Build?</p>
+    <h2 class="reveal">Stop Losing Track<br>of <em>Your Best Customers.</em></h2>
+    <p class="closer-body reveal">
+      Tell us about your business — eight short questions, under two minutes. <strong>We'll have your branded loyalty platform live within 24 hours</strong>, with your login, your QR code, and a short walkthrough.<br><br>
+      No setup work on your end. No software to install. Just regulars, tracked.
+    </p>
+    <button class="btn-closer open-funnel reveal">Get My Loyalty Page Built</button>
+    <span class="qualifier reveal">No setup fee · You own your customer data · Cancel anytime</span>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     TEAM LINE
+════════════════════════════════════════════ -->
+<div class="team-line">
+  <div class="container">
+    <div class="team-person">
+      <div class="avatar">M</div>
+      <span>Mohamad Aldossari — Technical Lead</span>
+      <a href="mailto:mohamad@knetixmarketing.com" class="team-email">mohamad@knetixmarketing.com</a>
+    </div>
+    <div class="team-divider"></div>
+    <div class="team-person">
+      <div class="avatar">B</div>
+      <span>Brody Cramp — Management</span>
+      <a href="mailto:brody@knetixmarketing.com" class="team-email">brody@knetixmarketing.com</a>
+    </div>
+    <p class="label">KNETIX Est. 2026</p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <p>© 2026 KNETIX — Loyalty Platform</p>
+    <p><a href="index.html">See our performance agency →</a></p>
+  </div>
+</footer>
+
+<!-- ════════════════════════════════════════════
+     FUNNEL MODAL
+════════════════════════════════════════════ -->
+<div class="modal-overlay" id="funnelModal" role="dialog" aria-modal="true" aria-label="KNETIX Loyalty Signup">
+  <div class="kf-shell" id="funnelShell">
+
+    <div class="kf-brand">
+      <svg width="30" height="30" viewBox="0 0 100 100" fill="none">
+        <rect x="3" y="3" width="94" height="94" rx="2" stroke="#C9B89A" stroke-width="1" fill="none" opacity=".2"/>
+        <rect x="12" y="12" width="22" height="76" fill="#8B2E2E"/>
+        <polygon points="38,12 88,12 38,46" fill="#C9B89A"/>
+        <polygon points="38,56 88,88 38,88" fill="#8B2E2E"/>
+        <rect x="37" y="47" width="7" height="7" transform="rotate(45 40.5 50.5)" fill="#C9B89A" opacity=".8"/>
+      </svg>
+      <span class="kf-brand-name">KNETIX</span>
+      <span class="kf-brand-tag">Loyalty Signup</span>
+    </div>
+
+    <div class="kf-progress-wrap" id="kfProgressWrap">
+      <div class="kf-progress-meta">
+        <span class="kf-step-label" id="kfStepLabel">Your Business</span>
+        <span class="kf-step-count" id="kfStepCount">Step 1 / 8</span>
+      </div>
+      <div class="kf-progress-track">
+        <div class="kf-progress-fill" id="kfProgressFill" style="width:12.5%"></div>
+      </div>
+    </div>
+
+    <div id="kfContent"></div>
+
+    <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════════ -->
+<script>
+/* ── Scroll Reveal ── */
+const reveals = document.querySelectorAll('.reveal, .reveal-stagger');
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), 60);
+      revealObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => revealObserver.observe(el));
+
+/* ── Header scroll effect ── */
+window.addEventListener('scroll', () => {
+  const header = document.querySelector('header');
+  if (window.scrollY > 60) header.classList.add('scrolled');
+  else header.classList.remove('scrolled');
+}, { passive: true });
+
+/* ── Hero parallax ── */
+const heroGrid = document.querySelector('.hero-grid-bg');
+const heroGlow = document.querySelector('.hero-glow');
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  if (y < window.innerHeight) {
+    if (heroGrid) heroGrid.style.transform = 'translateY(' + (y * 0.15) + 'px)';
+    if (heroGlow) heroGlow.style.transform = 'translateX(-50%) translateY(' + (y * 0.08) + 'px)';
+  }
+}, { passive: true });
+
+/* ── Hero floating particles ── */
+(function createParticles() {
+  const container = document.getElementById('heroParticles');
+  if (!container) return;
+  const count = 18;
+  for (let i = 0; i < count; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.top = (60 + Math.random() * 40) + '%';
+    p.style.animationDuration = (5 + Math.random() * 8) + 's';
+    p.style.animationDelay = (Math.random() * 6) + 's';
+    p.style.width = p.style.height = (2 + Math.random() * 3) + 'px';
+    container.appendChild(p);
+  }
+})();
+
+/* ── Stat counter animation ── */
+const statNums = document.querySelectorAll('.stat-num[data-target]');
+const counterObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const el = e.target;
+      const target = parseInt(el.dataset.target);
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      let current = 0;
+      const duration = 1200;
+      const startTime = performance.now();
+      function tick(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        current = Math.round(eased * target);
+        el.innerHTML = prefix + current + '<sup>' + suffix + '</sup>';
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+      counterObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.3 });
+statNums.forEach(el => counterObserver.observe(el));
+
+/* ── Closer cursor glow ── */
+const closerSection = document.querySelector('.closer');
+const closerGlow = document.getElementById('closerGlow');
+if (closerSection && closerGlow) {
+  closerSection.addEventListener('mousemove', e => {
+    const rect = closerSection.getBoundingClientRect();
+    closerGlow.style.left = (e.clientX - rect.left) + 'px';
+    closerGlow.style.top = (e.clientY - rect.top) + 'px';
+  });
+}
+
+/* ── Closer bg text parallax ── */
+const closerBgText = document.querySelector('.closer-bg-text');
+if (closerBgText) {
+  window.addEventListener('scroll', () => {
+    const rect = closerSection.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      const progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+      closerBgText.style.transform = 'translateX(-50%) translateX(' + ((progress - 0.5) * 80) + 'px)';
+    }
+  }, { passive: true });
+}
+
+/* ══════════════════════════════════════════
+   FUNNEL ENGINE — 8 steps, mirrors index.html pattern
+══════════════════════════════════════════ */
+const STEPS = {
+  BUSINESS_NAME: 'business_name',
+  OWNER_CONTACT: 'owner_contact',
+  BUSINESS_TYPE: 'business_type',
+  LOCATION:      'location',
+  REWARD:        'reward',
+  SERVICE_PRICE: 'service_price',
+  LOGO:          'logo',
+  NOTES:         'notes',
+  SUCCESS:       'success',
+};
+
+const STEP_LABELS = {
+  [STEPS.BUSINESS_NAME]: 'Your Business',
+  [STEPS.OWNER_CONTACT]: 'About You',
+  [STEPS.BUSINESS_TYPE]: 'Business Type',
+  [STEPS.LOCATION]:      'Location',
+  [STEPS.REWARD]:        'The Reward',
+  [STEPS.SERVICE_PRICE]: 'Pricing',
+  [STEPS.LOGO]:          'Logo',
+  [STEPS.NOTES]:         'Final Step',
+};
+
+const BUSINESS_TYPES = [
+  'Barber shop','Nail salon','Lash & brow studio','Hair salon',
+  'Car detailer / wash','Car wrap / window tint','Vape shop','Tattoo studio',
+  'Massage / spa','Med-spa / aesthetics','Pet groomer / dog walker',
+  'Café / boba / coffee shop','Restaurant','Florist / boutique',
+  'Fitness studio / gym','Online coach / consultant','Other'
+];
+
+let formData = {
+  businessName: '',
+  ownerName: '',
+  email: '',
+  phoneOrIg: '',
+  businessType: null,
+  location: '',
+  reward: '',
+  servicePrice: '',
+  hasLogo: null,
+  notes: ''
+};
+let currentStep = STEPS.BUSINESS_NAME;
+let submitting = false;
+
+const SEQUENCE = [
+  STEPS.BUSINESS_NAME,
+  STEPS.OWNER_CONTACT,
+  STEPS.BUSINESS_TYPE,
+  STEPS.LOCATION,
+  STEPS.REWARD,
+  STEPS.SERVICE_PRICE,
+  STEPS.LOGO,
+  STEPS.NOTES
+];
+
+function getStepMeta() {
+  const idx = SEQUENCE.indexOf(currentStep);
+  if (idx === -1) return { current: SEQUENCE.length, total: SEQUENCE.length, pct: 100 };
+  return { current: idx + 1, total: SEQUENCE.length, pct: Math.round(((idx + 1) / SEQUENCE.length) * 100) };
+}
+
+function updateProgress() {
+  const isTerminal = currentStep === STEPS.SUCCESS;
+  const wrap = document.getElementById('kfProgressWrap');
+  if (!wrap) return;
+  wrap.style.display = isTerminal ? 'none' : '';
+  if (!isTerminal) {
+    const { current, total, pct } = getStepMeta();
+    document.getElementById('kfStepLabel').textContent = STEP_LABELS[currentStep] || '';
+    document.getElementById('kfStepCount').textContent = 'Step ' + current + ' / ' + total;
+    document.getElementById('kfProgressFill').style.width = pct + '%';
+  }
+}
+
+function canAdvance() {
+  switch (currentStep) {
+    case STEPS.BUSINESS_NAME: return formData.businessName.trim().length > 1;
+    case STEPS.OWNER_CONTACT: return formData.ownerName.trim().length > 1 && /\S+@\S+\.\S+/.test(formData.email);
+    case STEPS.BUSINESS_TYPE: return formData.businessType !== null;
+    case STEPS.LOCATION:      return formData.location.trim().length > 1;
+    case STEPS.REWARD:        return formData.reward.trim().length > 1;
+    case STEPS.SERVICE_PRICE: return formData.servicePrice.trim().length > 0;
+    case STEPS.LOGO:          return formData.hasLogo !== null;
+    case STEPS.NOTES:         return true;
+    default: return false;
+  }
+}
+
+function goTo(step) {
+  currentStep = step;
+  render();
+}
+
+function advance() {
+  const idx = SEQUENCE.indexOf(currentStep);
+  if (idx < SEQUENCE.length - 1) goTo(SEQUENCE[idx + 1]);
+}
+
+function goBack() {
+  const idx = SEQUENCE.indexOf(currentStep);
+  if (idx > 0) goTo(SEQUENCE[idx - 1]);
+}
+
+/* ── FORMSPREE SUBMISSION — same endpoint as audit form ── */
+async function handleSubmit() {
+  if (submitting) return;
+  submitting = true;
+  render();
+
+  try {
+    const response = await fetch('https://formspree.io/f/maqaoool', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        // Loyalty signup specific fields
+        form_type:      'KNETIX Loyalty Signup',
+        business_name:  formData.businessName,
+        owner_name:     formData.ownerName,
+        email:          formData.email,
+        phone_or_ig:    formData.phoneOrIg,
+        business_type:  formData.businessType,
+        location:       formData.location,
+        reward:         formData.reward,
+        service_price:  formData.servicePrice,
+        has_logo:       formData.hasLogo,
+        notes:          formData.notes,
+        // Formspree meta fields
+        _subject:       'New KNETIX Loyalty Signup — ' + formData.businessName,
+        _replyto:       formData.email
+      })
+    });
+
+    const result = await response.json();
+    if (response.ok && result.ok) {
+      goTo(STEPS.SUCCESS);
+    } else {
+      throw new Error(result.error || 'Submission failed');
+    }
+  } catch (error) {
+    console.error('Formspree error:', error);
+    alert('Submission failed. Please try again or email mohamad@knetixmarketing.com directly.');
+  } finally {
+    submitting = false;
+    if (currentStep !== STEPS.SUCCESS) render();
+  }
+}
+
+function binaryBtns(field, opts) {
+  return opts.map(o =>
+    '<button class="kf-binary-btn' + (formData[field] === o.v ? ' selected' : '') + '" onclick="formData[\'' + field + '\']=\'' + o.v + '\';render();">' + o.label + '</button>'
+  ).join('');
+}
+
+function navRow(showBack, lastStep) {
+  if (showBack === undefined) showBack = true;
+  if (lastStep === undefined) lastStep = false;
+  const disabled = !canAdvance() || submitting;
+  const nextLabel = lastStep ? (submitting ? '<span class="kf-spinner"></span>' : 'Submit My Details') : 'Continue';
+  const backBtn = showBack ? '<button class="kf-back-btn" onclick="goBack()">Back</button>' : '<div></div>';
+  const nextFn = lastStep ? 'handleSubmit()' : 'advance()';
+  return '<div class="kf-nav">' + backBtn + '<button class="kf-next-btn" ' + (disabled ? 'disabled' : '') + ' onclick="' + nextFn + '">' + nextLabel + '</button></div>';
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function renderStep() {
+  const { current, total } = getStepMeta();
+
+  switch (currentStep) {
+
+    case STEPS.BUSINESS_NAME:
+      return '<div class="kf-card"><div class="kf-step-inner">'
+        + '<p class="kf-question-label">Question 1 of ' + total + '</p>'
+        + '<h2 class="kf-question">What is your business called?</h2>'
+        + '<p class="kf-sub">Exactly as you want it shown to your customers.</p>'
+        + '<div class="kf-input-wrap" style="margin-bottom:0">'
+        + '<label class="kf-input-label">Business name</label>'
+        + '<input class="kf-input" type="text" placeholder="e.g. Ethereal Nails" value="' + escapeHtml(formData.businessName) + '" oninput="formData.businessName=this.value;updateNextBtn();" autocomplete="organization" />'
+        + '</div>'
+        + navRow(false)
+        + '</div></div>';
+
+    case STEPS.OWNER_CONTACT:
+      return '<div class="kf-card"><div class="kf-step-inner">'
+        + '<p class="kf-question-label">Question ' + current + ' of ' + total + '</p>'
+        + '<h2 class="kf-question">Who are we talking to?</h2>'
+        + '<p class="kf-sub">So we know who to send your login and QR code to.</p>'
+        + '<div class="kf-input-group">'
+        + '<div><label class="kf-input-label">Your name</label><input class="kf-input" type="text" placeholder="Full name" value="' + escapeHtml(formData.ownerName) + '" oninput="formData.ownerName=this.value;updateNextBtn();" autocomplete="name" /></div>'
+        + '<div><label class="kf-input-label">Email</label><input class="kf-input" type="email" placeholder="you@business.com" value="' + escapeHtml(formData.email) + '" oninput="formData.email=this.value;updateNextBtn();" autocomplete="email" /></div>'
+        + '</div>'
+        + '<div class="kf-input-wrap" style="margin-bottom:0">'
+        + '<label class="kf-input-label">Phone or Instagram (optional)</label>'
+        + '<input class="kf-input" type="text" placeholder="+1 555 000 0000 or @handle" value="' + escapeHtml(formData.phoneOrIg) + '" oninput="formData.phoneOrIg=this.value;" />'
+        + '</div>'
+        + navRow()
+        + '</div></div>';
+
+    case STEPS.BUSINESS_TYPE:
+      return '<div class="kf-card"><div class="kf-step-inner">'
+        + '<p class="kf-question-label">Question ' + current + ' of ' + total + '</p>'
+        + '<h2 class="kf-question">What kind of business?</h2>'
+        + '<p class="kf-sub">So we can set up the right pricing tier and palette suggestions for you.</p>'
+        + '<div class="kf-choices">'
+        + BUSINESS_TYPES.map(t =>
+            '<button class="kf-choice-btn' + (formData.businessType === t ? ' selected' : '') + '" onclick="formData.businessType=\'' + t.replace(/'/g,"\\'") + '\';render();">'
+            + '<span class="kf-choice-indicator"><span class="kf-choice-inner-dot"></span></span>' + t + '</button>'
+          ).join('')
+        + '</div>'
+        + navRow()
+        + '</div></div>';
+
+    case STEPS.LOCATION:
+      return '<div class="kf-card"><div class="kf-step-inner">'
+        + '<p class="kf-question-label">Question ' + current + ' of ' + total + '</p>'
+        + '<h2 class="kf-question">Where are you based?</h2>'
+        + '<p class="kf-sub">Local or online — we work with service businesses anywhere in the world.</p>'
+        + '<div class="kf-input-wrap" style="margin-bottom:0">'
+        + '<label class="kf-input-label">City &amp; country</label>'
+        + '<input class="kf-input" type="text" placeholder="e.g. Edmonton, Canada" value="' + escapeHtml(formData.location) + '" oninput="formData.location=this.value;updateNextBtn();" />'
+        + '</div>'
+        + navRow()
+        + '</div></div>';
+
+    case STEPS.REWARD:
+      return '<div class="kf-card"><div class="kf-step-inner">'
+        + '<p class="kf-question-label">Question ' + current + ' of ' + total + '</p>'
+        + '<h2 class="kf-question">What reward would you offer?</h2>'
+        + '<p class="kf-sub">The free thing customers earn after a certain number of visits. Be specific — "free haircut," "free manicure," "free 10ml juice."</p>'
+        + '<div class="kf-input-wrap" style="margin-bottom:0">'
+        + '<label class="kf-input-label">Reward</label>'
+        + '<input class="kf-input" type="text" placeholder="e.g. Free manicure" value="' + escapeHtml(formData.reward) + '" oninput="formData.reward=this.value;updateNextBtn();" />'
+        + '</div>'
+        + navRow()
+        + '</div></div>';
+
+    case STEPS.SERVICE_PRICE:
+      return '<div class="kf-card"><div class="kf-step-inner">'
+        + '<p class="kf-question-label">Question ' + current + ' of ' + total + '</p>'
+        + '<h2 class="kf-question">What is your typical service price?</h2>'
+        + '<p class="kf-sub">The most common ticket value — what an average customer spends per visit. Helps us set your loyalty threshold so the math works for your margins.</p>'
+        + '<div class="kf-input-wrap" style="margin-bottom:0">'
+        + '<label class="kf-input-label">Typical price per visit</label>'
+        + '<input class="kf-input" type="text" placeholder="e.g. $65 CAD" value="' + escapeHtml(formData.servicePrice) + '" oninput="formData.servicePrice=this.value;updateNextBtn();" />'
+        + '</div>'
+        + navRow()
+        + '</div></div>';
+
+    case STEPS.LOGO:
+      return '<div class="kf-card"><div class="kf-step-inner">'
+        + '<p class="kf-question-label">Question ' + current + ' of ' + total + '</p>'
+        + '<h2 class="kf-question">Do you have a logo file?</h2>'
+        + '<p class="kf-sub">A clean PNG with a transparent background works best. You can send it to us later — skip if you\'re not sure.</p>'
+        + '<div class="kf-binary" style="grid-template-columns:repeat(3,1fr);">'
+        + binaryBtns('hasLogo', [
+            { v: 'Yes, have one', label: 'Yes' },
+            { v: 'No, not yet', label: 'No' },
+            { v: 'Not sure', label: 'Not sure' }
+          ])
+        + '</div>'
+        + navRow()
+        + '</div></div>';
+
+    case STEPS.NOTES:
+      return '<div class="kf-card"><div class="kf-step-inner">'
+        + '<p class="kf-question-label">Final Step</p>'
+        + '<h2 class="kf-question">Anything else we should know?</h2>'
+        + '<p class="kf-sub">Optional. Special requests, niche details, brand vibe, or just "ready to go." We\'ll reach out within 24 hours.</p>'
+        + '<div class="kf-input-wrap" style="margin-bottom:0">'
+        + '<label class="kf-input-label">Notes (optional)</label>'
+        + '<textarea class="kf-textarea" placeholder="Tell us anything that\'ll help us set you up right." oninput="formData.notes=this.value;">' + escapeHtml(formData.notes) + '</textarea>'
+        + '</div>'
+        + navRow(true, true)
+        + '</div></div>';
+
+    case STEPS.SUCCESS:
+      return '<div class="kf-success-card">'
+        + '<div class="kf-success-check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B03030" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>'
+        + '<h2 class="kf-success-title">Got It. <em>Thank You.</em></h2>'
+        + '<p class="kf-success-body">' + (formData.ownerName ? escapeHtml(formData.ownerName) + ', your' : 'Your') + ' details are in. Mohamad will reach out to <strong style="color:var(--cream);font-weight:500;">' + escapeHtml(formData.email) + '</strong> within 24 hours with your quote, contract, and your branded loyalty page.</p>'
+        + '<p class="kf-success-meta">Built &amp; delivered. Not configured.</p>'
+        + '</div>';
+
+    default: return '';
+  }
+}
+
+function render() {
+  const content = document.getElementById('kfContent');
+  if (!content) return;
+  content.innerHTML = renderStep();
+  updateProgress();
+}
+
+function updateNextBtn() {
+  const btn = document.querySelector('#kfContent .kf-next-btn');
+  if (btn) btn.disabled = !canAdvance() || submitting;
+}
+
+function resetFunnel() {
+  formData = {
+    businessName: '', ownerName: '', email: '', phoneOrIg: '',
+    businessType: null, location: '', reward: '', servicePrice: '',
+    hasLogo: null, notes: ''
+  };
+  currentStep = STEPS.BUSINESS_NAME;
+  render();
+}
+
+/* ── Modal open/close ── */
+const modal = document.getElementById('funnelModal');
+
+function openFunnel() {
+  resetFunnel();
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeFunnel() {
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.open-funnel').forEach(el => el.addEventListener('click', openFunnel));
+document.getElementById('modalClose').addEventListener('click', closeFunnel);
+modal.addEventListener('click', e => { if (e.target === modal) closeFunnel(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) closeFunnel(); });
+
+render();
+</script>
+
+</body>
+</html>
