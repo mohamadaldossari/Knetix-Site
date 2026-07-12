@@ -35,7 +35,6 @@
       "description": "Performance-based paid advertising agency for ecommerce brands. No retainers, no contracts — fee is 10% of new attributed revenue.",
       "areaServed": ["Canada", "United States"],
       "priceRange": "10% of attributed revenue",
-      "founder": {"@type": "Person", "name": "Mohamad", "jobTitle": "Founder"},
       "knowsAbout": ["Meta Ads", "Facebook advertising", "ecommerce marketing", "performance marketing", "Triple Whale attribution", "conversion rate optimization"]
     },
     {
@@ -257,17 +256,6 @@ section{padding:110px 0;position:relative}
 .faq-item[open] summary .pm{transform:rotate(45deg);background:rgba(176,48,48,.12)}
 .faq-item .faq-a{padding:0 60px 28px 0;font-size:15px;color:var(--beige);opacity:.8;font-weight:300;line-height:1.85;max-width:62ch}
 .faq-item .faq-a strong{color:var(--cream);font-weight:500}
-
-/* ── team ── */
-.team{background:var(--surface)}
-.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;max-width:880px}
-.person{background:rgba(28,24,21,.6);border:1px solid var(--border-strong);border-radius:3px;padding:38px 34px;transition:transform .3s,border-color .3s}
-.person:hover{transform:translateY(-4px);border-color:rgba(176,48,48,.4)}
-.person h3{font-family:'Bebas Neue',sans-serif;font-size:34px;letter-spacing:.06em;margin:12px 0 10px;line-height:1;color:var(--cream)}
-.person p{font-size:14px;color:var(--muted);font-weight:300;line-height:1.78}
-.person a{display:inline-block;margin-top:22px;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(201,184,154,.35);padding-bottom:3px;color:var(--beige);transition:color .2s,border-color .2s}
-.person a:hover{color:var(--red-h);border-color:var(--red-h)}
-@media(max-width:720px){.team-grid{grid-template-columns:1fr}}
 
 /* ── closer ── */
 .closer{background:var(--card);position:relative;overflow:hidden;padding:130px 0}
@@ -641,25 +629,6 @@ footer{background:var(--card);border-top:1px solid var(--border)}
         <summary><span>How do you prove which sales came from your ads?</span><span class="pm">+</span></summary>
         <div class="faq-a">Triple Whale — third-party attribution that bypasses iOS14 limitations. You get your own dashboard login, so any revenue claim we make <strong>can be verified independently in about 30 seconds.</strong></div>
       </details>
-    </div>
-  </div>
-</section>
-
-<div class="seam" aria-hidden="true"></div>
-
-<section class="team" id="team">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="label">The Team</span>
-      <h2 class="sec-title">One operator. <span class="serif-it">No account managers.</span></h2>
-    </div>
-    <div class="team-grid" style="grid-template-columns:1fr;max-width:560px">
-      <div class="person rv">
-        <span class="label">Founder</span>
-        <h3>Mohamad</h3>
-        <p>Creative systems, ad production pipeline, landing pages and the testing infrastructure behind every account — plus client strategy, media-buying decisions and the weekly revenue reporting that keeps the rev-share honest.</p>
-        <a href="mailto:mohamad@knetixmarketing.com">mohamad@knetixmarketing.com</a>
-      </div>
     </div>
   </div>
 </section>
@@ -1143,7 +1112,7 @@ function renderStep() {
       return '<div class="kf-success-card">'
         + '<div class="kf-success-check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B03030" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>'
         + '<h2 class="kf-success-title">Audit <em>Scheduled.</em></h2>'
-        + '<p class="kf-success-body">' + (formData.name ? formData.name + ', your' : 'Your') + ' technical audit is in the queue. Mohamad will review your funnel and send your report to <strong style="color:var(--cream);font-weight:500;">' + formData.email + '</strong> within 24 hours.</p>'
+        + '<p class="kf-success-body">' + (formData.name ? formData.name + ', your' : 'Your') + ' technical audit is in the queue. We\'ll review your funnel and send your report to <strong style="color:var(--cream);font-weight:500;">' + formData.email + '</strong> within 24 hours.</p>'
         + '<p class="kf-success-meta">No calls. No fluff. Just data.</p>'
         + '</div>';
 
