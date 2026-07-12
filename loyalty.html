@@ -957,6 +957,8 @@ footer a:hover{color:var(--red);border-bottom-color:var(--red);}
 
     <div id="kfContent"></div>
 
+    <input type="text" id="kf-fax" name="fax" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
+
     <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
   </div>
 </div>
@@ -1176,30 +1178,39 @@ async function handleSubmit() {
   submitting = true;
   render();
 
+  // Base payload — endpoint field names mapped from formData
+  const payload = {
+    business_name:  formData.businessName,
+    contact_name:   formData.ownerName,
+    contact_email:  formData.email,
+    reward:         formData.reward,
+    service_price:  formData.servicePrice,
+    business_type:  formData.businessType,
+    location:       formData.location,
+    has_logo:       formData.hasLogo,
+    notes:          formData.notes,
+    fax:            (document.getElementById('kf-fax') || {}).value || ''
+  };
+
+  // Split the combined phone/Instagram field into exactly one of the two
+  const v = formData.phoneOrIg.trim();
+  if (v) {
+    if (v.charAt(0) === '@' || v.toLowerCase().indexOf('instagram') !== -1) {
+      payload.instagram_url = v;
+    } else if ((v.match(/\d/g) || []).length >= 6) {
+      payload.contact_phone = v;
+    } else {
+      payload.instagram_url = v;
+    }
+  }
+
   try {
-    const response = await fetch('https://formspree.io/f/maqaoool', {
+    const response = await fetch('https://app.knetixmarketing.com/api/leads/inbound', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        // Loyalty signup specific fields
-        form_type:      'KNETIX Loyalty Signup',
-        business_name:  formData.businessName,
-        owner_name:     formData.ownerName,
-        email:          formData.email,
-        phone_or_ig:    formData.phoneOrIg,
-        business_type:  formData.businessType,
-        location:       formData.location,
-        reward:         formData.reward,
-        service_price:  formData.servicePrice,
-        has_logo:       formData.hasLogo,
-        notes:          formData.notes,
-        // Formspree meta fields
-        _subject:       'New KNETIX Loyalty Signup — ' + formData.businessName,
-        _replyto:       formData.email
-      })
+      body: JSON.stringify(payload)
     });
 
     const result = await response.json();
