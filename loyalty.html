@@ -69,10 +69,10 @@
   .hero-tag i{width:5px;height:5px;border-radius:1px;background:var(--red)}
 
   /* phone render (twists on scroll) */
-  .phone-stage{display:flex;justify-content:center;align-items:center;position:relative;perspective:1300px;min-height:540px}
-  .phone-glow{position:absolute;width:340px;height:340px;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(176,48,48,0.22),transparent 66%);filter:blur(38px);z-index:0}
-  .render{position:relative;z-index:1;width:100%;max-width:365px;height:auto;display:block;filter:drop-shadow(0 44px 84px rgba(0,0,0,.62));transform-style:preserve-3d;will-change:transform}
-  .phone-cap{position:absolute;bottom:2px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);z-index:2}
+  .phone-stage{display:flex;justify-content:center;align-items:center;position:relative;perspective:1300px;min-height:560px}
+  .render{position:relative;z-index:1;width:100%;max-width:500px;height:auto;display:block;opacity:0;animation:phoneIn 1.1s ease .15s forwards;transform-style:preserve-3d;will-change:transform;-webkit-mask-image:radial-gradient(ellipse 72% 88% at 50% 49%, #000 60%, transparent 100%);mask-image:radial-gradient(ellipse 72% 88% at 50% 49%, #000 60%, transparent 100%)}
+  @keyframes phoneIn{to{opacity:1}}
+  .phone-cap{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);z-index:2}
 
   /* value strip */
   .strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--surface)}
@@ -328,9 +328,7 @@
       </div>
     </div>
     <div class="phone-stage reveal in">
-      <div class="phone-glow"></div>
-      <img class="render" id="render" alt="A phone showing a customer's branded loyalty progress screen"
-        src="https://d8j0ntlcm91z4.cloudfront.net/user_3EtGNS8SzyoI5DsXhXVT7i7Uv6N/hf_20260712_084726_f191de77-44ad-4164-8aeb-cdabb9871534.png" />
+      <img class="render" id="render" width="1024" height="1024" alt="A phone showing a customer's branded loyalty progress screen with 7 of 10 visits toward a reward" src="phone-hero.png" />
       <div class="phone-cap">Branded in your colours &amp; logo</div>
     </div>
   </div>
@@ -556,21 +554,21 @@
   }
   price.addEventListener('input',calc);thr.addEventListener('input',calc);calc();
 
-  // Render twist-on-scroll + gentle bob + mouse tilt
+  // Phone gentle float + subtle parallax twist + mouse tilt (render is already angled, keep it light)
   var render=document.getElementById('render'),mx=0,my=0;
   if(!reduce){
     window.addEventListener('mousemove',function(e){mx=(e.clientX/window.innerWidth-0.5);my=(e.clientY/window.innerHeight-0.5);});
     function frame(t){
       var r=render.getBoundingClientRect(),c=r.top+r.height/2;
       var prog=(window.innerHeight/2-c)/window.innerHeight;
-      var ry=Math.max(-16,Math.min(16,prog*20))+mx*6;
-      var rx=4-my*5;
-      var bob=Math.sin(t/950)*8;
+      var ry=Math.max(-5,Math.min(5,prog*7))+mx*5;
+      var rx=2-my*4;
+      var bob=Math.sin(t/1000)*9;
       render.style.transform='translateY('+bob+'px) rotateX('+rx+'deg) rotateY('+ry+'deg)';
       requestAnimationFrame(frame);
     }
     requestAnimationFrame(frame);
-  }else{render.style.transform='rotateY(-6deg)';}
+  }else{render.style.transform='none';}
 
   // reveal
   if(!reduce){
