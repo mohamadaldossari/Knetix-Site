@@ -7,440 +7,178 @@
 <meta name="description" content="A done-for-you loyalty and referral platform for service businesses. Your brand, your data, your regulars — built and delivered by KNETIX in 24 hours.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='12' fill='%230E0C0B'/%3E%3Crect x='12' y='12' width='22' height='76' fill='%238B2E2E'/%3E%3Cpolygon points='38,12 88,12 38,46' fill='%23C9B89A'/%3E%3Cpolygon points='38,56 88,88 38,88' fill='%238B2E2E'/%3E%3Crect x='37' y='47' width='7' height='7' transform='rotate(45 40.5 50.5)' fill='%23C9B89A' opacity='.8'/%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<meta property="og:type" content="website" />
+<meta property="og:title" content="KNETIX Loyalty — Turn Visitors Into Regulars" />
+<meta property="og:description" content="A done-for-you loyalty and referral platform, branded to you and live in 24 hours. No app. SMS built in." />
+<meta property="og:url" content="https://knetixmarketing.com/loyalty.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="canonical" href="https://knetixmarketing.com/loyalty.html" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"KNETIX Loyalty","applicationCategory":"BusinessApplication","operatingSystem":"Web","description":"A done-for-you loyalty and referral platform for businesses with repeat customers. Branded to the business, no app download, SMS included, delivered in 24 hours.","offers":{"@type":"Offer","priceCurrency":"CAD"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Do my customers need to download an app?","acceptedAnswer":{"@type":"Answer","text":"No. Customers scan a QR code and sign up in the browser in about 30 seconds."}},
+{"@type":"Question","name":"How is this different from a punch card?","acceptedAnswer":{"@type":"Answer","text":"A punch card gets lost and gives you no data. KNETIX lives on the customer's phone and gives you a searchable customer list."}},
+{"@type":"Question","name":"Will it spam my customers?","acceptedAnswer":{"@type":"Answer","text":"No. Customers opt in themselves, every promo text has one-tap opt-out, and the system cannot text anyone who opted out."}},
+{"@type":"Question","name":"How long until it is live?","acceptedAnswer":{"@type":"Answer","text":"Within 24 hours of you sending your details."}}]}
+</script>
 <style>
-/* ═══════════════════════════════════════════════
-   GLOBAL TOKENS — matches index.html exactly
-═══════════════════════════════════════════════ */
-:root {
-  --bg:       #0E0C0B;
-  --surface:  #161210;
-  --card:     #1C1815;
-  --burgundy: #8B2E2E;
-  --red:      #B03030;
-  --red-h:    #c43535;
-  --beige:    #C9B89A;
-  --cream:    #EDE5D8;
-  --muted:    #7A6E62;
-  --border:   rgba(201,184,154,0.08);
-  --border-f: rgba(176,48,48,0.45);
-}
+  :root{
+    --bg:#0E0C0B;--surface:#161210;--card:#1C1815;--burgundy:#8B2E2E;--red:#B03030;--red-h:#c43535;
+    --beige:#C9B89A;--cream:#EDE5D8;--muted:#7A6E62;
+    --border:rgba(201,184,154,0.08);--border-strong:rgba(201,184,154,0.18);--border-f:rgba(176,48,48,0.45);
+    --maxw:1160px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--cream);font-family:'DM Sans',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3{font-family:'Bebas Neue',sans-serif;font-weight:400;letter-spacing:0.015em;line-height:0.9;text-transform:uppercase}
+  .serif{font-family:'Instrument Serif',serif;font-style:italic;text-transform:none;letter-spacing:0;color:var(--beige)}
+  .eyebrow{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--red);margin-bottom:22px;display:flex;align-items:center;gap:12px}
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--red)}
+  .eyebrow.b{color:var(--beige)}.eyebrow.b::before{background:var(--border-strong)}
 
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{
-  font-family:'DM Sans',sans-serif;
-  background:var(--bg);
-  color:var(--cream);
-  line-height:1.6;
-  overflow-x:hidden;
-  -webkit-font-smoothing:antialiased;
-}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:15px;padding:15px 28px;border-radius:2px;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,background .15s ease,border-color .15s ease}
+  .btn-primary{background:var(--red);color:var(--cream)}.btn-primary:hover{background:var(--red-h);transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:var(--cream);border-color:var(--border-strong)}.btn-ghost:hover{border-color:var(--beige);transform:translateY(-1px)}
+  .btn-lg{padding:17px 34px;font-size:16px}
+  .btn:focus-visible,a:focus-visible{outline:2px solid var(--red);outline-offset:3px}
 
-/* ═══════════════════════════════════════════════
-   UTILITIES
-═══════════════════════════════════════════════ */
-.container{max-width:1080px;margin:0 auto;padding:0 32px;}
-.label{
-  font-size:11px;font-weight:600;
-  letter-spacing:0.22em;text-transform:uppercase;
-  color:var(--red);display:block;
-}
+  header{position:sticky;top:0;z-index:50;background:rgba(14,12,11,0.8);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .brand{display:flex;align-items:center;gap:11px}
+  .brand-name{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:0.14em;color:var(--cream)}
+  .nav-right{display:flex;align-items:center;gap:26px}
+  .nav-link{font-size:14px;color:var(--muted);transition:color .15s;font-weight:500}.nav-link:hover{color:var(--cream)}
 
-/* ═══════════════════════════════════════════════
-   HEADER
-═══════════════════════════════════════════════ */
-header{
-  padding:24px 0;
-  border-bottom:1px solid var(--border);
-  position:sticky;top:0;z-index:200;
-  background:rgba(14,12,11,0.94);
-  backdrop-filter:blur(14px);
-  transition: box-shadow .4s ease, border-color .4s ease;
-}
-header.scrolled {
-  box-shadow: 0 4px 30px rgba(0,0,0,.4);
-  border-bottom-color: rgba(139,46,46,.15);
-}
-header .container{display:flex;align-items:center;justify-content:space-between;}
-.logo-wrap{display:flex;align-items:center;gap:14px;text-decoration:none;}
-.brand-name{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:0.18em;color:var(--cream);}
-.brand-tag{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);border-left:1px solid rgba(201,184,154,.2);padding-left:14px;}
-.header-cta{
-  font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
-  color:var(--cream);text-decoration:none;
-  border:1px solid rgba(201,184,154,.2);padding:10px 22px;border-radius:2px;
-  transition:border-color .2s,color .2s, background .3s;cursor:pointer;background:transparent;
-}
-.header-cta:hover{border-color:var(--red);color:var(--cream);background:rgba(176,48,48,.1);}
+  section{padding:106px 0}
+  .rule{height:1px;background:var(--border);max-width:var(--maxw);margin:0 auto}
 
-.logo-wrap svg {
-  transition: transform .4s cubic-bezier(.16,1,.3,1), filter .4s ease;
-}
-.logo-wrap:hover svg {
-  transform: rotate(-8deg) scale(1.08);
-  filter: drop-shadow(0 0 12px rgba(176,48,48,.35));
-}
+  /* hero */
+  .hero{padding:82px 0 92px}
+  .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center}
+  .hero h1{font-size:clamp(56px,8.5vw,106px);margin-bottom:26px;color:var(--cream)}
+  .hero h1 .serif{font-size:0.92em}
+  .hero-sub{font-size:18px;color:var(--muted);max-width:500px;margin-bottom:34px;line-height:1.65}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px}
+  .hero-tags{display:flex;gap:26px;flex-wrap:wrap}
+  .hero-tag{font-size:12.5px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:9px}
+  .hero-tag i{width:5px;height:5px;border-radius:1px;background:var(--red)}
 
-/* ═══════════════════════════════════════════════
-   HERO
-═══════════════════════════════════════════════ */
-.hero{padding:120px 0 100px;position:relative;overflow:hidden;}
-.hero-grid-bg{
-  position:absolute;inset:0;
-  background-image:
-    linear-gradient(rgba(139,46,46,.04) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(139,46,46,.04) 1px,transparent 1px);
-  background-size:60px 60px;
-  -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black 0%,transparent 100%);
-  mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black 0%,transparent 100%);
-}
+  /* phone render (twists on scroll) */
+  .phone-stage{display:flex;justify-content:center;align-items:center;position:relative;perspective:1300px;min-height:540px}
+  .phone-glow{position:absolute;width:340px;height:340px;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(176,48,48,0.22),transparent 66%);filter:blur(38px);z-index:0}
+  .render{position:relative;z-index:1;width:100%;max-width:365px;height:auto;display:block;filter:drop-shadow(0 44px 84px rgba(0,0,0,.62));transform-style:preserve-3d;will-change:transform}
+  .phone-cap{position:absolute;bottom:2px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);z-index:2}
 
-.hero-glow {
-  position: absolute;
-  width: 600px; height: 600px;
-  top: -100px; left: 50%;
-  transform: translateX(-50%);
-  background: radial-gradient(circle, rgba(139,46,46,.12) 0%, transparent 70%);
-  pointer-events: none;
-  animation: glowPulse 6s ease-in-out infinite;
-}
-@keyframes glowPulse {
-  0%,100% { opacity:.6; transform: translateX(-50%) scale(1); }
-  50% { opacity:1; transform: translateX(-50%) scale(1.15); }
-}
+  /* value strip */
+  .strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--surface)}
+  .strip-in{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;padding:30px 0}
+  .strip-item{display:flex;align-items:center;gap:13px;font-family:'Bebas Neue';font-size:22px;letter-spacing:0.05em;color:var(--cream)}
+  .strip-item i{width:8px;height:8px;background:var(--red);border-radius:1px;flex-shrink:0}
 
-.hero-particles {
-  position: absolute; inset: 0; pointer-events: none; overflow: hidden;
-}
-.particle {
-  position: absolute;
-  width: 3px; height: 3px;
-  background: var(--red);
-  border-radius: 50%;
-  opacity: 0;
-  animation: particleFloat linear infinite;
-}
-@keyframes particleFloat {
-  0% { opacity: 0; transform: translateY(0) scale(0); }
-  10% { opacity: .5; transform: scale(1); }
-  90% { opacity: .3; }
-  100% { opacity: 0; transform: translateY(-600px) scale(0); }
-}
+  /* calculator */
+  .calc-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:56px;align-items:center}
+  .calc-copy h2{font-size:clamp(38px,5vw,60px);margin-bottom:18px;color:var(--cream)}
+  .calc-copy p{color:var(--muted);font-size:16px;max-width:360px}
+  .calc-panel{background:var(--surface);border:1px solid var(--border-strong);border-radius:3px;padding:40px 40px 34px}
+  .cf{margin-bottom:30px}
+  .cf-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;border-bottom:1px solid var(--border);padding-bottom:10px}
+  .cf-head span{font-size:11.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted)}
+  .cf-head b{font-family:'Bebas Neue';font-size:26px;color:var(--cream);letter-spacing:0.03em}
+  .cf-price{display:flex;align-items:center;background:var(--bg);border:1px solid var(--border-strong);border-radius:2px;padding:0 16px}
+  .cf-price em{font-style:normal;color:var(--muted);font-family:'Bebas Neue';font-size:24px}
+  .cf-price input{background:transparent;border:none;color:var(--cream);font-family:'Bebas Neue';font-size:28px;letter-spacing:0.03em;padding:13px 8px;width:100%;outline:none}
+  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:3px;background:var(--border-strong);outline:none;margin-top:6px}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:24px;border-radius:1px;background:var(--red);cursor:pointer;border:none}
+  input[type=range]::-moz-range-thumb{width:14px;height:22px;border-radius:1px;background:var(--red);cursor:pointer;border:none}
+  input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:5px}
+  .track{display:flex;gap:3px;height:16px;margin:2px 0 28px}
+  .seg{flex:1;background:transparent;border:1px solid var(--border-strong);border-radius:1px;transition:.18s}
+  .seg.paid{background:var(--red);border-color:var(--red)}
+  .seg.free{border:1px dashed var(--red);background:rgba(176,48,48,0.16)}
+  .calc-out{border-top:1px solid var(--border-strong);padding-top:24px;display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  .calc-big{font-family:'Bebas Neue';font-size:52px;color:var(--red);letter-spacing:0.02em;line-height:.9}
+  .calc-big span{font-family:'DM Sans';font-size:14px;font-weight:500;color:var(--cream);letter-spacing:0;display:block;margin-top:6px}
+  .calc-sub{font-size:14px;color:var(--muted);text-align:right;max-width:200px}
 
-.hero-eyebrow{display:flex;align-items:center;gap:16px;margin-bottom:36px;position:relative;z-index:2;}
-.hero-eyebrow .tick{width:40px;height:1px;background:var(--red);opacity:.5;transform-origin: left;animation: lineGrow .6s .3s cubic-bezier(.16,1,.3,1) both;}
-@keyframes lineGrow {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
-}
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:16px}
+  .step{border-top:2px solid var(--red);padding-top:24px}
+  .step .n{font-family:'Bebas Neue';font-size:15px;letter-spacing:0.14em;color:var(--red);margin-bottom:16px}
+  .step h3{font-size:26px;margin-bottom:10px;color:var(--cream)}
+  .step p{color:var(--muted);font-size:15px;line-height:1.6}
 
-.hero .container{position:relative;z-index:2;}
+  /* features */
+  .feat{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+  .fcard{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px;transition:border-color .2s,transform .2s}
+  .fcard:hover{border-color:var(--border-strong);transform:translateY(-2px)}
+  .fcard .fi{color:var(--red);margin-bottom:18px;height:26px;display:flex;align-items:center}
+  .fcard h3{font-size:23px;letter-spacing:0.03em;margin-bottom:7px;color:var(--cream)}
+  .fcard p{color:var(--muted);font-size:14px;line-height:1.55}
 
-h1.hero-headline{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(56px,8vw,108px);line-height:.95;letter-spacing:.04em;color:var(--cream);
-  position: relative;
-}
-h1.hero-headline .italic-serif{
-  font-family:'Instrument Serif',serif;font-style:italic;
-  font-size:clamp(48px,7vw,92px);color:var(--beige);display:block;letter-spacing:.01em;
-}
-h1.hero-headline::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    120deg,
-    transparent 0%,
-    transparent 35%,
-    rgba(201,184,154,.15) 45%,
-    rgba(237,229,216,.18) 50%,
-    rgba(201,184,154,.15) 55%,
-    transparent 65%,
-    transparent 100%
-  );
-  background-size: 200% 100%;
-  pointer-events: none;
-  animation: shimmer 3s 1.5s ease-in-out forwards;
-  mix-blend-mode: screen;
-}
-@keyframes shimmer {
-  0% { background-position: 100% 0; }
-  100% { background-position: -100% 0; }
-}
+  /* sms */
+  .sms{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .sms-grid{display:grid;grid-template-columns:1fr 1fr;gap:58px;align-items:center}
+  .sms h2{font-size:clamp(38px,5vw,58px);margin-bottom:22px;color:var(--cream)}
+  .sms-list{list-style:none}
+  .sms-list li{display:flex;gap:14px;padding:15px 0;border-bottom:1px solid var(--border);font-size:15.5px;color:var(--muted)}
+  .sms-list li:last-child{border-bottom:none}.sms-list b{color:var(--cream)}
+  .sms-list .c{color:var(--red);flex-shrink:0;margin-top:2px;font-weight:700}
+  .thread{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:22px}
+  .bub{background:var(--card);border-radius:12px 12px 12px 3px;padding:13px 16px;font-size:13px;max-width:86%;margin-bottom:12px;color:var(--cream);line-height:1.5}
+  .bub.me{background:var(--red);color:var(--cream);border-radius:12px 12px 3px 12px;margin-left:auto}
+  .bub small{display:block;font-size:9px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;opacity:.65;margin-top:6px}
 
-.hero-sub{
-  max-width:580px;font-size:clamp(15px,1.6vw,17px);
-  color:var(--beige);opacity:.8;line-height:1.8;margin:28px 0 48px;font-weight:300;
-}
-.hero-sub strong{color:var(--cream);font-weight:500;opacity:1;}
-.hero-ctas{display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+  /* pricing */
+  .price h2{font-size:clamp(38px,5vw,60px);margin-bottom:18px;color:var(--cream)}
+  .price .lead{font-size:17px;color:var(--muted);max-width:560px;margin-bottom:36px;line-height:1.65}
+  .price-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:720px}
+  .pcard{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:32px}
+  .pcard .pt{font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+  .pcard h3{font-size:30px;letter-spacing:0.02em;margin-bottom:10px;color:var(--cream)}
+  .pcard p{color:var(--muted);font-size:14.5px;line-height:1.6}
+  .price-note{margin-top:22px;font-size:14px;color:var(--muted);max-width:720px}.price-note b{color:var(--cream)}
 
-/* ═══════════════════════════════════════════════
-   BUTTONS
-═══════════════════════════════════════════════ */
-.btn-primary{
-  display:inline-block;background:var(--red);color:var(--cream);
-  text-decoration:none;font-weight:600;font-size:13px;
-  letter-spacing:.1em;text-transform:uppercase;
-  padding:18px 40px;border-radius:2px;border:none;cursor:pointer;
-  transition:background .2s,transform .2s,box-shadow .3s;
-  position: relative;
-  overflow: hidden;
-}
-.btn-primary::after {
-  content: '';
-  position: absolute;
-  top: 50%; left: 50%;
-  width: 0; height: 0;
-  background: rgba(255,255,255,.08);
-  border-radius: 50%;
-  transform: translate(-50%,-50%);
-  transition: width .5s ease, height .5s ease;
-}
-.btn-primary:hover::after { width: 300px; height: 300px; }
-.btn-primary:hover{background:var(--red-h);transform:translateY(-2px);box-shadow:0 10px 40px rgba(176,48,48,.3);}
-.btn-ghost{
-  display:inline-flex;align-items:center;gap:10px;
-  color:var(--beige);text-decoration:none;font-weight:500;font-size:13px;
-  letter-spacing:.08em;text-transform:uppercase;opacity:.7;transition:opacity .2s;
-  background:transparent;border:none;cursor:pointer;
-}
-.btn-ghost svg{transition:transform .3s cubic-bezier(.16,1,.3,1);}
-.btn-ghost:hover{opacity:1;}
-.btn-ghost:hover svg{transform:translateX(6px);}
+  /* faq */
+  .faq{max-width:780px;margin-top:16px}
+  details{border-bottom:1px solid var(--border)}
+  summary{cursor:pointer;list-style:none;padding:24px 0;font-family:'Bebas Neue';font-size:23px;letter-spacing:0.02em;color:var(--cream);display:flex;justify-content:space-between;align-items:center;gap:20px}
+  summary::-webkit-details-marker{display:none}
+  summary .p{color:var(--red);font-size:26px;font-family:'DM Sans';font-weight:300;transition:transform .2s;flex-shrink:0}
+  details[open] summary .p{transform:rotate(45deg)}
+  details p{padding:0 0 24px;color:var(--muted);font-size:15.5px;line-height:1.65;max-width:660px}
 
-/* ═══════════════════════════════════════════════
-   STATS BAND
-═══════════════════════════════════════════════ */
-.stats-band{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--surface);}
-.stats-inner{display:grid;grid-template-columns:repeat(3,1fr);}
-.stat{padding:36px 32px;border-right:1px solid var(--border);transition: background .3s ease;}
-.stat:last-child{border-right:none;}
-.stat:hover { background: rgba(139,46,46,.04); }
-.stat-num{font-family:'Bebas Neue',sans-serif;font-size:52px;line-height:1;color:var(--cream);letter-spacing:.04em;display:block;margin-bottom:6px;}
-.stat-num sup{font-size:28px;vertical-align:super;color:var(--red);}
-.stat-desc{font-size:12px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;font-weight:500;line-height:1.5;}
+  /* final */
+  .final{text-align:center;background:linear-gradient(180deg,var(--bg),#150e0c)}
+  .final h2{font-size:clamp(48px,7vw,92px);color:var(--cream);margin-bottom:22px}
+  .final p{color:var(--muted);font-size:18px;max-width:500px;margin:0 auto 32px}
+  .final .micro{margin-top:22px;font-size:12.5px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted)}
 
-/* ═══════════════════════════════════════════════
-   SECTIONS COMMON
-═══════════════════════════════════════════════ */
-section{padding:100px 0;}
-.section-header{margin-bottom:64px;}
-.section-header .label{margin-bottom:14px;}
-.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4.5vw,58px);letter-spacing:.06em;color:var(--cream);line-height:1;}
-.section-title .serif-it{font-family:'Instrument Serif',serif;font-style:italic;color:var(--beige);letter-spacing:.02em;}
-.section-lede{font-family:'Instrument Serif',serif;font-style:italic;font-size:18px;color:var(--beige);opacity:.85;line-height:1.65;max-width:620px;margin-top:24px;}
+  footer{border-top:1px solid var(--border);padding:44px 0}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
+  .foot-links{display:flex;gap:26px;font-size:14px;color:var(--muted)}.foot-links a:hover{color:var(--cream)}
+  .foot-copy{width:100%;padding-top:22px;border-top:1px solid var(--border);margin-top:26px;font-size:13px;color:var(--muted)}
 
-/* ═══════════════════════════════════════════════
-   TWO-SIDE PRODUCT
-═══════════════════════════════════════════════ */
-.two-side{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);}
-.side-card{background:var(--bg);padding:48px 40px;transition: background .35s;}
-.side-card:hover{background:var(--card);}
-.side-tag{font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:18px;display:flex;align-items:center;gap:12px;}
-.side-tag::before{content:'';width:26px;height:1px;background:var(--red);}
-.side-title{font-family:'Bebas Neue',sans-serif;font-size:34px;letter-spacing:.05em;color:var(--cream);line-height:1.05;margin-bottom:6px;}
-.side-title .serif-it{font-family:'Instrument Serif',serif;font-style:italic;color:var(--beige);font-size:30px;display:block;letter-spacing:.02em;margin-top:4px;}
-.side-sub{font-size:13px;color:var(--muted);margin-bottom:28px;font-weight:300;line-height:1.6;}
-.side-list{list-style:none;}
-.side-list li{padding:14px 0;border-bottom:1px solid var(--border);font-size:14px;line-height:1.65;color:var(--beige);font-weight:300;display:flex;gap:14px;align-items:flex-start;transition: transform .25s ease;}
-.side-list li:last-child{border-bottom:none;}
-.side-list li:hover{transform:translateX(4px);}
-.side-list li strong{color:var(--cream);font-weight:500;}
-.side-list .icon{flex-shrink:0;margin-top:3px;width:14px;height:14px;color:var(--red);}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  .ribbon{position:fixed;bottom:16px;left:16px;z-index:100;background:var(--card);border:1px solid var(--border-strong);border-radius:20px;padding:8px 16px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted)}.ribbon b{color:var(--red)}
 
-/* ═══════════════════════════════════════════════
-   HOW IT WORKS — 3 STEPS
-═══════════════════════════════════════════════ */
-.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
-.step-card{background:var(--bg);padding:48px 36px;transition:background .35s, transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s; position: relative;}
-.step-card:hover{background:var(--card); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,.3);}
-.step-num-display{font-family:'Bebas Neue',sans-serif;font-size:80px;color:rgba(139,46,46,.12);line-height:1;margin-bottom:24px;letter-spacing:.04em;transition:color .35s, transform .35s;}
-.step-card:hover .step-num-display{color:rgba(176,48,48,.28); transform: translateX(6px);}
-.step-card h3{font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--cream);margin-bottom:6px;}
-.step-card h3 span{display:block;font-family:'Instrument Serif',serif;font-style:italic;font-size:20px;letter-spacing:.02em;color:var(--beige);text-transform:none;font-weight:400;margin-top:4px;margin-bottom:16px;}
-.step-card p{font-size:14px;color:var(--muted);line-height:1.75;font-weight:300;}
-.step-card p strong{color:var(--beige);font-weight:500;}
-.step-card::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 2px;
-  background: var(--red);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform .4s cubic-bezier(.16,1,.3,1);
-}
-.step-card:hover::after { transform: scaleX(1); }
+  @media (max-width:900px){
+    section{padding:78px 0}
+    .hero-grid,.calc-grid,.sms-grid{grid-template-columns:1fr;gap:44px}
+    .phone-stage{order:-1;min-height:480px}
+    .steps,.feat,.price-cards{grid-template-columns:1fr}
+    .nav-link{display:none}.strip-in{gap:18px}
+    .calc-out{flex-direction:column;align-items:flex-start}.calc-sub{text-align:left}
+  }
+  @media (max-width:600px){.wrap{padding:0 18px}.hero-cta{flex-direction:column}.hero-cta .btn{width:100%}.render{max-width:290px}}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
 
-/* ═══════════════════════════════════════════════
-   WHY KNETIX vs ALTERNATIVES
-═══════════════════════════════════════════════ */
-.why-section{background:var(--surface);}
-.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);border:1px solid var(--border);margin-top:56px;}
-.compare-col{background:var(--bg);padding:48px 40px;}
-.compare-col.kinetics{background:var(--card);}
-.compare-col-label{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;padding:7px 14px;border-radius:2px;display:inline-block;margin-bottom:32px;}
-.compare-col.traditional .compare-col-label{background:rgba(255,255,255,.04);color:var(--muted);border:1px solid rgba(255,255,255,.07);}
-.compare-col.kinetics .compare-col-label{background:rgba(176,48,48,.15);color:var(--red);border:1px solid rgba(176,48,48,.25);}
-.compare-items{list-style:none;}
-.compare-items li{padding:16px 0;border-bottom:1px solid var(--border);font-size:14px;line-height:1.65;display:flex;gap:14px;align-items:flex-start;color:var(--beige);font-weight:300;transition: transform .25s ease;}
-.compare-items li:last-child{border-bottom:none;}
-.compare-items li:hover { transform: translateX(4px); }
-.compare-items li .icon{flex-shrink:0;margin-top:2px;width:18px;height:18px;transition: transform .3s ease;}
-.compare-items li:hover .icon { transform: scale(1.2); }
-.compare-col.traditional .icon{color:var(--muted);opacity:.5;}
-.compare-col.kinetics .icon{color:var(--red);}
-.compare-items li strong{color:var(--cream);font-weight:500;}
-
-/* ═══════════════════════════════════════════════
-   WHAT YOU GET — FEATURE GRID
-═══════════════════════════════════════════════ */
-.feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
-.feature{background:var(--bg);padding:32px 26px;transition: background .35s, transform .35s;}
-.feature:hover{background:var(--card); transform: translateY(-3px);}
-.feature-icon{width:32px;height:32px;color:var(--red);margin-bottom:20px;transition: transform .3s;}
-.feature:hover .feature-icon{transform: scale(1.12);}
-.feature-title{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);margin-bottom:10px;}
-.feature-body{font-family:'Instrument Serif',serif;font-style:italic;font-size:14px;line-height:1.5;color:var(--beige);opacity:.85;}
-
-/* ═══════════════════════════════════════════════
-   WHO IT'S FOR
-═══════════════════════════════════════════════ */
-.niche-section .section-header{margin-bottom:40px;}
-.niche-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(170px, 1fr));gap:10px;}
-.niche-chip{background:var(--card);border:1px solid var(--border);padding:18px 20px;transition: border-color .25s, transform .25s, background .25s;}
-.niche-chip:hover{border-color:rgba(176,48,48,.3); background:rgba(176,48,48,.04); transform: translateY(-2px);}
-.niche-name{font-size:13px;font-weight:500;color:var(--cream);margin-bottom:4px;letter-spacing:.02em;}
-.niche-tag{font-family:'Instrument Serif',serif;font-style:italic;font-size:12px;color:var(--muted);}
-
-/* ═══════════════════════════════════════════════
-   ATTRIBUTION-STYLE CARD (Owner Dashboard)
-═══════════════════════════════════════════════ */
-.dash-card{
-  background:var(--card);border:1px solid rgba(139,46,46,.2);
-  padding:64px 56px;position:relative;overflow:hidden;max-width:900px;
-  transition: border-color .4s ease, box-shadow .4s ease;
-}
-.dash-card:hover { border-color: rgba(176,48,48,.4); box-shadow: 0 0 60px rgba(139,46,46,.08); }
-.dash-card::before{
-  content:'QR';font-family:'Bebas Neue',sans-serif;font-size:280px;
-  color:rgba(139,46,46,.04);position:absolute;right:-20px;bottom:-40px;
-  line-height:1;pointer-events:none;
-  transition: transform .6s cubic-bezier(.16,1,.3,1), color .4s;
-}
-.dash-card:hover::before { transform: translate(-10px, -10px); color: rgba(139,46,46,.07); }
-.dash-card .label{margin-bottom:20px;}
-.dash-card h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,54px);letter-spacing:.06em;color:var(--cream);margin-bottom:28px;line-height:1;}
-.dash-card h2 em{font-family:'Instrument Serif',serif;font-style:italic;color:var(--beige);letter-spacing:.02em;}
-.dash-card p{font-size:16px;color:var(--beige);opacity:.75;line-height:1.8;max-width:560px;font-weight:300;}
-.dash-card p strong{color:var(--cream);font-weight:500;opacity:1;}
-.dash-pillars{display:flex;gap:40px;margin-top:44px;flex-wrap:wrap;}
-.dash-pillar{display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;transition: color .25s;}
-.dash-pillar:hover { color: var(--beige); }
-.dash-pillar .dot{width:6px;height:6px;background:var(--red);border-radius:50%;flex-shrink:0;transition: transform .3s, box-shadow .3s;}
-.dash-pillar:hover .dot { transform: scale(1.6); box-shadow: 0 0 10px rgba(176,48,48,.5); }
-
-/* ═══════════════════════════════════════════════
-   CLOSER / CTA
-═══════════════════════════════════════════════ */
-.closer{background:var(--card);border-top:1px solid var(--border);padding:120px 0;position:relative;overflow:hidden;}
-.closer-bg-text{
-  font-family:'Bebas Neue',sans-serif;font-size:22vw;
-  color:rgba(139,46,46,.04);position:absolute;bottom:-40px;left:50%;
-  transform:translateX(-50%);white-space:nowrap;pointer-events:none;
-  letter-spacing:.06em;line-height:1;
-}
-.closer-glow {
-  position: absolute;
-  width: 500px; height: 500px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(139,46,46,.08) 0%, transparent 70%);
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: opacity .4s;
-}
-.closer:hover .closer-glow { opacity: 1; }
-.closer .container{position:relative;z-index:1;}
-.closer .label{margin-bottom:20px;}
-.closer h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,64px);letter-spacing:.05em;color:var(--cream);line-height:1.05;max-width:720px;margin-bottom:28px;}
-.closer h2 em{font-family:'Instrument Serif',serif;font-style:italic;color:var(--beige);letter-spacing:.02em;}
-.closer-body{font-size:16px;color:var(--beige);opacity:.75;line-height:1.8;max-width:560px;margin-bottom:48px;font-weight:300;}
-.closer-body strong{color:var(--cream);opacity:1;font-weight:500;}
-.btn-closer{
-  display:inline-block;background:var(--red);color:var(--cream);
-  text-decoration:none;font-weight:700;font-size:14px;
-  letter-spacing:.12em;text-transform:uppercase;
-  padding:22px 56px;border-radius:2px;border:none;cursor:pointer;
-  transition:background .2s,transform .2s,box-shadow .3s;
-  position: relative;
-  overflow: hidden;
-}
-.btn-closer::after {
-  content: '';
-  position: absolute;
-  top: 50%; left: 50%;
-  width: 0; height: 0;
-  background: rgba(255,255,255,.08);
-  border-radius: 50%;
-  transform: translate(-50%,-50%);
-  transition: width .5s ease, height .5s ease;
-}
-.btn-closer:hover::after { width: 400px; height: 400px; }
-.btn-closer:hover{background:var(--red-h);transform:translateY(-2px);box-shadow:0 12px 50px rgba(176,48,48,.35);}
-.qualifier{margin-top:22px;font-size:12px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;font-weight:500;display:block;}
-
-/* ═══════════════════════════════════════════════
-   TEAM LINE
-═══════════════════════════════════════════════ */
-.team-line{border-top:1px solid var(--border);padding:32px 0;}
-.team-line .container{display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
-.team-person{display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);transition: color .25s;}
-.team-person:hover { color: var(--beige); }
-.avatar{width:32px;height:32px;border-radius:50%;border:1px solid rgba(139,46,46,.4);background:var(--card);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:14px;color:var(--red);letter-spacing:.05em;transition: border-color .3s, box-shadow .3s, transform .3s;}
-.team-person:hover .avatar { border-color: var(--red); box-shadow: 0 0 14px rgba(176,48,48,.3); transform: scale(1.1); }
-.team-divider{width:1px;height:24px;background:var(--border);}
-.team-line .label{margin-left:auto;}
-.team-email{font-size:11px;letter-spacing:.06em;color:var(--muted);text-decoration:none;border-bottom:1px solid transparent;transition:color .25s, border-color .25s;text-transform:none;}
-.team-email:hover{color:var(--red);border-bottom-color:var(--red);}
-
-/* ═══════════════════════════════════════════════
-   FOOTER
-═══════════════════════════════════════════════ */
-footer{border-top:1px solid var(--border);padding:32px 0;}
-footer .container{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
-footer p{font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;}
-footer a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent;transition: color .2s, border-color .2s;}
-footer a:hover{color:var(--red);border-bottom-color:var(--red);}
-
-/* ═══════════════════════════════════════════════
-   ANIMATIONS
-═══════════════════════════════════════════════ */
-@keyframes fadeUp{from{opacity:0;transform:translateY(32px);}to{opacity:1;transform:translateY(0);}}
-.fade-up{opacity:0;animation:fadeUp .8s cubic-bezier(.16,1,.3,1) forwards;}
-.d1{animation-delay:.1s;}.d2{animation-delay:.25s;}.d3{animation-delay:.4s;}
-
-.reveal{
-  opacity:0;
-  transform:translateY(30px);
-  transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);
-}
-.reveal.visible{opacity:1;transform:none;}
-
-.reveal-stagger .reveal-child {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity .5s cubic-bezier(.16,1,.3,1), transform .5s cubic-bezier(.16,1,.3,1);
-}
-.reveal-stagger.visible .reveal-child { opacity: 1; transform: none; }
-.reveal-stagger.visible .reveal-child:nth-child(1) { transition-delay: .05s; }
-.reveal-stagger.visible .reveal-child:nth-child(2) { transition-delay: .12s; }
-.reveal-stagger.visible .reveal-child:nth-child(3) { transition-delay: .19s; }
-.reveal-stagger.visible .reveal-child:nth-child(4) { transition-delay: .26s; }
-.reveal-stagger.visible .reveal-child:nth-child(5) { transition-delay: .33s; }
-
+/* ===== PRESERVED FUNNEL CSS: .modal-* + .kf-* (verbatim, do not alter) ===== */
 /* ═══════════════════════════════════════════════
    MODAL OVERLAY
 ═══════════════════════════════════════════════ */
@@ -542,47 +280,20 @@ footer a:hover{color:var(--red);border-bottom-color:var(--red);}
 @keyframes kf-spin{to{transform:rotate(360deg);}}
 .kf-spinner{width:18px;height:18px;border:2px solid rgba(237,229,216,.2);border-top-color:var(--cream);border-radius:50%;animation:kf-spin .7s linear infinite;display:inline-block;}
 
-/* ═══════════════════════════════════════════════
-   RESPONSIVE
-═══════════════════════════════════════════════ */
 @media(max-width:768px){
-  .header-cta{display:none;}
-  .stats-inner{grid-template-columns:1fr;}
-  .stat{border-right:none;border-bottom:1px solid var(--border);}
-  .stat:last-child{border-bottom:none;}
-  .two-side{grid-template-columns:1fr;}
-  .steps-grid{grid-template-columns:1fr;}
-  .compare-grid{grid-template-columns:1fr;}
-  .feature-grid{grid-template-columns:repeat(2,1fr);}
-  .dash-card{padding:40px 28px;}
-  .dash-pillars{gap:20px;}
-  .closer{padding:80px 0;}
-  .team-line .label{display:none;}
-  .team-line .container{flex-direction:column;align-items:flex-start;gap:28px;}
-  .team-divider{width:40px;height:1px;}
-  .team-person{flex-wrap:wrap;gap:8px 10px;}
-  .team-email{width:100%;padding-left:42px;}
   .kf-card{padding:32px 20px 28px;}
   .kf-success-card{padding:36px 20px;}
   .kf-input-group{grid-template-columns:1fr;}
   .kf-binary{grid-template-columns:1fr;}
-  .hero-particles { display: none; }
-  .hero-glow { width: 350px; height: 350px; }
-}
-@media(max-width:480px){
-  .feature-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
 <body>
 
-<!-- ════════════════════════════════════════════
-     HEADER
-════════════════════════════════════════════ -->
 <header>
-  <div class="container">
-    <a href="index.html" class="logo-wrap" aria-label="KNETIX home">
-      <svg width="36" height="36" viewBox="0 0 100 100" fill="none">
+  <div class="wrap nav">
+    <a class="brand" href="#" aria-label="KNETIX home">
+      <svg width="30" height="30" viewBox="0 0 100 100" fill="none" role="img" aria-label="KNETIX logo">
         <rect x="3" y="3" width="94" height="94" rx="2" stroke="#C9B89A" stroke-width="1" fill="none" opacity=".2"/>
         <rect x="12" y="12" width="22" height="76" fill="#8B2E2E"/>
         <polygon points="38,12 88,12 38,46" fill="#C9B89A"/>
@@ -590,340 +301,201 @@ footer a:hover{color:var(--red);border-bottom-color:var(--red);}
         <rect x="37" y="47" width="7" height="7" transform="rotate(45 40.5 50.5)" fill="#C9B89A" opacity=".8"/>
       </svg>
       <span class="brand-name">KNETIX</span>
-      <span class="brand-tag">Loyalty Platform</span>
     </a>
-    <button class="header-cta open-funnel">Get Started</button>
+    <div class="nav-right">
+      <a href="#math" class="nav-link">The math</a>
+      <a href="#how" class="nav-link">How it works</a>
+      <a href="#faq" class="nav-link">FAQ</a>
+      <a href="#start" class="btn btn-primary open-funnel" style="padding:11px 22px;font-size:14px">Get started</a>
+    </div>
   </div>
 </header>
 
-<!-- ════════════════════════════════════════════
-     HERO
-════════════════════════════════════════════ -->
-<section class="hero">
-  <div class="hero-grid-bg"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-particles" id="heroParticles"></div>
-  <div class="container">
-    <div class="hero-eyebrow fade-up">
-      <span class="tick"></span>
-      <span class="label">Done For You. Live in 24 Hours.</span>
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div class="reveal in">
+      <div class="eyebrow">Done-for-you loyalty &amp; referral</div>
+      <h1>Turn visitors<br>into <span class="serif">regulars.</span></h1>
+      <p class="hero-sub">A fully branded loyalty and referral system, built for you and live in 24 hours. Your customers scan, sign up, and every visit is tracked. No app to download.</p>
+      <div class="hero-cta">
+        <a href="#start" class="btn btn-primary btn-lg open-funnel">Get started</a>
+        <a href="#how" class="btn btn-ghost btn-lg">See how it works</a>
+      </div>
+      <div class="hero-tags">
+        <span class="hero-tag"><i></i> No app to download</span>
+        <span class="hero-tag"><i></i> Branded to you</span>
+        <span class="hero-tag"><i></i> Live in 24 hours</span>
+      </div>
     </div>
-    <h1 class="hero-headline fade-up d1">
-      Every Visit, Tracked.
-      <span class="italic-serif">Every Customer, Yours.</span>
-    </h1>
-    <p class="hero-sub fade-up d2">
-      A done-for-you loyalty and referral platform for service businesses. Your branding. Your data. <strong>Your regulars — on autopilot.</strong> We build the whole thing for you in 24 hours.
-    </p>
-    <div class="hero-ctas fade-up d3">
-      <button class="btn-primary open-funnel">Get My Loyalty Page Built</button>
-      <button class="btn-ghost open-funnel">
-        See What You Get
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </button>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════
-     STATS BAND
-════════════════════════════════════════════ -->
-<div class="stats-band">
-  <div class="container">
-    <div class="stats-inner">
-      <div class="stat reveal">
-        <span class="stat-num" data-target="30" data-suffix="s">30<sup>s</sup></span>
-        <span class="stat-desc">Customer sign-up time — one scan, name &amp; phone</span>
-      </div>
-      <div class="stat reveal">
-        <span class="stat-num" data-target="24" data-suffix="hr">24<sup>hr</sup></span>
-        <span class="stat-desc">From your details to a live, fully-branded page</span>
-      </div>
-      <div class="stat reveal">
-        <span class="stat-num" data-target="1" data-suffix="tap">1<sup>tap</sup></span>
-        <span class="stat-desc">Log a visit. Redeem a reward. From your phone.</span>
-      </div>
+    <div class="phone-stage reveal in">
+      <div class="phone-glow"></div>
+      <img class="render" id="render" alt="A phone showing a customer's branded loyalty progress screen"
+        src="https://d8j0ntlcm91z4.cloudfront.net/user_3EtGNS8SzyoI5DsXhXVT7i7Uv6N/hf_20260712_084726_f191de77-44ad-4164-8aeb-cdabb9871534.png" />
+      <div class="phone-cap">Branded in your colours &amp; logo</div>
     </div>
   </div>
 </div>
 
-<!-- ════════════════════════════════════════════
-     TWO SIDES — THE PRODUCT
-════════════════════════════════════════════ -->
-<section>
-  <div class="container">
-    <div class="section-header reveal">
-      <p class="label">The Product</p>
-      <h2 class="section-title">Two Sides. <span class="serif-it">One System.</span></h2>
-      <p class="section-lede">A private dashboard for you. A fully-branded sign-up page for your customers. The loyalty card you've always wanted to run — without the paper, the lost punch cards, or the spreadsheet.</p>
-    </div>
-    <div class="two-side">
-      <div class="side-card reveal">
-        <div class="side-tag">For The Owner</div>
-        <h3 class="side-title">Your Private<span class="serif-it">dashboard.</span></h3>
-        <p class="side-sub">Everything you need to run loyalty, in one screen — on your phone.</p>
-        <ul class="side-list reveal-stagger">
-          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Live name &amp; phone search across every customer you've ever signed up.</li>
-          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>One-tap <strong>+1 Visit</strong> when a regular walks in — visit logged instantly.</li>
-          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Pending rewards queue — see who's earned a reward, redeem with one tap.</li>
-          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Referral tracking — see who's bringing in business, automatically.</li>
-          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Printable QR code for your counter, branded to your business.</li>
-        </ul>
-      </div>
-      <div class="side-card reveal">
-        <div class="side-tag">For Your Customers</div>
-        <h3 class="side-title">A Branded<span class="serif-it">join page — yours.</span></h3>
-        <p class="side-sub">Scan, sign up, see progress. No app to download. Ever.</p>
-        <ul class="side-list reveal-stagger">
-          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Customer scans a QR code in your shop — opens your branded page.</li>
-          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Signs up in 30 seconds with name and phone — no password.</li>
-          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Re-visits any time to see their progress and reward status.</li>
-          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Personal referral link to share with friends — credits track automatically.</li>
-          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Your colours, your font, your name, your logo. <strong>KNETIX stays invisible.</strong></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════
-     HOW IT WORKS
-════════════════════════════════════════════ -->
-<section style="padding-top:0;">
-  <div class="container">
-    <div class="section-header reveal">
-      <p class="label">The Process</p>
-      <h2 class="section-title">Live in <span class="serif-it">24 Hours.</span></h2>
-    </div>
-    <div class="steps-grid">
-      <div class="step-card reveal">
-        <div class="step-num-display">01</div>
-        <h3>The Brief<span>Tell us about your business.</span></h3>
-        <p>A short form — your business name, what reward you want to offer, typical service price, and how you want it to look. We use it to set your loyalty thresholds correctly so <strong>the math actually works for your margins.</strong></p>
-      </div>
-      <div class="step-card reveal">
-        <div class="step-num-display">02</div>
-        <h3>The Build<span>We build it to your brand.</span></h3>
-        <p>Within 24 hours, your loyalty page is live — your colours, your font, your business name, your logo. Your customers see <strong>your brand</strong>, not ours. We send you your login, your QR code, and a short walkthrough.</p>
-      </div>
-      <div class="step-card reveal">
-        <div class="step-num-display">03</div>
-        <h3>The Launch<span>Start collecting regulars.</span></h3>
-        <p>Print the QR, put it on the counter. Customers scan and join. You tap +1 on every visit. Rewards pop up when they're earned. <strong>You finally own the relationship</strong> with every regular you have.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════
-     WHY KNETIX vs ALTERNATIVES
-════════════════════════════════════════════ -->
-<section class="why-section">
-  <div class="container">
-    <div class="section-header reveal">
-      <p class="label">The Model</p>
-      <h2 class="section-title">Why This Beats <span class="serif-it">Punch Cards</span> &amp; <span class="serif-it">Generic Apps.</span></h2>
-    </div>
-    <div class="compare-grid">
-      <div class="compare-col traditional reveal">
-        <span class="compare-col-label">The Old Way</span>
-        <ul class="compare-items reveal-stagger">
-          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>Punch cards get lost. Customers forget them. No way to recover data.</li>
-          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>Generic apps brand themselves, not you. Customers join "their" platform.</li>
-          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>Per-customer pricing — you get punished for growing your customer base.</li>
-          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>No referral system. No customer data you actually own. No way to find Sarah's number.</li>
-          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>You set it up. You configure it. You troubleshoot it. Your problem.</li>
-        </ul>
-      </div>
-      <div class="compare-col kinetics reveal">
-        <span class="compare-col-label">KNETIX</span>
-        <ul class="compare-items reveal-stagger">
-          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Nothing to lose. Progress lives in the customer's phone, every visit.</li>
-          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><strong>Your brand</strong> — colours, font, logo, name. KNETIX is invisible to your customers.</li>
-          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Flat retainer. Unlimited customers. We don't punish growth.</li>
-          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Every customer's name, phone, visit count, referrals — searchable and <strong>yours.</strong></li>
-          <li class="reveal-child"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>We build it. We deliver it. <strong>You don't configure anything.</strong></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════
-     WHAT YOU GET — FEATURES
-════════════════════════════════════════════ -->
-<section>
-  <div class="container">
-    <div class="section-header reveal">
-      <p class="label">What You Get</p>
-      <h2 class="section-title">Built &amp; Delivered, <span class="serif-it">Not Configured.</span></h2>
-      <p class="section-lede">You don't set anything up. You don't install software. You tell us about your business — we hand you a finished platform.</p>
-    </div>
-    <div class="feature-grid">
-      <div class="feature reveal">
-        <svg class="feature-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5">
-          <rect x="6" y="6" width="10" height="10"/><rect x="20" y="6" width="10" height="10"/><rect x="6" y="20" width="10" height="10"/>
-          <rect x="22" y="22" width="3" height="3" fill="currentColor"/><rect x="27" y="22" width="3" height="3" fill="currentColor"/><rect x="22" y="27" width="3" height="3" fill="currentColor"/>
-        </svg>
-        <div class="feature-title">Printable QR</div>
-        <div class="feature-body">Branded to your business. Print it, stick it on the counter, done.</div>
-      </div>
-      <div class="feature reveal">
-        <svg class="feature-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5">
-          <rect x="5" y="8" width="26" height="20" rx="1"/><path d="M5 14h26"/>
-          <circle cx="9" cy="11" r="0.8" fill="currentColor"/><circle cx="12" cy="11" r="0.8" fill="currentColor"/>
-          <path d="M10 19h12M10 23h8" stroke-linecap="round"/>
-        </svg>
-        <div class="feature-title">Owner Dashboard</div>
-        <div class="feature-body">Search, log visits, redeem rewards, track referrals — from your phone.</div>
-      </div>
-      <div class="feature reveal">
-        <svg class="feature-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M18 5l3.2 7.5L29 13l-5.8 5.2L25 26l-7-3.8L11 26l1.8-7.8L7 13l7.8-.5L18 5z" stroke-linejoin="round"/>
-        </svg>
-        <div class="feature-title">Your Branding</div>
-        <div class="feature-body">Three colours, your font, your logo, your name. KNETIX stays invisible.</div>
-      </div>
-      <div class="feature reveal">
-        <svg class="feature-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5">
-          <circle cx="11" cy="14" r="4"/><circle cx="24" cy="14" r="4"/>
-          <path d="M4 28c0-3.9 3.1-7 7-7s7 3.1 7 7M17 28c0-3.9 3.1-7 7-7s7 3.1 7 7"/>
-        </svg>
-        <div class="feature-title">Referral Engine</div>
-        <div class="feature-body">Every customer gets a referral link. Signups credit the right person.</div>
-      </div>
-      <div class="feature reveal">
-        <svg class="feature-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5">
-          <rect x="5" y="9" width="26" height="18" rx="1"/><path d="M5 14h26"/>
-          <path d="M10 21h6M22 21h4" stroke-linecap="round"/>
-        </svg>
-        <div class="feature-title">Stripe Billing</div>
-        <div class="feature-body">Automated invoicing. No chasing payments, no awkward conversations.</div>
-      </div>
-      <div class="feature reveal">
-        <svg class="feature-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5">
-          <rect x="8" y="6" width="20" height="24" rx="2"/>
-          <path d="M14 13h8M14 18h8M14 23h5" stroke-linecap="round"/>
-        </svg>
-        <div class="feature-title">Customer List</div>
-        <div class="feature-body">Every regular's name, phone, visit count, referrals — searchable, exportable.</div>
-      </div>
-      <div class="feature reveal">
-        <svg class="feature-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5">
-          <rect x="7" y="5" width="22" height="26" rx="3"/>
-          <circle cx="18" cy="26" r="1.4" fill="currentColor"/>
-          <path d="M13 11h10M13 15h10M13 19h7" stroke-linecap="round"/>
-        </svg>
-        <div class="feature-title">Mobile-First</div>
-        <div class="feature-body">Customers don't download anything. Runs in any phone's browser.</div>
-      </div>
-      <div class="feature reveal">
-        <svg class="feature-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5">
-          <rect x="6" y="12" width="24" height="16" rx="1"/>
-          <path d="M12 12V9a6 6 0 0112 0v3"/>
-          <circle cx="18" cy="20" r="1.6" fill="currentColor"/>
-        </svg>
-        <div class="feature-title">Data Isolation</div>
-        <div class="feature-body">Per-business isolation at the database layer. Your list is yours alone.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════
-     OWNER-FACING SHOWPIECE
-════════════════════════════════════════════ -->
-<section>
-  <div class="container">
-    <div class="dash-card reveal">
-      <p class="label">Owner Authority</p>
-      <h2>You Own The <em>Customer Relationship.</em></h2>
-      <p>
-        Every loyalty platform you've used until now built <strong>their own brand</strong> on top of <strong>your customers</strong>. KNETIX flips it.<br><br>
-        Your customers see your colours, your font, your name, your logo — they don't even know we exist. The data they generate is searchable, exportable, and <strong>yours.</strong> Forever. No black-box dashboards. No platform lock-in. No customer list you can't access.
-      </p>
-      <div class="dash-pillars">
-        <div class="dash-pillar"><span class="dot"></span> Full Brand Control</div>
-        <div class="dash-pillar"><span class="dot"></span> Exportable Customer Data</div>
-        <div class="dash-pillar"><span class="dot"></span> Searchable By Name &amp; Phone</div>
-        <div class="dash-pillar"><span class="dot"></span> No App For Customers</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════
-     WHO IT'S FOR
-════════════════════════════════════════════ -->
-<section class="niche-section" style="padding-top:0;">
-  <div class="container">
-    <div class="section-header reveal">
-      <p class="label">Who It's For</p>
-      <h2 class="section-title">If Your Customers <span class="serif-it">Come Back,</span> This Works.</h2>
-      <p class="section-lede">Built for service-based businesses with repeat customers — local, online, anywhere in the world. If you have regulars, you have a loyalty program worth running.</p>
-    </div>
-    <div class="niche-grid">
-      <div class="niche-chip reveal"><div class="niche-name">Barbers</div><div class="niche-tag">Every 8th cut</div></div>
-      <div class="niche-chip reveal"><div class="niche-name">Nail Techs</div><div class="niche-tag">Every 10th set</div></div>
-      <div class="niche-chip reveal"><div class="niche-name">Lash &amp; Brow</div><div class="niche-tag">Every 6th fill</div></div>
-      <div class="niche-chip reveal"><div class="niche-name">Hair Salons</div><div class="niche-tag">Repeat colour</div></div>
-      <div class="niche-chip reveal"><div class="niche-name">Car Detailers</div><div class="niche-tag">Monthly washes</div></div>
-      <div class="niche-chip reveal"><div class="niche-name">Vape Shops</div><div class="niche-tag">Weekly regulars</div></div>
-      <div class="niche-chip reveal"><div class="niche-name">Tattoo Studios</div><div class="niche-tag">Return ink work</div></div>
-      <div class="niche-chip reveal"><div class="niche-name">Massage &amp; Spa</div><div class="niche-tag">Monthly clients</div></div>
-      <div class="niche-chip reveal"><div class="niche-name">Med-Spa</div><div class="niche-tag">Repeat treatments</div></div>
-      <div class="niche-chip reveal"><div class="niche-name">Pet Groomers</div><div class="niche-tag">Recurring grooms</div></div>
-      <div class="niche-chip reveal"><div class="niche-name">Cafés &amp; Boba</div><div class="niche-tag">Daily regulars</div></div>
-      <div class="niche-chip reveal"><div class="niche-name">Online Coaches</div><div class="niche-tag">Returning sessions</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════
-     CLOSER / CTA
-════════════════════════════════════════════ -->
-<section class="closer">
-  <div class="closer-bg-text">LOYALTY</div>
-  <div class="closer-glow" id="closerGlow"></div>
-  <div class="container">
-    <p class="label reveal">Ready to Build?</p>
-    <h2 class="reveal">Stop Losing Track<br>of <em>Your Best Customers.</em></h2>
-    <p class="closer-body reveal">
-      Tell us about your business — eight short questions, under two minutes. <strong>We'll have your branded loyalty platform live within 24 hours</strong>, with your login, your QR code, and a short walkthrough.<br><br>
-      No setup work on your end. No software to install. Just regulars, tracked.
-    </p>
-    <button class="btn-closer open-funnel reveal">Get My Loyalty Page Built</button>
-    <span class="qualifier reveal">No setup fee · You own your customer data · Cancel anytime</span>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════
-     TEAM LINE
-════════════════════════════════════════════ -->
-<div class="team-line">
-  <div class="container">
-    <div class="team-person">
-      <div class="avatar">M</div>
-      <span>Mohamad Aldossari — Technical Lead</span>
-      <a href="mailto:mohamad@knetixmarketing.com" class="team-email">mohamad@knetixmarketing.com</a>
-    </div>
-    <div class="team-divider"></div>
-    <div class="team-person">
-      <div class="avatar">B</div>
-      <span>Brody Cramp — Management</span>
-      <a href="mailto:brody@knetixmarketing.com" class="team-email">brody@knetixmarketing.com</a>
-    </div>
-    <p class="label">KNETIX Est. 2026</p>
+<div class="strip">
+  <div class="wrap strip-in">
+    <div class="strip-item"><i></i> Built for you</div>
+    <div class="strip-item"><i></i> Loyalty + referral + SMS</div>
+    <div class="strip-item"><i></i> Your data, yours</div>
+    <div class="strip-item"><i></i> Cancel anytime</div>
   </div>
 </div>
 
-<!-- ════════════════════════════════════════════
-     FOOTER
-════════════════════════════════════════════ -->
+<section id="math">
+  <div class="wrap calc-grid">
+    <div class="calc-copy reveal">
+      <div class="eyebrow">The math</div>
+      <h2>Does it <span class="serif">work?</span></h2>
+      <p>Set your price and your reward. See what a regular spends before you ever give a thing away.</p>
+    </div>
+    <div class="calc-panel reveal">
+      <div class="cf">
+        <div class="cf-head"><span>Average price per visit</span><b id="pOut">$40</b></div>
+        <div class="cf-price"><em>$</em><input type="number" id="price" value="40" min="5" max="500" aria-label="Average price per visit" /></div>
+      </div>
+      <div class="cf">
+        <div class="cf-head"><span>Free reward after</span><b><span id="tOut">10</span> visits</b></div>
+        <input type="range" id="thr" min="5" max="15" value="10" aria-label="Reward after this many visits" />
+      </div>
+      <div class="track" id="track" aria-hidden="true"></div>
+      <div class="calc-out">
+        <div class="calc-big" id="cBig"></div>
+        <div class="calc-sub" id="cSub"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<section id="how">
+  <div class="wrap reveal">
+    <div class="eyebrow">How it works</div>
+    <h2 style="font-size:clamp(38px,5vw,60px);max-width:640px;color:var(--cream)">Live in 24 <span class="serif">hours.</span></h2>
+    <div class="steps">
+      <div class="step"><div class="n">STEP 01</div><h3>Tell us about your business</h3><p>A short form. Your name, your reward, your colours. Two minutes, from your phone.</p></div>
+      <div class="step"><div class="n">STEP 02</div><h3>We build and brand it</h3><p>Within 24 hours it is live in your colours, font and logo, with your QR code. You set up nothing.</p></div>
+      <div class="step"><div class="n">STEP 03</div><h3>Start collecting regulars</h3><p>Print the QR, tap +1 on every visit. Every customer is tracked and yours to keep.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:24px">
+  <div class="wrap reveal">
+    <div class="eyebrow b">What you get</div>
+    <h2 style="font-size:clamp(34px,4.4vw,52px);color:var(--cream)">Everything, <span class="serif">handled.</span></h2>
+    <div class="feat">
+      <div class="fcard">
+        <div class="fi"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3M14 17.5h.01M17.5 14v3.5M20.5 14v.01M17.5 20.5h.01M20.5 17.5v3"/></svg></div>
+        <h3>QR sign-up</h3><p>Customers scan and join in 30 seconds. No app, ever.</p>
+      </div>
+      <div class="fcard">
+        <div class="fi"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="9.5" r="1.2" fill="currentColor" stroke="none"/><circle cx="15" cy="9.5" r="1.2" fill="currentColor" stroke="none"/><circle cx="12" cy="15" r="1.2" fill="currentColor" stroke="none"/></svg></div>
+        <h3>Your branding</h3><p>Your colours, font, logo and name. KNETIX stays invisible.</p>
+      </div>
+      <div class="fcard">
+        <div class="fi"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="6" y="3" width="12" height="18" rx="2.5"/><path d="M10.5 18h3"/></svg></div>
+        <h3>Owner dashboard</h3><p>Search, log a visit, redeem a reward, all from your phone.</p>
+      </div>
+      <div class="fcard">
+        <div class="fi"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="6" cy="12" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="18" cy="18" r="2.4"/><path d="M8.1 10.9 15.9 7.1M8.1 13.1l7.8 3.8"/></svg></div>
+        <h3>Referral engine</h3><p>Every customer gets a link. Their friends credit them automatically.</p>
+      </div>
+      <div class="fcard">
+        <div class="fi"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5.5h16v10H9.5L5 19v-3.5H4z"/><path d="M8 9.5h8M8 12.5h5"/></svg></div>
+        <h3>SMS built in</h3><p>Auto-texts and promo blasts, from your own local number.</p>
+      </div>
+      <div class="fcard">
+        <div class="fi"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.66 3.13 3 7 3s7-1.34 7-3V6M5 12v6c0 1.66 3.13 3 7 3s7-1.34 7-3v-6"/></svg></div>
+        <h3>Your data</h3><p>Every name, phone and visit. Searchable, exportable, yours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sms">
+  <div class="wrap sms-grid">
+    <div class="reveal">
+      <div class="eyebrow">Texting, built in</div>
+      <h2>Reach them <span class="serif">automatically.</span></h2>
+      <ul class="sms-list">
+        <li><span class="c">✓</span><span><b>Auto-texts</b> the moment a reward is earned or redeemed.</span></li>
+        <li><span class="c">✓</span><span><b>Win-back texts</b> to anyone who has not visited in a month.</span></li>
+        <li><span class="c">✓</span><span><b>Promo blasts</b> to your whole list on a slow day.</span></li>
+        <li><span class="c">✓</span><span><b>Compliance built in.</b> Opt-in only, one-tap opt-out, no accidental spam.</span></li>
+      </ul>
+    </div>
+    <div class="reveal">
+      <div class="thread">
+        <div class="bub me">Your free reward is ready. See you soon.<small>Auto-sent · reward earned</small></div>
+        <div class="bub">On my way, thanks</div>
+        <div class="bub me">Slow day? 15% off today only. Reply STOP to opt out.<small>Promo blast · 214 sent</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="price">
+  <div class="wrap reveal">
+    <div class="eyebrow b">Pricing</div>
+    <h2>Simple, <span class="serif">honest.</span></h2>
+    <p class="lead">One setup fee to build and brand your whole system. Then a flat fee every four weeks. No per-customer charges, so you are never punished for growing.</p>
+    <div class="price-cards">
+      <div class="pcard"><div class="pt">One-time</div><h3>Setup &amp; build</h3><p>Your whole system built, branded and delivered in 24 hours. You configure nothing.</p></div>
+      <div class="pcard"><div class="pt">Every 4 weeks</div><h3>Flat fee</h3><p>A single flat rate to keep it running. Unlimited customers, no per-head charges.</p></div>
+    </div>
+    <p class="price-note"><b>Cancel anytime, 30 days' notice.</b> Your exact quote depends on your business, and you own your customer data the whole way through.</p>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<section id="faq">
+  <div class="wrap reveal">
+    <div class="eyebrow b">Questions</div>
+    <h2 style="font-size:clamp(38px,5vw,58px);color:var(--cream)">Asked before every <span class="serif">build.</span></h2>
+    <div class="faq">
+      <details open><summary>Do my customers need an app?<span class="p">+</span></summary><p>No. They scan a QR code and sign up in the browser in about 30 seconds. Nothing to install, for them or for you.</p></details>
+      <details><summary>How is this different from a punch card?<span class="p">+</span></summary><p>A punch card gets lost and tells you nothing. This lives on the customer's phone, tracks every visit automatically, and gives you a searchable list of every customer with their number.</p></details>
+      <details><summary>Will it spam my customers?<span class="p">+</span></summary><p>No. Customers opt in themselves, every promo text has one-tap opt-out, and the system cannot text anyone who has opted out. Reward texts only go out when someone actually earns one.</p></details>
+      <details><summary>What if I want to cancel?<span class="p">+</span></summary><p>Month-to-month, 30 days' notice, no penalty.</p></details>
+      <details><summary>How long until it is live?<span class="p">+</span></summary><p>Within 24 hours of you sending your details. We build and brand the whole thing for you, then hand you your login and QR code.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="start">
+  <div class="wrap reveal">
+    <div class="eyebrow" style="justify-content:center">Ready to build</div>
+    <h2>Built for you in 24 <span class="serif">hours.</span></h2>
+    <p>Tell us about your business. We will have it live tomorrow.</p>
+    <a href="#" class="btn btn-primary btn-lg open-funnel" onclick="return false;">Get started</a>
+    <div class="micro">A few quick questions · live in 24 hours</div>
+  </div>
+</section>
+
 <footer>
-  <div class="container">
-    <p>© 2026 KNETIX — Loyalty Platform</p>
-    <p><a href="index.html">See our performance agency →</a></p>
+  <div class="wrap">
+    <div class="foot">
+      <a class="brand" href="#" aria-label="KNETIX home">
+        <svg width="28" height="28" viewBox="0 0 100 100" fill="none" role="img" aria-label="KNETIX logo">
+          <rect x="3" y="3" width="94" height="94" rx="2" stroke="#C9B89A" stroke-width="1" fill="none" opacity=".2"/>
+          <rect x="12" y="12" width="22" height="76" fill="#8B2E2E"/>
+          <polygon points="38,12 88,12 38,46" fill="#C9B89A"/>
+          <polygon points="38,56 88,88 38,88" fill="#8B2E2E"/>
+          <rect x="37" y="47" width="7" height="7" transform="rotate(45 40.5 50.5)" fill="#C9B89A" opacity=".8"/>
+        </svg>
+        <span class="brand-name">KNETIX</span>
+      </a>
+      <div class="foot-links">
+        <a href="#math">The math</a><a href="#how">How it works</a><a href="#faq">FAQ</a><a href="#">Performance ads agency →</a>
+      </div>
+    </div>
+    <div class="foot-copy">© 2026 KNETIX — Loyalty Platform. Your brand, your data, your regulars.</div>
   </div>
 </footer>
 
@@ -963,107 +535,53 @@ footer a:hover{color:var(--red);border-bottom-color:var(--red);}
   </div>
 </div>
 
-<!-- ════════════════════════════════════════════
-     JAVASCRIPT
-════════════════════════════════════════════ -->
+<!-- Marketing scripts (v4 design), IIFE-wrapped to isolate scope from the funnel engine -->
 <script>
-/* ── Scroll Reveal ── */
-const reveals = document.querySelectorAll('.reveal, .reveal-stagger');
-const revealObserver = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('visible'), 60);
-      revealObserver.unobserve(e.target);
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Calculator
+  var price=document.getElementById('price'),thr=document.getElementById('thr'),
+      pOut=document.getElementById('pOut'),tOut=document.getElementById('tOut'),
+      track=document.getElementById('track'),cBig=document.getElementById('cBig'),cSub=document.getElementById('cSub');
+  function money(n){return '$'+Math.round(n).toLocaleString();}
+  function calc(){
+    var p=Math.max(1,parseInt(price.value||'0',10)),t=parseInt(thr.value,10);
+    pOut.textContent=money(p);tOut.textContent=t;
+    track.innerHTML='';
+    for(var i=1;i<=t;i++){var s=document.createElement('div');s.className='seg'+(i<t?' paid':' free');track.appendChild(s);}
+    var before=p*(t-1),eff=Math.round(100/t);
+    cBig.innerHTML=money(before)+'<span>before one free visit</span>';
+    cSub.textContent='An effective '+eff+'% back, and only after '+(t-1)+' paid visits.';
+  }
+  price.addEventListener('input',calc);thr.addEventListener('input',calc);calc();
+
+  // Render twist-on-scroll + gentle bob + mouse tilt
+  var render=document.getElementById('render'),mx=0,my=0;
+  if(!reduce){
+    window.addEventListener('mousemove',function(e){mx=(e.clientX/window.innerWidth-0.5);my=(e.clientY/window.innerHeight-0.5);});
+    function frame(t){
+      var r=render.getBoundingClientRect(),c=r.top+r.height/2;
+      var prog=(window.innerHeight/2-c)/window.innerHeight;
+      var ry=Math.max(-16,Math.min(16,prog*20))+mx*6;
+      var rx=4-my*5;
+      var bob=Math.sin(t/950)*8;
+      render.style.transform='translateY('+bob+'px) rotateX('+rx+'deg) rotateY('+ry+'deg)';
+      requestAnimationFrame(frame);
     }
-  });
-}, { threshold: 0.1 });
-reveals.forEach(el => revealObserver.observe(el));
+    requestAnimationFrame(frame);
+  }else{render.style.transform='rotateY(-6deg)';}
 
-/* ── Header scroll effect ── */
-window.addEventListener('scroll', () => {
-  const header = document.querySelector('header');
-  if (window.scrollY > 60) header.classList.add('scrolled');
-  else header.classList.remove('scrolled');
-}, { passive: true });
-
-/* ── Hero parallax ── */
-const heroGrid = document.querySelector('.hero-grid-bg');
-const heroGlow = document.querySelector('.hero-glow');
-window.addEventListener('scroll', () => {
-  const y = window.scrollY;
-  if (y < window.innerHeight) {
-    if (heroGrid) heroGrid.style.transform = 'translateY(' + (y * 0.15) + 'px)';
-    if (heroGlow) heroGlow.style.transform = 'translateX(-50%) translateY(' + (y * 0.08) + 'px)';
-  }
-}, { passive: true });
-
-/* ── Hero floating particles ── */
-(function createParticles() {
-  const container = document.getElementById('heroParticles');
-  if (!container) return;
-  const count = 18;
-  for (let i = 0; i < count; i++) {
-    const p = document.createElement('div');
-    p.className = 'particle';
-    p.style.left = Math.random() * 100 + '%';
-    p.style.top = (60 + Math.random() * 40) + '%';
-    p.style.animationDuration = (5 + Math.random() * 8) + 's';
-    p.style.animationDelay = (Math.random() * 6) + 's';
-    p.style.width = p.style.height = (2 + Math.random() * 3) + 'px';
-    container.appendChild(p);
-  }
+  // reveal
+  if(!reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  }else{document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});}
 })();
+</script>
 
-/* ── Stat counter animation ── */
-const statNums = document.querySelectorAll('.stat-num[data-target]');
-const counterObserver = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      const el = e.target;
-      const target = parseInt(el.dataset.target);
-      const prefix = el.dataset.prefix || '';
-      const suffix = el.dataset.suffix || '';
-      let current = 0;
-      const duration = 1200;
-      const startTime = performance.now();
-      function tick(now) {
-        const elapsed = now - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        current = Math.round(eased * target);
-        el.innerHTML = prefix + current + '<sup>' + suffix + '</sup>';
-        if (progress < 1) requestAnimationFrame(tick);
-      }
-      requestAnimationFrame(tick);
-      counterObserver.unobserve(el);
-    }
-  });
-}, { threshold: 0.3 });
-statNums.forEach(el => counterObserver.observe(el));
-
-/* ── Closer cursor glow ── */
-const closerSection = document.querySelector('.closer');
-const closerGlow = document.getElementById('closerGlow');
-if (closerSection && closerGlow) {
-  closerSection.addEventListener('mousemove', e => {
-    const rect = closerSection.getBoundingClientRect();
-    closerGlow.style.left = (e.clientX - rect.left) + 'px';
-    closerGlow.style.top = (e.clientY - rect.top) + 'px';
-  });
-}
-
-/* ── Closer bg text parallax ── */
-const closerBgText = document.querySelector('.closer-bg-text');
-if (closerBgText) {
-  window.addEventListener('scroll', () => {
-    const rect = closerSection.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      const progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
-      closerBgText.style.transform = 'translateX(-50%) translateX(' + ((progress - 0.5) * 80) + 'px)';
-    }
-  }, { passive: true });
-}
-
+<!-- PRESERVED FUNNEL ENGINE (verbatim, do not alter) -->
+<script>
 /* ══════════════════════════════════════════
    FUNNEL ENGINE — 8 steps, mirrors index.html pattern
 ══════════════════════════════════════════ */
@@ -1413,6 +931,5 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.clas
 
 render();
 </script>
-
 </body>
 </html>
