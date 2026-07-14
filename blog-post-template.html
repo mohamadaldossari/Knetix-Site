@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<!--
+  ════════════════════════════════════════════════════════════════════════════
+  KNETIX BLOG POST — REUSABLE TEMPLATE
+  Brand-matched to rep.html. This file is a skeleton, not a live page.
+
+  HOW TO USE
+  1. Copy this file to a new name, e.g.  my-post-slug.html
+     (keep it at the repo root — it will serve at /my-post-slug.html).
+  2. DELETE the  <meta name="robots" content="noindex">  line in <head> so the
+     real post CAN be indexed. (This template stays noindex on purpose.)
+  3. Replace every {{PLACEHOLDER}}:
+       {{POST_TITLE}}        Headline. Used in <title>, OG, <h1>, Article JSON-LD.
+       {{POST_DESCRIPTION}}  1–2 sentence summary. Used in meta, OG, JSON-LD.
+       {{CANONICAL_URL}}     Full URL, e.g. https://www.knetixmarketing.com/my-post-slug.html
+       {{PUBLISH_DATE}}      ISO date for JSON-LD (e.g. 2026-07-20) AND the human
+                             date shown in the meta line (e.g. Jul 20, 2026).
+       {{CATEGORY}}          "For Business Owners" or "For Aspiring Reps".
+       {{READ_TIME}}         e.g. "6 min read".
+       {{OG_IMAGE}}          Full share-image URL
+                             (default https://www.knetixmarketing.com/knetixwhopbanner.png).
+       {{ARTICLE_BODY}}      The post HTML — use <h2>, <p>, <ul>, <blockquote>.
+       {{FAQ_QUESTION_1}} /  One Q/A pair is scaffolded in BOTH the visible FAQ
+       {{FAQ_ANSWER_1}}      section and the FAQPage JSON-LD — keep the two in
+                             sync, duplicate per question, or delete the whole
+                             FAQ section + its JSON-LD if the post has no FAQ.
+       {{CTA_TARGET}}        loyalty.html (business posts) or rep.html (rep posts).
+       {{CTA_HEADING}}       CTA block headline.
+       {{CTA_LABEL}}         CTA button text.
+  4. Add a matching card to blog.html and add the post URL to sitemap.xml.
+  5. Do NOT link to blog-post-template.html and do NOT add it to sitemap.xml.
+  ════════════════════════════════════════════════════════════════════════════
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex"><!-- TEMPLATE ONLY — DELETE this line when you publish a real post from this file. -->
+<title>{{POST_TITLE}} — KNETIX Blog</title>
+<meta name="description" content="{{POST_DESCRIPTION}}">
+<link rel="canonical" href="{{CANONICAL_URL}}">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='12' fill='%230E0C0B'/%3E%3Crect x='12' y='12' width='22' height='76' fill='%238B2E2E'/%3E%3Cpolygon points='38,12 88,12 38,46' fill='%23C9B89A'/%3E%3Cpolygon points='38,56 88,88 38,88' fill='%238B2E2E'/%3E%3Crect x='37' y='47' width='7' height='7' transform='rotate(45 40.5 50.5)' fill='%23C9B89A' opacity='.8'/%3E%3C/svg%3E">
+<meta property="og:title" content="{{POST_TITLE}}">
+<meta property="og:description" content="{{POST_DESCRIPTION}}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{CANONICAL_URL}}">
+<meta property="og:image" content="{{OG_IMAGE}}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{POST_TITLE}}">
+<meta name="twitter:description" content="{{POST_DESCRIPTION}}">
+<meta name="twitter:image" content="{{OG_IMAGE}}">
+<meta name="theme-color" content="#16110d">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{POST_TITLE}}",
+  "description": "{{POST_DESCRIPTION}}",
+  "image": "{{OG_IMAGE}}",
+  "datePublished": "{{PUBLISH_DATE}}",
+  "author": { "@type": "Organization", "name": "KNETIX" },
+  "publisher": { "@type": "Organization", "name": "KNETIX", "url": "https://www.knetixmarketing.com/" },
+  "mainEntityOfPage": "{{CANONICAL_URL}}"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "{{FAQ_QUESTION_1}}",
+      "acceptedAnswer": { "@type": "Answer", "text": "{{FAQ_ANSWER_1}}" }
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* ============ KNETIX BLOG POST — DESIGN TOKENS (matched to rep.html) ============ */
+  :root{
+    --ink:#16110d; --ink-2:#1e1712; --ink-3:#261d16;
+    --maroon:#8a2f2f; --maroon-2:#a83b3b;
+    --tan:#c9b592; --tan-dim:#9a8d78;
+    --cream:#f0eadd; --cream-dim:#c8c0b2;
+    --line:rgba(240,234,221,.14); --line-strong:rgba(240,234,221,.28);
+    --maxw:1180px; --readw:720px;
+    --display:'Oswald',system-ui,sans-serif;
+    --body:'Inter',system-ui,sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--ink);color:var(--cream);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--maroon);color:var(--cream)}
+
+  .frame{position:fixed;inset:14px;border:1px solid var(--line-strong);pointer-events:none;z-index:200}
+  @media(max-width:640px){.frame{inset:8px}}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px}
+  @media(max-width:640px){.wrap{padding:0 22px}}
+
+  .eyebrow{font-family:var(--display);font-weight:500;font-size:.74rem;letter-spacing:.42em;text-transform:uppercase;color:var(--tan);display:flex;align-items:center;gap:14px}
+  .eyebrow::before{content:"";width:34px;height:1px;background:var(--maroon-2)}
+
+  h1,h2,h3{font-family:var(--body);font-weight:800;letter-spacing:-.02em;line-height:1.05}
+
+  /* ============ NAV ============ */
+  header{position:sticky;top:0;z-index:100;background:rgba(22,17,13,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  nav{max-width:var(--maxw);margin:0 auto;padding:16px 40px;display:flex;align-items:center;justify-content:space-between}
+  @media(max-width:640px){nav{padding:14px 22px}}
+  .brand{display:flex;align-items:center;gap:13px}
+  .brand .kmark{width:34px;height:34px;flex:none}
+  .brand .btxt{display:flex;flex-direction:column;line-height:1}
+  .brand .btxt b{font-family:var(--display);font-weight:700;font-size:1.15rem;letter-spacing:.16em}
+  .brand .btxt span{font-family:var(--display);font-weight:400;font-size:.56rem;letter-spacing:.42em;color:var(--tan-dim);margin-top:3px}
+  .nav-links{display:flex;align-items:center;gap:30px}
+  .nav-links a{font-family:var(--display);font-weight:500;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-dim);transition:color .2s}
+  .nav-links a:hover{color:var(--tan)}
+  @media(max-width:520px){.nav-links{gap:18px}.nav-links a{font-size:.72rem}}
+
+  /* ============ ARTICLE ============ */
+  .post{max-width:var(--readw);margin:0 auto;padding:64px 0 20px}
+  .post-head .eyebrow{justify-content:flex-start}
+  .post h1{font-size:clamp(2rem,5vw,3.2rem);margin:22px 0 0}
+  .post-meta{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:22px;padding-bottom:26px;border-bottom:1px solid var(--line);font-family:var(--display);font-weight:500;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tan-dim)}
+  .post-meta span{position:relative}
+
+  /* article body typography */
+  .article-body{margin-top:36px}
+  .article-body>*+*{margin-top:22px}
+  .article-body p{font-size:1.08rem;line-height:1.78;color:var(--cream-dim)}
+  .article-body h2{font-size:clamp(1.5rem,3vw,2rem);margin-top:46px;color:var(--cream)}
+  .article-body h3{font-size:1.25rem;margin-top:34px;color:var(--cream)}
+  .article-body ul,.article-body ol{padding-left:1.2em;color:var(--cream-dim);font-size:1.08rem;line-height:1.7}
+  .article-body li+li{margin-top:8px}
+  .article-body a{color:var(--tan);border-bottom:1px solid var(--line-strong);transition:color .2s,border-color .2s}
+  .article-body a:hover{color:var(--maroon-2);border-bottom-color:var(--maroon-2)}
+  .article-body blockquote{border-left:2px solid var(--maroon);padding:6px 0 6px 22px;color:var(--cream);font-size:1.2rem;font-style:italic}
+  .article-body strong{color:var(--cream)}
+  .article-body img{max-width:100%;height:auto;border:1px solid var(--line)}
+
+  /* ============ FAQ ============ */
+  .post-faq{max-width:var(--readw);margin:56px auto 0}
+  .post-faq h2{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:10px}
+  .faq-list{border-top:1px solid var(--line)}
+  details{border-bottom:1px solid var(--line)}
+  summary{list-style:none;cursor:pointer;padding:22px 4px;display:flex;justify-content:space-between;gap:20px;align-items:center;font-family:var(--body);font-weight:600;font-size:1.08rem;color:var(--cream);transition:color .2s}
+  summary::-webkit-details-marker{display:none}
+  summary:hover{color:var(--tan)}
+  summary .pm{font-family:var(--display);font-weight:300;font-size:1.7rem;color:var(--maroon-2);line-height:1;transition:transform .25s;flex:none}
+  details[open] summary .pm{transform:rotate(45deg)}
+  details .ans{padding:0 4px 24px;color:var(--cream-dim);line-height:1.7}
+
+  /* ============ END CTA ============ */
+  .post-cta{max-width:var(--readw);margin:60px auto 0;background:var(--ink-2);border:1px solid var(--line);padding:44px 40px;text-align:center}
+  .post-cta h2{font-size:clamp(1.6rem,3.4vw,2.3rem)}
+  .post-cta p{color:var(--cream-dim);max-width:46ch;margin:16px auto 26px}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-weight:600;font-size:.9rem;letter-spacing:.12em;text-transform:uppercase;padding:15px 30px;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,background .2s ease}
+  .btn-primary{background:var(--maroon);color:var(--cream)}
+  .btn-primary:hover{background:var(--maroon-2);transform:translateY(-2px)}
+  .btn:focus-visible{outline:2px solid var(--tan);outline-offset:3px}
+
+  .post-foot-pad{padding-bottom:80px}
+
+  /* ============ FOOTER (matched to rep.html) ============ */
+  footer{border-top:1px solid var(--line);padding:46px 0 40px;background:var(--ink-2)}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  .foot .fl{font-family:var(--display);font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem;color:var(--tan-dim)}
+  .foot .fr{display:flex;gap:24px}
+  .foot .fr a{font-family:var(--display);font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem;color:var(--cream-dim);transition:color .2s}
+  .foot .fr a:hover{color:var(--tan)}
+  .copies{text-align:center;color:var(--tan-dim);font-size:.78rem;margin-top:30px;letter-spacing:.04em}
+
+  @media(prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="frame"></div>
+
+<!-- ============ NAV ============ -->
+<header>
+  <nav>
+    <a class="brand" href="blog.html" aria-label="KNETIX Blog">
+      <svg class="kmark" viewBox="0 0 100 100" aria-hidden="true">
+        <rect width="100" height="100" fill="#16110d"/>
+        <rect x="6" y="6" width="88" height="88" fill="none" stroke="#f0eadd" stroke-width="1.4"/>
+        <rect x="16" y="16" width="22" height="68" fill="#8a2f2f"/>
+        <polygon points="42,16 84,16 42,50" fill="#c9b592"/>
+        <polygon points="42,84 84,84 42,50" fill="#8a2f2f"/>
+        <rect x="36" y="44" width="12" height="12" transform="rotate(45 42 50)" fill="#c9b592"/>
+      </svg>
+      <span class="btxt"><b>KNETIX</b><span>Blog</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="blog.html">All posts</a>
+      <a href="loyalty.html">For Business</a>
+      <a href="rep.html">For Reps</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ============ ARTICLE ============ -->
+<article class="post">
+  <div class="wrap">
+    <div class="post-head">
+      <p class="eyebrow">{{CATEGORY}}</p>
+      <h1>{{POST_TITLE}}</h1>
+      <div class="post-meta">
+        <span>{{PUBLISH_DATE}}</span>
+        <span>{{CATEGORY}}</span>
+        <span>{{READ_TIME}}</span>
+      </div>
+    </div>
+
+    <div class="article-body">
+      {{ARTICLE_BODY}}
+      <!-- Supported markup (delete this comment): <h2>, <h3>, <p>, <ul><li>, <ol><li>,
+           <blockquote>, <strong>, <a href="...">, <img src="..." alt="..."> -->
+    </div>
+  </div>
+</article>
+
+<!-- ============ FAQ (optional — delete this whole section AND its FAQPage JSON-LD above if unused) ============ -->
+<section class="post-faq">
+  <div class="wrap">
+    <h2>Frequently asked</h2>
+    <div class="faq-list">
+      <details>
+        <summary>{{FAQ_QUESTION_1}}<span class="pm">+</span></summary>
+        <div class="ans">{{FAQ_ANSWER_1}}</div>
+      </details>
+      <!-- Duplicate the <details> block above per question, and mirror each in the FAQPage JSON-LD in <head>. -->
+    </div>
+  </div>
+</section>
+
+<!-- ============ END CTA (set {{CTA_TARGET}} to loyalty.html or rep.html) ============ -->
+<section class="post-foot-pad">
+  <div class="post-cta">
+    <h2>{{CTA_HEADING}}</h2>
+    <p>{{POST_DESCRIPTION}}</p>
+    <a class="btn btn-primary" href="{{CTA_TARGET}}">{{CTA_LABEL}}
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="fl">KNETIX &middot; Blog</div>
+      <div class="fr">
+        <a href="loyalty.html">For businesses</a>
+        <a href="rep.html">For reps</a>
+      </div>
+    </div>
+    <p class="copies">&copy; 2026 KNETIX. Loyalty and referrals for local business.</p>
+  </div>
+</footer>
+</body>
+</html>
