@@ -17,7 +17,7 @@
 <meta property="og:title" content="KNETIX — Performance-Based Ads Agency. Pay Only on Results.">
 <meta property="og:description" content="No retainers. No contracts. We take 10% of the new revenue we generate — verified in Triple Whale. Free audit for brands spending $3K+/month on ads.">
 <meta property="og:url" content="https://www.knetixmarketing.com/">
-<meta property="og:image" content="https://www.knetixmarketing.com/og-image.png">
+<meta property="og:image" content="https://www.knetixmarketing.com/knetixwhopbanner.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="KNETIX — Performance-Based Ads Agency">
 <meta name="twitter:description" content="No retainers. No contracts. 10% of new revenue only. Free audit for brands spending $3K+/month.">
@@ -696,7 +696,7 @@ footer{background:var(--card);border-top:1px solid var(--border)}
 <!-- ════════════════════════════════════════════
      SCRIPT 1 — MOMENTUM (isolated IIFE, own scope)
 ════════════════════════════════════════════ -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 (function(){
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -789,6 +789,8 @@ footer{background:var(--card);border-top:1px solid var(--border)}
   render(0);
 
   /* ── 3D K logo (Three.js) — spins idle, reacts to scroll + mouse ── */
+  /* deferred three.js executes before DOMContentLoaded, so init on that event */
+  addEventListener('DOMContentLoaded', function(){
   try{
     if(typeof THREE === 'undefined') throw new Error('no three');
     var canvas=document.getElementById('k3d');
@@ -853,6 +855,7 @@ footer{background:var(--card);border-top:1px solid var(--border)}
     }
     if(reduced){ renderer.render(scene,camera); } else { tick(); }
   }catch(e){ var c=document.getElementById('k3d'); if(c) c.style.display='none'; }
+  });
 })();
 </script>
 
