@@ -1,0 +1,18 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+*.swp
+*~
+
+# Tooling — this is a no-build static site. Nothing here should ever need npm;
+# if node_modules appears in this repo, something was installed in the wrong
+# directory. Build tooling belongs in a scratch dir outside the project.
+node_modules/
+package-lock.json
+.vercel/
+
+# Note: .superdesign/ is deliberately NOT ignored — it is tracked design
+# documentation, not tool scratch.
