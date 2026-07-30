@@ -1,0 +1,5 @@
+# Keep internal design documentation out of the deploy.
+# .superdesign/ is tracked in git on purpose (it is the design system source of
+# truth), but it is written for the team and tooling, not for visitors. Without
+# this, Vercel serves it at /.superdesign/*.md as crawlable text/markdown.
+.superdesign/
