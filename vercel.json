@@ -4,6 +4,16 @@
       "source": "/index.html",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/terms",
+      "destination": "https://app.knetixmarketing.com/terms",
+      "permanent": true
+    },
+    {
+      "source": "/terms/:path*",
+      "destination": "https://app.knetixmarketing.com/terms/:path*",
+      "permanent": true
     }
   ],
   "headers": [
