@@ -66,7 +66,7 @@
 <link rel="stylesheet" href="/tokens.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#16110d; --ink-2:#1e1712; --ink-3:#261d16;
@@ -171,6 +171,30 @@
   .fig .f-display{font-family:var(--font-display)}
   .fig .f-label{font-family:var(--font-mono)}
   .fig .f-body{font-family:var(--font-body)}
+
+/* ============ STAGE 2: EDITORIAL READING LAYER ============ */
+  .post{padding-top:76px}
+  .post h1{max-width:20ch}
+  .post-meta{margin-top:26px;padding-bottom:30px}
+  .article-body{margin-top:44px}
+  .article-body>*+*{margin-top:26px}
+  .article-body p{font-size:var(--fs-lg);line-height:var(--lh-normal);color:var(--cream-dim);max-width:70ch}
+  .article-body ul,.article-body ol{font-size:var(--fs-lg);line-height:var(--lh-normal);max-width:70ch;padding-left:1.1em}
+  .article-body li+li{margin-top:10px}
+  .article-body h2{margin-top:64px;line-height:var(--lh-snug);max-width:24ch}
+  .article-body h3{margin-top:44px;line-height:var(--lh-snug);max-width:28ch}
+  /* pull quote: cream, serif, no heavy rule */
+  .article-body blockquote{border-left:none;padding:8px 0 8px 0;margin-top:40px;margin-bottom:40px;
+    font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;
+    font-size:var(--fs-2xl);line-height:var(--lh-snug);color:var(--cream);max-width:26ch}
+  .article-body a{color:var(--tan);border-bottom:1px solid var(--line-strong)}
+  .post-faq{margin-top:76px}
+  .post-faq h2{line-height:var(--lh-snug)}
+  details .ans{font-size:1.02rem;line-height:var(--lh-normal);max-width:68ch}
+  .fig{margin-top:40px;margin-bottom:40px}
+  .fig figcaption{margin-top:12px}
+  .post-cta{margin-top:76px;border-radius:var(--radius-lg)}
+  .post-cta p{max-width:52ch}
 </style>
 </head>
 <body>

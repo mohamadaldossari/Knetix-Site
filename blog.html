@@ -39,7 +39,7 @@
 <link rel="stylesheet" href="/tokens.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
   /* ============ KNETIX BLOG: DESIGN TOKENS (matched to rep.html) ============ */
   :root{
@@ -107,7 +107,7 @@
   .blog-glow{position:absolute;top:-10%;right:-8%;width:640px;height:640px;background:radial-gradient(circle,rgba(138,47,47,.18),transparent 65%);pointer-events:none}
   .blog-intro .wrap{position:relative}
   .blog-intro h1{font-size:clamp(var(--fs-4xl),7vw,var(--fs-6xl));margin:26px 0 0;max-width:16ch;line-height:var(--lh-tight);letter-spacing:var(--tracking-tight);}
-  .blog-intro h1 em{font-style:normal;color:var(--maroon-500)}
+  .blog-intro h1 em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--cream);letter-spacing:.01em}
   .blog-intro .lede{font-size:clamp(1.05rem,2vw,1.28rem);color:var(--cream-dim);max-width:56ch;margin-top:24px}
 
   /* ============ CATEGORY SECTION ============ */
@@ -163,6 +163,30 @@
     nav{flex-wrap:wrap;justify-content:center;gap:4px 10px;padding:10px 14px;max-width:calc(100% - 20px)}
     .nav-links{flex-wrap:wrap;justify-content:center;gap:2px}
     .nav-links a{padding:6px 9px;font-size:var(--fs-xs)}
+  }
+
+/* ============ STAGE 2: BLOG INDEX ============ */
+  .blog-intro{padding:88px 0 24px}
+  .blog-intro h1{line-height:var(--lh-tight);max-width:15ch}
+  .blog-intro .lede{font-size:var(--fs-lg);line-height:var(--lh-normal);max-width:60ch;margin-top:28px}
+  .blog-cat{padding:76px 0 34px}
+  .cat-h{line-height:var(--lh-snug)}
+  .cat-sub{font-size:var(--fs-lg);line-height:var(--lh-normal);max-width:56ch;margin-top:16px}
+  /* varied emphasis: the lead card in each cluster carries more weight */
+  .blog-grid{grid-template-columns:repeat(6,1fr);gap:18px;margin-top:48px}
+  .blog-grid .post-card{grid-column:span 2;border-radius:var(--radius-md);padding:30px 28px;gap:14px}
+  .blog-grid .post-card:first-child{grid-column:span 4}
+  .blog-grid .post-card:first-child .pc-title{font-size:var(--fs-2xl)}
+  .blog-grid .post-card:first-child .pc-excerpt{font-size:var(--fs-lg);line-height:var(--lh-normal)}
+  .pc-title{line-height:var(--lh-snug)}
+  .pc-excerpt{line-height:var(--lh-normal)}
+  @media(max-width:860px){
+    .blog-grid{grid-template-columns:1fr 1fr}
+    .blog-grid .post-card,.blog-grid .post-card:first-child{grid-column:span 1}
+  }
+  @media(max-width:560px){
+    .blog-grid{grid-template-columns:1fr}
+    .blog-grid .post-card,.blog-grid .post-card:first-child{grid-column:auto}
   }
 </style>
 </head>

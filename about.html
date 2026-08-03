@@ -40,7 +40,7 @@
 <link rel="stylesheet" href="/tokens.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#16110d; --ink-2:#1e1712; --ink-3:#261d16;
@@ -81,7 +81,7 @@
   .about-glow{position:absolute;top:-10%;right:-8%;width:600px;height:600px;background:radial-gradient(circle,rgba(138,47,47,.18),transparent 65%);pointer-events:none}
   .about-hero .wrap{position:relative;max-width:var(--readw)}
   .about-hero h1{font-size:clamp(var(--fs-4xl),7vw,4rem);margin:24px 0 0;line-height:var(--lh-tight);letter-spacing:var(--tracking-tight);}
-  .about-hero h1 em{font-style:normal;color:var(--maroon-500)}
+  .about-hero h1 em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--cream);letter-spacing:.01em}
   .about-hero .lede{font-size:clamp(1.05rem,2vw,1.25rem);color:var(--cream-dim);margin-top:24px}
 
   .body-col{max-width:var(--readw);margin:0 auto;padding:0 0 20px}
@@ -132,6 +132,24 @@
     .nav-links{flex-wrap:wrap;justify-content:center;gap:2px}
     .nav-links a{padding:6px 9px;font-size:var(--fs-xs)}
   }
+
+/* ============ STAGE 2: ABOUT EDITORIAL ============ */
+  .about-hero{padding:84px 0 8px}
+  .about-hero h1{max-width:18ch;line-height:var(--lh-tight)}
+  .about-hero .lede{font-size:var(--fs-lg);line-height:var(--lh-normal);max-width:62ch;margin-top:28px}
+  .body-col{padding-top:16px}
+  .body-col>*+*{margin-top:26px}
+  .body-col p{font-size:var(--fs-lg);line-height:var(--lh-normal);max-width:68ch}
+  .body-col ul{font-size:var(--fs-lg);line-height:var(--lh-normal);max-width:68ch;padding-left:1.1em}
+  .body-col li+li{margin-top:10px}
+  .body-col h2{margin-top:72px;line-height:var(--lh-snug);max-width:22ch}
+  /* stats: figures in the display face, captions in mono */
+  .stats{margin:56px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);gap:0}
+  .stats div{padding:34px 16px}
+  .stats b{font-family:var(--font-display);font-weight:700;font-size:clamp(2rem,5vw,var(--fs-3xl));color:var(--cream);line-height:var(--lh-tight);font-variant-numeric:tabular-nums}
+  .stats span{font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--tan);margin-top:12px}
+  .contact-card{margin-top:76px;border-radius:var(--radius-lg);padding:44px 40px}
+  .contact-card p{font-size:var(--fs-lg);line-height:var(--lh-normal);max-width:56ch}
 </style>
 </head>
 <body>
