@@ -89,22 +89,22 @@
   @media(max-width:640px){.wrap{padding:0 22px}}
   .eyebrow{font-family:var(--font-mono);font-weight:500;font-size:var(--fs-xs);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--tan);display:flex;align-items:center;gap:14px}
   .eyebrow::before{content:"";width:34px;height:1px;background:var(--maroon-2)}
-  h1,h2,h3{font-family:var(--body);font-weight:800;letter-spacing:-.02em;line-height:1.05}
+  h1,h2,h3{font-family:var(--font-display);font-weight:700;letter-spacing:-.02em;line-height:1.05}
   header{position:sticky;top:0;z-index:100;background:rgba(22,17,13,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
   nav{max-width:var(--maxw);margin:0 auto;padding:16px 40px;display:flex;align-items:center;justify-content:space-between}
   @media(max-width:640px){nav{padding:14px 22px}}
   .brand{display:flex;align-items:center;gap:13px}
   .brand .kmark{width:34px;height:34px;flex:none}
   .brand .btxt{display:flex;flex-direction:column;line-height:1}
-  .brand .btxt b{font-family:var(--display);font-weight:700;font-size:1.15rem;letter-spacing:.16em}
+  .brand .btxt b{font-family:var(--font-display);font-weight:600;font-size:1.15rem;letter-spacing:.16em}
   .brand .btxt span{font-family:var(--font-mono);font-weight:400;font-size:var(--fs-xs);letter-spacing:var(--tracking-label);color:var(--tan);margin-top:3px}
   .nav-links{display:flex;align-items:center;gap:30px}
-  .nav-links a{font-family:var(--display);font-weight:500;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-dim);transition:color .2s}
+  .nav-links a{font-family:var(--font-mono);font-weight:500;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-dim);transition:color .2s}
   .nav-links a:hover{color:var(--tan)}
   @media(max-width:520px){.nav-links{gap:18px}.nav-links a{font-size:var(--fs-xs)}}
   .post{max-width:var(--readw);margin:0 auto;padding:64px 0 20px}
   .post-head .eyebrow{justify-content:flex-start}
-  .post h1{font-size:clamp(2rem,5vw,3.2rem);margin:22px 0 0}
+  .post h1{font-size:clamp(var(--fs-4xl),7vw,3.2rem);margin:22px 0 0;line-height:var(--lh-tight);letter-spacing:var(--tracking-tight);}
   .post-meta{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:22px;padding-bottom:26px;border-bottom:1px solid var(--line);font-family:var(--font-mono);font-weight:500;font-size:.78rem;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--tan)}
   .post-meta .by{color:var(--tan)}
   .article-body{margin-top:36px}
@@ -117,7 +117,7 @@
   .article-body a{color:var(--tan);border-bottom:1px solid var(--line-strong);transition:color .2s,border-color .2s}
   .article-body a:hover{color:var(--maroon-300);border-bottom-color:var(--maroon-2)}
   .article-body strong{color:var(--cream)}
-  .article-body blockquote{border-left:2px solid var(--maroon);padding:6px 0 6px 22px;color:var(--cream);font-size:1.2rem;font-style:italic}
+  .article-body blockquote{border-left:2px solid var(--maroon);padding:6px 0 6px 22px;color:var(--maroon-500);font-size:1.2rem;font-family:var(--font-display);font-weight:700;}
   /* inline diagrams */
   .fig{margin:40px 0;background:var(--ink-2);border:1px solid var(--line);padding:30px 26px}
   .fig svg{display:block;width:100%;height:auto}
@@ -132,7 +132,7 @@
   summary{list-style:none;cursor:pointer;padding:22px 4px;display:flex;justify-content:space-between;gap:20px;align-items:center;font-family:var(--font-body);font-weight:600;font-size:1.08rem;color:var(--cream);transition:color .2s}
   summary::-webkit-details-marker{display:none}
   summary:hover{color:var(--tan)}
-  summary .pm{font-family:var(--display);font-weight:300;font-size:1.7rem;color:var(--maroon-500);line-height:1;transition:transform .25s;flex:none}
+  summary .pm{font-family:var(--font-display);font-weight:500;font-size:1.7rem;color:var(--maroon-500);line-height:1;transition:transform .25s;flex:none}
   details[open] summary .pm{transform:rotate(45deg)}
   details .ans{padding:0 4px 24px;color:var(--cream-dim);line-height:1.7}
   .post-cta{max-width:var(--readw);margin:60px auto 0;background:var(--ink-2);border:1px solid var(--line);padding:44px 40px;text-align:center}
@@ -151,6 +151,26 @@
   .foot .fr a:hover{color:var(--tan)}
   .copies{font-family:var(--font-mono);text-align:center;color:var(--tan);font-size:.78rem;margin-top:30px;letter-spacing:var(--tracking-label)}
   @media(prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}html{scroll-behavior:auto}}
+
+/* ============ PHASE 2B: FLOATING PILL NAV ============ */
+  header{position:sticky;top:0;z-index:100;background:transparent;border-bottom:none;backdrop-filter:none;padding:14px 0;pointer-events:none}
+  nav{width:max-content;max-width:calc(100% - 28px);margin:0 auto;padding:8px 10px 8px 18px;gap:22px;background:var(--bg-1);border:1px solid var(--border-subtle);border-radius:var(--radius-pill);box-shadow:var(--shadow-md);pointer-events:auto}
+  .brand .btxt b{font-family:var(--font-display);font-weight:600;font-size:1.05rem;letter-spacing:.04em}
+  .brand .btxt span{font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:var(--tracking-label)}
+  .nav-links{gap:2px}
+  .nav-links a,.nav-link{padding:8px 13px;font-family:var(--font-mono);font-size:var(--fs-sm);font-weight:500;letter-spacing:0;text-transform:none;color:var(--cream-dim);border-radius:var(--radius-pill);transition:color var(--dur-fast) var(--ease-out),background var(--dur-fast) var(--ease-out)}
+  .nav-links a:hover,.nav-link:hover{color:var(--cream)}
+  .nav-links a.nav-cta{background:var(--maroon-700)!important;color:var(--cream);border-radius:var(--radius-pill);padding:9px 18px!important;font-size:var(--fs-sm)!important;margin-left:6px}
+  .nav-links a.nav-cta:hover{background:var(--maroon-500)!important;transform:none}
+  @media(max-width:640px){
+    nav{flex-wrap:wrap;justify-content:center;gap:4px 10px;padding:10px 14px;max-width:calc(100% - 20px)}
+    .nav-links{flex-wrap:wrap;justify-content:center;gap:2px}
+    .nav-links a{padding:6px 9px;font-size:var(--fs-xs)}
+  }
+
+  .fig .f-display{font-family:var(--font-display)}
+  .fig .f-label{font-family:var(--font-mono)}
+  .fig .f-body{font-family:var(--font-body)}
 </style>
 </head>
 <body>
@@ -201,12 +221,12 @@
         <svg viewBox="0 0 700 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Across 30 plus local shops, over 2,000 customers have signed up, taking about 30 seconds each">
           <line x1="233" y1="30" x2="233" y2="150" stroke="var(--line)" stroke-width="1"/>
           <line x1="466" y1="30" x2="466" y2="150" stroke="var(--line)" stroke-width="1"/>
-          <text x="116" y="82" text-anchor="middle" fill="var(--cream)" font-family="Oswald, sans-serif" font-weight="700" font-size="52">30+</text>
-          <text x="116" y="112" text-anchor="middle" fill="var(--tan)" font-family="Oswald, sans-serif" font-weight="500" font-size="13" letter-spacing="2.4">LOCAL SHOPS</text>
-          <text x="350" y="82" text-anchor="middle" fill="var(--cream)" font-family="Oswald, sans-serif" font-weight="700" font-size="52">2,000+</text>
-          <text x="350" y="112" text-anchor="middle" fill="var(--tan)" font-family="Oswald, sans-serif" font-weight="500" font-size="13" letter-spacing="2.4">CUSTOMERS SIGNED UP</text>
-          <text x="583" y="82" text-anchor="middle" fill="var(--cream)" font-family="Oswald, sans-serif" font-weight="700" font-size="52">~30s</text>
-          <text x="583" y="112" text-anchor="middle" fill="var(--tan)" font-family="Oswald, sans-serif" font-weight="500" font-size="13" letter-spacing="2.4">TO JOIN</text>
+          <text x="116" y="82" text-anchor="middle" fill="var(--cream)" class="f-display" font-weight="700" font-size="52">30+</text>
+          <text x="116" y="112" text-anchor="middle" fill="var(--tan)" class="f-label" font-weight="500" font-size="13" letter-spacing="2.4">LOCAL SHOPS</text>
+          <text x="350" y="82" text-anchor="middle" fill="var(--cream)" class="f-display" font-weight="700" font-size="52">2,000+</text>
+          <text x="350" y="112" text-anchor="middle" fill="var(--tan)" class="f-label" font-weight="500" font-size="13" letter-spacing="2.4">CUSTOMERS SIGNED UP</text>
+          <text x="583" y="82" text-anchor="middle" fill="var(--cream)" class="f-display" font-weight="700" font-size="52">~30s</text>
+          <text x="583" y="112" text-anchor="middle" fill="var(--tan)" class="f-label" font-weight="500" font-size="13" letter-spacing="2.4">TO JOIN</text>
           <rect x="290" y="138" width="120" height="2" fill="var(--maroon)"/>
         </svg>
         <figcaption>Across the KNETIX client base, as of July 2026</figcaption>
@@ -233,24 +253,24 @@
           <circle cx="350" cy="70" r="7" fill="var(--maroon-2)"/>
           <circle cx="590" cy="70" r="7" fill="var(--tan)"/>
 
-          <text x="110" y="46" text-anchor="middle" fill="var(--tan)" font-family="Oswald, sans-serif" font-weight="600" font-size="13" letter-spacing="2">WEEK 1</text>
-          <text x="350" y="46" text-anchor="middle" fill="var(--tan)" font-family="Oswald, sans-serif" font-weight="600" font-size="13" letter-spacing="2">WEEKS 2–4</text>
-          <text x="590" y="46" text-anchor="middle" fill="var(--tan)" font-family="Oswald, sans-serif" font-weight="600" font-size="13" letter-spacing="2">MONTH 2+</text>
+          <text x="110" y="46" text-anchor="middle" fill="var(--tan)" class="f-label" font-weight="600" font-size="13" letter-spacing="2">WEEK 1</text>
+          <text x="350" y="46" text-anchor="middle" fill="var(--tan)" class="f-label" font-weight="600" font-size="13" letter-spacing="2">WEEKS 2–4</text>
+          <text x="590" y="46" text-anchor="middle" fill="var(--tan)" class="f-label" font-weight="600" font-size="13" letter-spacing="2">MONTH 2+</text>
 
-          <text x="110" y="106" text-anchor="middle" fill="var(--cream)" font-family="Inter, sans-serif" font-weight="700" font-size="15">Signups</text>
-          <text x="110" y="130" text-anchor="middle" fill="var(--cream-dim)" font-family="Inter, sans-serif" font-size="12.5">Customers join at</text>
-          <text x="110" y="148" text-anchor="middle" fill="var(--cream-dim)" font-family="Inter, sans-serif" font-size="12.5">the counter</text>
+          <text x="110" y="106" text-anchor="middle" fill="var(--cream)" class="f-body" font-weight="700" font-size="15">Signups</text>
+          <text x="110" y="130" text-anchor="middle" fill="var(--cream-dim)" class="f-body" font-size="12.5">Customers join at</text>
+          <text x="110" y="148" text-anchor="middle" fill="var(--cream-dim)" class="f-body" font-size="12.5">the counter</text>
 
-          <text x="350" y="106" text-anchor="middle" fill="var(--cream)" font-family="Inter, sans-serif" font-weight="700" font-size="15">The list builds</text>
-          <text x="350" y="130" text-anchor="middle" fill="var(--cream-dim)" font-family="Inter, sans-serif" font-size="12.5">Visits get logged. Behaviour</text>
-          <text x="350" y="148" text-anchor="middle" fill="var(--cream-dim)" font-family="Inter, sans-serif" font-size="12.5">hasn't changed yet.</text>
+          <text x="350" y="106" text-anchor="middle" fill="var(--cream)" class="f-body" font-weight="700" font-size="15">The list builds</text>
+          <text x="350" y="130" text-anchor="middle" fill="var(--cream-dim)" class="f-body" font-size="12.5">Visits get logged. Behaviour</text>
+          <text x="350" y="148" text-anchor="middle" fill="var(--cream-dim)" class="f-body" font-size="12.5">hasn't changed yet.</text>
 
-          <text x="590" y="106" text-anchor="middle" fill="var(--cream)" font-family="Inter, sans-serif" font-weight="700" font-size="15">Rewards land</text>
-          <text x="590" y="130" text-anchor="middle" fill="var(--cream-dim)" font-family="Inter, sans-serif" font-size="12.5">Customers are close</text>
-          <text x="590" y="148" text-anchor="middle" fill="var(--cream-dim)" font-family="Inter, sans-serif" font-size="12.5">enough to care</text>
+          <text x="590" y="106" text-anchor="middle" fill="var(--cream)" class="f-body" font-weight="700" font-size="15">Rewards land</text>
+          <text x="590" y="130" text-anchor="middle" fill="var(--cream-dim)" class="f-body" font-size="12.5">Customers are close</text>
+          <text x="590" y="148" text-anchor="middle" fill="var(--cream-dim)" class="f-body" font-size="12.5">enough to care</text>
 
           <rect x="60" y="182" width="530" height="1" fill="var(--line)"/>
-          <text x="325" y="205" text-anchor="middle" fill="var(--tan-dim)" font-family="Inter, sans-serif" font-style="italic" font-size="12.5">Most abandoned programs get judged somewhere in here</text>
+          <text x="325" y="205" text-anchor="middle" fill="var(--tan-dim)" class="f-body" font-style="italic" font-size="12.5">Most abandoned programs get judged somewhere in here</text>
           <path d="M325 210 L325 186" stroke="var(--maroon)" stroke-width="1.5"/>
         </svg>
         <figcaption>Why week two is the wrong time to judge a loyalty program</figcaption>
@@ -268,19 +288,19 @@
 
       <figure class="fig">
         <svg viewBox="0 0 700 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar comparison: nine paid visits at forty dollars each produce far more revenue than the cost of delivering one free service">
-          <text x="24" y="34" fill="var(--tan)" font-family="Oswald, sans-serif" font-weight="600" font-size="13" letter-spacing="2">EXAMPLE: A $40 SERVICE, FREE ON THE 10TH VISIT</text>
+          <text x="24" y="34" fill="var(--tan)" class="f-label" font-weight="600" font-size="13" letter-spacing="2">EXAMPLE: A $40 SERVICE, FREE ON THE 10TH VISIT</text>
 
-          <text x="24" y="86" fill="var(--cream-dim)" font-family="Inter, sans-serif" font-size="13.5">9 paid visits</text>
+          <text x="24" y="86" fill="var(--cream-dim)" class="f-body" font-size="13.5">9 paid visits</text>
           <rect x="150" y="70" width="500" height="26" fill="var(--maroon)"/>
-          <text x="640" y="88" text-anchor="end" fill="var(--cream)" font-family="Oswald, sans-serif" font-weight="700" font-size="16">$360</text>
+          <text x="640" y="88" text-anchor="end" fill="var(--cream)" class="f-display" font-weight="700" font-size="16">$360</text>
 
-          <text x="24" y="146" fill="var(--cream-dim)" font-family="Inter, sans-serif" font-size="13.5">Cost of the</text>
-          <text x="24" y="164" fill="var(--cream-dim)" font-family="Inter, sans-serif" font-size="13.5">free 10th</text>
+          <text x="24" y="146" fill="var(--cream-dim)" class="f-body" font-size="13.5">Cost of the</text>
+          <text x="24" y="164" fill="var(--cream-dim)" class="f-body" font-size="13.5">free 10th</text>
           <rect x="150" y="130" width="42" height="26" fill="var(--tan)"/>
-          <text x="204" y="148" fill="var(--cream)" font-family="Oswald, sans-serif" font-weight="700" font-size="16">your time + supplies</text>
+          <text x="204" y="148" fill="var(--cream)" class="f-display" font-weight="700" font-size="16">your time + supplies</text>
 
           <line x1="24" y1="192" x2="676" y2="192" stroke="var(--line)" stroke-width="1"/>
-          <text x="24" y="222" fill="var(--cream)" font-family="Inter, sans-serif" font-size="13.5">The reward isn't the cost. Losing the customer after visit three is.</text>
+          <text x="24" y="222" fill="var(--cream)" class="f-body" font-size="13.5">The reward isn't the cost. Losing the customer after visit three is.</text>
         </svg>
         <figcaption>Illustrative example, swap in your own price and reward threshold</figcaption>
       </figure>
