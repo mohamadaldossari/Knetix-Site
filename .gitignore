@@ -16,3 +16,10 @@ package-lock.json
 
 # Note: .superdesign/ is deliberately NOT ignored — it is tracked design
 # documentation, not tool scratch.
+
+# Internal strategy — this repo is PUBLIC, so committing this file would publish
+# it on GitHub permanently, which a later delete would not undo. Ignored so a
+# stray `git add -A` cannot stage it. The .vercelignore entry only stops Vercel
+# from serving it; it does not stop a commit. If this repo ever becomes private
+# and the file should be tracked, remove this line.
+SEO-AI-PLAYBOOK.md
