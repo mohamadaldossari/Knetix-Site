@@ -3,3 +3,8 @@
 # truth), but it is written for the team and tooling, not for visitors. Without
 # this, Vercel serves it at /.superdesign/*.md as crawlable text/markdown.
 .superdesign/
+
+# SEO-AI-PLAYBOOK.md is internal strategy — tracked in git, never served.
+# Same reasoning as .superdesign/ above. Listed ahead of the file landing so
+# there is no window in which it could be deployed.
+SEO-AI-PLAYBOOK.md
