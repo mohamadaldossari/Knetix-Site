@@ -77,7 +77,7 @@
 <link rel="stylesheet" href="/tokens.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
   /* ============ KNETIX REP: DESIGN TOKENS ============ */
   :root{
@@ -157,19 +157,18 @@
   .nav-cta{padding:11px 22px !important;font-size:.78rem !important}
   @media(max-width:900px){.nav-links a:not(.nav-cta){display:none}}
 
-  /* ============ MARQUEE ============ */
-  .marquee{border-bottom:1px solid var(--line);background:var(--ink-2);overflow:hidden;padding:11px 0}
-  .marquee-track{display:flex;gap:0;white-space:nowrap;width:max-content;animation:scroll 34s linear infinite}
-  .marquee-track span{font-family:var(--font-mono);font-weight:500;font-size:.8rem;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--tan);padding:0 26px}
-  .marquee-track span::after{content:"◆";color:var(--maroon-300);margin-left:52px;font-size:var(--fs-xs);vertical-align:middle}
-  @keyframes scroll{to{transform:translateX(-50%)}}
+  /* ============ NICHE ROW (static, the marquee animation is retired) ============ */
+  .niches{border-bottom:1px solid var(--line);background:var(--ink-2)}
+  .niches .wrap{display:flex;flex-wrap:wrap;gap:10px 30px;padding-top:16px;padding-bottom:16px}
+  .niches span{font-family:var(--font-mono);font-weight:500;font-size:var(--fs-xs);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--tan)}
+  @media(max-width:640px){.niches .wrap{display:grid;grid-template-columns:1fr 1fr;gap:8px 18px}}
 
   /* ============ HERO ============ */
   .hero{position:relative;padding:96px 0 92px;overflow:hidden}
   .hero-glow{position:absolute;top:-10%;right:-8%;width:640px;height:640px;background:radial-gradient(circle,rgba(138,47,47,.20),transparent 65%);pointer-events:none}
   .hero .wrap{position:relative}
   .hero h1{font-size:clamp(var(--fs-4xl),7vw,var(--fs-6xl));margin:26px 0 0;max-width:15ch;line-height:var(--lh-tight);letter-spacing:var(--tracking-tight);}
-  .hero h1 em{font-style:normal;color:var(--maroon-500)}
+  .hero h1 em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--cream);letter-spacing:.01em}
   .hero .lede{font-size:clamp(1.05rem,2vw,1.3rem);color:var(--cream-dim);max-width:52ch;margin-top:26px}
   .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
   .trust{display:flex;gap:26px;flex-wrap:wrap;margin-top:44px;padding-top:26px;border-top:1px solid var(--line)}
@@ -297,6 +296,65 @@
     .nav-links{flex-wrap:wrap;justify-content:center;gap:2px}
     .nav-links a{padding:6px 9px;font-size:var(--fs-xs)}
   }
+
+/* ============ STAGE 1: EARNINGS MODULE + EDITORIAL FLOW ============ */
+  .pay-h{margin-bottom:18px}
+  .pay-sub{margin-bottom:0}
+  .earn{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:56px;border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--ink-2);overflow:hidden}
+  .earn-control{padding:40px 38px;border-right:1px solid var(--line)}
+  .earn-label{display:block;font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--tan)}
+  .earn-count{display:block;font-family:var(--font-display);font-weight:700;font-size:var(--fs-4xl);color:var(--cream);line-height:var(--lh-tight);margin:10px 0 22px;font-variant-numeric:tabular-nums}
+  .earn-control input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:var(--radius-pill);background:var(--line-strong);outline:none;cursor:pointer}
+  .earn-control input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;background:var(--maroon-500);border:2px solid var(--cream);cursor:pointer;transition:transform var(--dur-fast) var(--ease-out)}
+  .earn-control input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.12)}
+  .earn-control input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--maroon-500);border:2px solid var(--cream);cursor:pointer}
+  .earn-control input[type=range]:focus-visible{outline:2px solid var(--tan);outline-offset:6px}
+  .earn-help{margin-top:16px;font-size:.94rem;color:var(--cream-dim)}
+  .earn-out{padding:40px 38px;display:flex;flex-direction:column;justify-content:center}
+  .earn-row{display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid var(--line)}
+  .earn-row.is-lead{border-bottom:none}
+  .earn-cap{font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--tan-dim)}
+  .earn-fig{font-family:var(--font-display);font-weight:700;color:var(--cream);font-variant-numeric:tabular-nums;line-height:1}
+  .earn-row .earn-fig{font-size:var(--fs-2xl)}
+  .earn-row.is-lead .earn-fig{font-size:var(--fs-4xl);color:var(--maroon-500)}
+  .earn-foot{margin-top:18px;font-size:.94rem;color:var(--cream-dim)}
+  .earn-ref{display:flex;flex-wrap:wrap;gap:12px 44px;margin-top:26px;padding-top:22px;border-top:1px solid var(--line)}
+  .earn-ref div{display:flex;align-items:baseline;gap:10px}
+  .earn-ref dt{font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--tan-dim)}
+  .earn-ref dd{font-family:var(--font-display);font-weight:600;font-size:var(--fs-lg);color:var(--cream);font-variant-numeric:tabular-nums}
+  @media(max-width:760px){
+    .earn{grid-template-columns:1fr}
+    .earn-control{border-right:none;border-bottom:1px solid var(--line);padding:32px 26px}
+    .earn-out{padding:32px 26px}
+  }
+
+  .flow{list-style:none;margin-top:56px;border-top:1px solid var(--line)}
+  .flow-step{display:grid;grid-template-columns:120px 1fr;gap:32px;padding:38px 0;border-bottom:1px solid var(--line)}
+  .flow-n{font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--tan);padding-top:6px}
+  .flow-body h3{font-size:var(--fs-xl);line-height:var(--lh-snug)}
+  .flow-body p{color:var(--cream-dim);margin-top:10px;max-width:62ch}
+  @media(max-width:640px){.flow-step{grid-template-columns:1fr;gap:10px;padding:28px 0}.flow-n{padding-top:0}}
+
+  .blk{padding-top:104px;padding-bottom:104px}
+  .sec-h{margin-bottom:0}
+
+  /* vary the emphasis so this reads as a composition, not six clones */
+  .get-grid{grid-template-columns:repeat(6,1fr);gap:18px}
+  .get-grid .feat{grid-column:span 2;border-radius:var(--radius-md);padding:32px 30px}
+  .get-grid .feat:nth-child(1){grid-column:span 3}
+  .get-grid .feat:nth-child(2){grid-column:span 3}
+  .get-grid .feat:nth-child(6){grid-column:span 6;display:flex;align-items:baseline;gap:26px}
+  .get-grid .feat:nth-child(6) .fi{display:none}
+  .get-grid .feat:nth-child(6) h3{flex:0 0 auto;margin-bottom:0}
+  .get-grid .feat:nth-child(6) p{margin:0;max-width:62ch}
+  .get-grid .feat h3{font-size:var(--fs-lg)}
+  .get-grid .feat:nth-child(1) h3,.get-grid .feat:nth-child(2) h3{font-size:var(--fs-xl)}
+  @media(max-width:860px){
+    .get-grid{grid-template-columns:1fr}
+    .get-grid .feat,.get-grid .feat:nth-child(1),.get-grid .feat:nth-child(2),.get-grid .feat:nth-child(6){grid-column:auto}
+    .get-grid .feat:nth-child(6){display:block}
+    .get-grid .feat:nth-child(6) h3{margin-bottom:9px}
+  }
 </style>
 </head>
 <body>
@@ -321,16 +379,23 @@
       <a href="#path">How it works</a>
       <a href="#get">What you get</a>
       <a href="#faq">FAQ</a>
-      <a class="btn btn-primary nav-cta" data-cta="discord" href="#">Join the Discord</a>
+      <a class="btn btn-primary nav-cta" data-cta="discord" href="https://discord.gg/T3WhzTWkQ">Join the Discord</a>
     </div>
   </nav>
 </header>
 
-<!-- ============ MARQUEE ============ -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    <span>Barbershops</span><span>Nail salons</span><span>Car detailing</span><span>Vape shops</span><span>Lash studios</span><span>Tattoo studios</span><span>Med-spas</span><span>Pet grooming</span><span>Boba shops</span><span>Coffee shops</span>
-    <span>Barbershops</span><span>Nail salons</span><span>Car detailing</span><span>Vape shops</span><span>Lash studios</span><span>Tattoo studios</span><span>Med-spas</span><span>Pet grooming</span><span>Boba shops</span><span>Coffee shops</span>
+<div class="niches">
+  <div class="wrap">
+    <span>Barbershops</span>
+    <span>Nail salons</span>
+    <span>Car detailing</span>
+    <span>Vape shops</span>
+    <span>Lash studios</span>
+    <span>Tattoo studios</span>
+    <span>Med-spas</span>
+    <span>Pet grooming</span>
+    <span>Boba shops</span>
+    <span>Coffee shops</span>
   </div>
 </div>
 
@@ -343,7 +408,7 @@
     <h1>Get paid to close <em>local businesses.</em></h1>
     <p class="lede">KNETIX sets up done-for-you loyalty and referral systems for local shops. You reach out, show them how it works, and close them. You keep half of every setup fee.</p>
     <div class="hero-cta">
-      <a class="btn btn-primary" data-cta="discord" href="#">Join the Discord
+      <a class="btn btn-primary" data-cta="discord" href="https://discord.gg/T3WhzTWkQ">Join the Discord
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
       <a class="btn btn-ghost" href="#path">See how it works</a>
@@ -356,17 +421,39 @@
   </div>
 </section>
 
-<!-- ============ 01 · THE PAY ============ -->
+<!-- ============ THE PAY ============ -->
 <section class="blk" id="pay">
   <div class="wrap">
-    <p class="sec-tag reveal"><b>01</b> The pay</p>
     <h2 class="pay-h reveal">You close. You get paid.</h2>
     <p class="pay-sub reveal">Every deal has a one-time setup fee. You earn 50% of it the moment the client signs. That's your payday, the same effort on a premium shop pays more than double a low-ticket one.</p>
-    <div class="pay-grid">
-      <div class="pay-cell reveal"><div class="fig">$225</div><div class="cap">Standard close</div></div>
-      <div class="pay-cell reveal"><div class="fig">$375</div><div class="cap">Premium close</div></div>
-      <div class="pay-cell reveal"><div class="fig">$1,000+</div><div class="cap">Three premium closes</div></div>
+
+    <div class="earn reveal">
+      <div class="earn-control">
+        <label class="earn-label" for="deals">Deals closed per month</label>
+        <output class="earn-count num" id="dealsOut" for="deals">1</output>
+        <input type="range" id="deals" name="deals" min="1" max="10" step="1" value="1"
+               aria-describedby="earnHelp">
+        <p class="earn-help" id="earnHelp">Drag to see what a month looks like at your pace.</p>
+      </div>
+      <div class="earn-out">
+        <div class="earn-row">
+          <span class="earn-cap">Standard shops</span>
+          <span class="earn-fig num" id="earnStd">$225</span>
+        </div>
+        <div class="earn-row is-lead">
+          <span class="earn-cap">Premium shops</span>
+          <span class="earn-fig num" id="earnPrm">$375</span>
+        </div>
+        <p class="earn-foot">Your monthly take at <span id="earnDeals">1</span> <span id="earnWord">deal</span> closed, based on 50% of the setup fee.</p>
+      </div>
     </div>
+
+    <dl class="earn-ref reveal">
+      <div><dt>Standard close</dt><dd class="num">$225</dd></div>
+      <div><dt>Premium close</dt><dd class="num">$375</dd></div>
+      <div><dt>Three premium closes</dt><dd class="num">$1,000+</dd></div>
+    </dl>
+
     <div class="pay-note reveal">
       <div class="rule"></div>
       <b>50% of every fee. No cap.</b> <span>&nbsp;, the more you close, the more you make.</span>
@@ -377,7 +464,6 @@
 <!-- ============ 02 · THE PRODUCT ============ -->
 <section class="blk" id="product">
   <div class="wrap">
-    <p class="sec-tag reveal"><b>02</b> What you're selling</p>
     <div class="prod">
       <div class="reveal">
         <h2 class="sec-h">A digital loyalty card for their whole shop.</h2>
@@ -405,24 +491,46 @@
   </div>
 </section>
 
-<!-- ============ 03 · THE PATH ============ -->
+<!-- ============ THE PATH ============ -->
 <section class="blk" id="path">
   <div class="wrap">
-    <p class="sec-tag reveal"><b>03</b> The path</p>
     <h2 class="sec-h reveal">From joining to your first commission.</h2>
-    <div class="path">
-      <div class="step reveal"><div class="sn">01</div><h3>Join</h3><p>Jump in the Discord, meet the community, and read how the program works. Free, no commitment.</p></div>
-      <div class="step reveal"><div class="sn">02</div><h3>Get certified</h3><p>Work through the free course, what you sell, who to target, outreach, objections, and the close. Pass the final and you're in.</p></div>
-      <div class="step reveal"><div class="sn">03</div><h3>Close</h3><p>Get your sales cockpit account, claim leads from the pool, and work them with the scripts and AI drafter built in.</p></div>
-      <div class="step reveal"><div class="sn">04</div><h3>Get paid</h3><p>Client signs, you lock in 50% of the setup fee. It shows on your commission tile and the leaderboard.</p></div>
-    </div>
+    <ol class="flow">
+      <li class="flow-step reveal">
+        <span class="flow-n">Step 01</span>
+        <div class="flow-body">
+          <h3>Join</h3>
+          <p>Jump in the Discord, meet the community, and read how the program works. Free, no commitment.</p>
+        </div>
+      </li>
+      <li class="flow-step reveal">
+        <span class="flow-n">Step 02</span>
+        <div class="flow-body">
+          <h3>Get certified</h3>
+          <p>Work through the free course, what you sell, who to target, outreach, objections, and the close. Pass the final and you're in.</p>
+        </div>
+      </li>
+      <li class="flow-step reveal">
+        <span class="flow-n">Step 03</span>
+        <div class="flow-body">
+          <h3>Close</h3>
+          <p>Get your sales cockpit account, claim leads from the pool, and work them with the scripts and AI drafter built in.</p>
+        </div>
+      </li>
+      <li class="flow-step reveal">
+        <span class="flow-n">Step 04</span>
+        <div class="flow-body">
+          <h3>Get paid</h3>
+          <p>Client signs, you lock in 50% of the setup fee. It shows on your commission tile and the leaderboard.</p>
+        </div>
+      </li>
+    </ol>
   </div>
 </section>
 
 <!-- ============ 04 · WHAT YOU GET ============ -->
 <section class="blk" id="get">
   <div class="wrap">
-    <p class="sec-tag reveal"><b>04</b> What you get</p>
     <h2 class="sec-h reveal">Everything to close, in one place.</h2>
     <div class="get-grid">
       <div class="feat reveal">
@@ -462,7 +570,6 @@
 <!-- ============ 05 · WHO IT'S FOR ============ -->
 <section class="blk" id="who">
   <div class="wrap">
-    <p class="sec-tag reveal"><b>05</b> Who this is for</p>
     <div class="who">
       <div class="reveal">
         <h2 class="sec-h">You bring the hustle. We bring the rest.</h2>
@@ -485,7 +592,6 @@
 <!-- ============ FAQ ============ -->
 <section class="blk" id="faq">
   <div class="wrap">
-    <p class="sec-tag reveal"><b>06</b> Questions, answered</p>
     <h2 class="sec-h reveal">The things everyone asks first.</h2>
     <div class="faq-list reveal">
       <details>
@@ -519,7 +625,6 @@
 <!-- ============ KEEP READING ============ -->
 <section class="blk" id="reading">
   <div class="wrap">
-    <p class="sec-tag reveal"><b>07</b> Keep reading</p>
     <h2 class="sec-h reveal">Before your first knock.</h2>
     <ul class="reading-list reveal">
       <li><a href="make-money-in-sales-no-experience.html">How to make money in sales with no experience</a></li>
@@ -537,7 +642,7 @@
     <h2 class="reveal" style="margin-top:22px">Ready to close your first deal?</h2>
     <p class="reveal">Free to join. Free to get certified. Jump in, get trained, and start getting paid to close local shops.</p>
     <div class="reveal" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-      <a class="btn btn-primary" data-cta="discord" href="#">Join the Discord
+      <a class="btn btn-primary" data-cta="discord" href="https://discord.gg/T3WhzTWkQ">Join the Discord
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
     </div>
@@ -550,7 +655,7 @@
     <div class="foot">
       <div class="fl">KNETIX &middot; Rep Program</div>
       <div class="fr">
-        <a data-cta="discord" href="#">Discord</a>
+        <a data-cta="discord" href="https://discord.gg/T3WhzTWkQ">Discord</a>
         <a href="loyalty.html">For businesses</a>
         <a href="blog.html">Blog</a>
         <a href="about.html">About</a>
@@ -573,6 +678,27 @@
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   },{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  /* ====== EARNINGS MODULE: static figures render first, this only enhances ====== */
+  (function(){
+    var r = document.getElementById('deals');
+    if (!r) return;
+    var STD = 225, PRM = 375;                 /* the page's own frozen per-close figures */
+    var fmt = function(n){ return '$' + n.toLocaleString('en-US'); };
+    var out = document.getElementById('dealsOut'),
+        std = document.getElementById('earnStd'), prm = document.getElementById('earnPrm'),
+        cnt = document.getElementById('earnDeals'), wrd = document.getElementById('earnWord');
+    function paint(){
+      var n = parseInt(r.value, 10);
+      out.textContent = n;
+      std.textContent = fmt(STD * n);
+      prm.textContent = fmt(PRM * n);
+      cnt.textContent = n;
+      wrd.textContent = n === 1 ? 'deal' : 'deals';
+    }
+    r.addEventListener('input', paint);
+    paint();
+  })();
 </script>
 </body>
 </html>
