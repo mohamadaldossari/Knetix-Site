@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KNETIX Blog — Loyalty & sales growth for local business</title>
-<meta name="description" content="Guides on customer loyalty, referrals, and repeat revenue for local shop owners — plus how to build an income as a KNETIX sales rep. Practical, no fluff.">
+<meta name="description" content="Guides on customer loyalty, referrals, and repeat revenue for local shop owners, plus how to build an income as a KNETIX sales rep. Practical, no fluff.">
 <link rel="canonical" href="https://www.knetixmarketing.com/blog.html">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='12' fill='%230E0C0B'/%3E%3Crect x='12' y='12' width='22' height='76' fill='%238B2E2E'/%3E%3Cpolygon points='38,12 88,12 38,46' fill='%23C9B89A'/%3E%3Cpolygon points='38,56 88,88 38,88' fill='%238B2E2E'/%3E%3Crect x='37' y='47' width='7' height='7' transform='rotate(45 40.5 50.5)' fill='%23C9B89A' opacity='.8'/%3E%3C/svg%3E">
 <meta property="og:title" content="KNETIX Blog — Loyalty & sales growth for local business">
-<meta property="og:description" content="Guides on customer loyalty, referrals, and repeat revenue for local shop owners — plus how to build an income as a KNETIX sales rep.">
+<meta property="og:description" content="Guides on customer loyalty, referrals, and repeat revenue for local shop owners, plus how to build an income as a KNETIX sales rep.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.knetixmarketing.com/blog.html">
 <meta property="og:image" content="https://www.knetixmarketing.com/knetixwhopbanner.png">
@@ -41,7 +41,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  /* ============ KNETIX BLOG — DESIGN TOKENS (matched to rep.html) ============ */
+  /* ============ KNETIX BLOG: DESIGN TOKENS (matched to rep.html) ============ */
   :root{
     --ink:#16110d;          /* warm near-black background */
     --ink-2:#1e1712;        /* raised panel */
@@ -64,7 +64,7 @@
   body{
     background:var(--ink);
     color:var(--cream);
-    font-family:var(--body);
+    font-family:var(--font-body);
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
@@ -72,7 +72,7 @@
   a{color:inherit;text-decoration:none}
   ::selection{background:var(--maroon);color:var(--cream)}
 
-  /* page frame — the cream hairline that echoes the KNETIX brand plates */
+  /* page frame, the cream hairline that echoes the KNETIX brand plates */
   .frame{position:fixed;inset:14px;border:1px solid var(--line-strong);pointer-events:none;z-index:200}
   @media(max-width:640px){.frame{inset:8px}}
 
@@ -80,8 +80,8 @@
   @media(max-width:640px){.wrap{padding:0 22px}}
 
   .eyebrow{
-    font-family:var(--display);font-weight:500;font-size:.74rem;
-    letter-spacing:.42em;text-transform:uppercase;color:var(--tan);
+    font-family:var(--font-mono);font-weight:500;font-size:var(--fs-xs);
+    letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--tan);
     display:flex;align-items:center;gap:14px;
   }
   .eyebrow::before{content:"";width:34px;height:1px;background:var(--maroon-2)}
@@ -96,7 +96,7 @@
   .brand .kmark{width:34px;height:34px;flex:none}
   .brand .btxt{display:flex;flex-direction:column;line-height:1}
   .brand .btxt b{font-family:var(--display);font-weight:700;font-size:1.15rem;letter-spacing:.16em}
-  .brand .btxt span{font-family:var(--display);font-weight:400;font-size:.56rem;letter-spacing:.42em;color:var(--tan-dim);margin-top:3px}
+  .brand .btxt span{font-family:var(--font-mono);font-weight:400;font-size:var(--fs-xs);letter-spacing:var(--tracking-label);color:var(--tan);margin-top:3px}
   .nav-links{display:flex;align-items:center;gap:34px}
   .nav-links a{font-family:var(--display);font-weight:500;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-dim);transition:color .2s}
   .nav-links a:hover{color:var(--tan)}
@@ -107,14 +107,14 @@
   .blog-glow{position:absolute;top:-10%;right:-8%;width:640px;height:640px;background:radial-gradient(circle,rgba(138,47,47,.18),transparent 65%);pointer-events:none}
   .blog-intro .wrap{position:relative}
   .blog-intro h1{font-size:clamp(2.6rem,7vw,5rem);margin:26px 0 0;max-width:16ch}
-  .blog-intro h1 em{font-style:normal;color:var(--maroon-2)}
+  .blog-intro h1 em{font-style:normal;color:var(--maroon-500)}
   .blog-intro .lede{font-size:clamp(1.05rem,2vw,1.28rem);color:var(--cream-dim);max-width:56ch;margin-top:24px}
 
   /* ============ CATEGORY SECTION ============ */
   .blog-cat{padding:64px 0 30px}
   .blog-cat:last-of-type{padding-bottom:96px}
-  .sec-tag{font-family:var(--display);font-weight:500;font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--tan-dim);margin-bottom:14px}
-  .sec-tag b{color:var(--maroon-2);font-weight:700;margin-right:6px}
+  .sec-tag{font-family:var(--font-mono);font-weight:500;font-size:var(--fs-xs);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--tan);margin-bottom:14px}
+  .sec-tag b{color:var(--maroon-300);font-weight:700;margin-right:6px}
   .cat-h{font-size:clamp(1.7rem,3.6vw,2.6rem);max-width:20ch}
   .cat-sub{color:var(--cream-dim);max-width:52ch;margin-top:14px;font-size:1rem}
 
@@ -125,20 +125,20 @@
   .post-card{display:flex;flex-direction:column;gap:12px;background:var(--ink-2);border:1px solid var(--line);padding:28px 26px;transition:transform .2s ease,background .2s ease,border-color .2s ease}
   a.post-card:hover{border-color:var(--line-strong);background:var(--ink-3);transform:translateY(-3px)}
   .post-card.is-soon{opacity:.6}
-  .pc-cat{font-family:var(--display);font-weight:500;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--tan)}
+  .pc-cat{font-family:var(--font-mono);font-weight:500;font-size:var(--fs-xs);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--tan)}
   .pc-title{font-size:1.22rem;line-height:1.16}
   .pc-excerpt{color:var(--cream-dim);font-size:.95rem;flex:1 0 auto}
-  .pc-meta{margin-top:6px;font-family:var(--display);font-weight:500;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--tan-dim);display:flex;align-items:center;gap:10px}
-  .pc-badge{border:1px solid var(--line-strong);color:var(--tan-dim);padding:4px 10px;font-size:.62rem;letter-spacing:.16em}
+  .pc-meta{margin-top:6px;font-family:var(--font-mono);font-weight:500;font-size:var(--fs-xs);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--tan);display:flex;align-items:center;gap:10px}
+  .pc-badge{font-family:var(--font-mono);border:1px solid var(--line-strong);color:var(--tan);padding:4px 10px;font-size:var(--fs-xs);letter-spacing:var(--tracking-label)}
 
   /* ============ FOOTER (matched to rep.html) ============ */
   footer{border-top:1px solid var(--line);padding:46px 0 40px;background:var(--ink-2)}
   .foot{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
-  .foot .fl{font-family:var(--display);font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem;color:var(--tan-dim)}
+  .foot .fl{font-family:var(--font-mono);font-weight:500;letter-spacing:var(--tracking-label);text-transform:uppercase;font-size:.78rem;color:var(--tan)}
   .foot .fr{display:flex;gap:24px}
-  .foot .fr a{font-family:var(--display);font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem;color:var(--cream-dim);transition:color .2s}
+  .foot .fr a{font-family:var(--font-mono);font-weight:500;letter-spacing:var(--tracking-label);text-transform:uppercase;font-size:.78rem;color:var(--cream-dim);transition:color .2s}
   .foot .fr a:hover{color:var(--tan)}
-  .copies{text-align:center;color:var(--tan-dim);font-size:.78rem;margin-top:30px;letter-spacing:.04em}
+  .copies{font-family:var(--font-mono);text-align:center;color:var(--tan);font-size:.78rem;margin-top:30px;letter-spacing:var(--tracking-label)}
 
   /* ============ REVEAL ============ */
   .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
@@ -180,7 +180,7 @@
   <div class="wrap">
     <p class="eyebrow">Blog</p>
     <h1>Grow the shop. <em>Grow the income.</em></h1>
-    <p class="lede">Straight-talking guides on customer loyalty, referrals, and repeat revenue for local businesses — and how to build a real income closing them as a KNETIX rep. No fluff, no filler.</p>
+    <p class="lede">Straight-talking guides on customer loyalty, referrals, and repeat revenue for local businesses, and how to build a real income closing them as a KNETIX rep. No fluff, no filler.</p>
   </div>
 </section>
 
@@ -190,7 +190,7 @@
   Copy one <a class="post-card"> block below, change href to the new post
   file (built from blog-post-template.html, e.g. my-post-slug.html), and
   fill in .pc-cat / .pc-title / .pc-excerpt / .pc-meta. Remove the
-  "is-soon" class and the "Coming soon" badge — that state is only for the
+  "is-soon" class and the "Coming soon" badge, that state is only for the
   placeholders shown here while the blog has no live posts yet.
   ════════════════════════════════════════════════════════════════════
 -->
@@ -206,35 +206,35 @@
       <a class="post-card reveal" href="get-repeat-detailing-customers.html">
         <span class="pc-cat">For Business Owners</span>
         <h3 class="pc-title">How to Get Repeat Customers for Your Detailing Business</h3>
-        <p class="pc-excerpt">The real money in detailing is the same car coming back — here's how to build repeat customers and referrals that stick.</p>
+        <p class="pc-excerpt">The real money in detailing is the same car coming back, here's how to build repeat customers and referrals that stick.</p>
         <span class="pc-meta">Jul 2026 · 7 min read</span>
       </a>
 
       <a class="post-card reveal" href="keep-nail-clients-coming-back.html">
         <span class="pc-cat">For Business Owners</span>
         <h3 class="pc-title">How to Get Nail Clients to Keep Coming Back</h3>
-        <p class="pc-excerpt">Nail clients are easy to lose to whoever's cheaper — here's how to keep them loyal, rebooking, and referring.</p>
+        <p class="pc-excerpt">Nail clients are easy to lose to whoever's cheaper, here's how to keep them loyal, rebooking, and referring.</p>
         <span class="pc-meta">Jul 2026 · 7 min read</span>
       </a>
 
       <a class="post-card reveal" href="get-barber-clients-to-come-back.html">
         <span class="pc-cat">For Business Owners</span>
         <h3 class="pc-title">How to Get Barber Clients to Come Back Every Time</h3>
-        <p class="pc-excerpt">Regulars, not walk-ins, fill a chair — how barbers keep clients coming back on schedule.</p>
+        <p class="pc-excerpt">Regulars, not walk-ins, fill a chair, how barbers keep clients coming back on schedule.</p>
         <span class="pc-meta">Jul 2026 · 7 min read</span>
       </a>
 
       <a class="post-card reveal" href="vape-shop-repeat-customers.html">
         <span class="pc-cat">For Business Owners</span>
         <h3 class="pc-title">How Vape Shops Build Repeat Customers</h3>
-        <p class="pc-excerpt">Vape customers buy weekly — but from whoever's convenient. Here's how to lock them in.</p>
+        <p class="pc-excerpt">Vape customers buy weekly, but from whoever's convenient. Here's how to lock them in.</p>
         <span class="pc-meta">Jul 2026 · 6 min read</span>
       </a>
 
       <a class="post-card reveal" href="what-happens-when-a-shop-runs-a-loyalty-program.html">
         <span class="pc-cat">For Business Owners</span>
         <h3 class="pc-title">What Actually Happens When a Local Shop Runs a Loyalty Program</h3>
-        <p class="pc-excerpt">30+ shops, 2,000+ customers signed up — what actually happens, including the part owners don't expect.</p>
+        <p class="pc-excerpt">30+ shops, 2,000+ customers signed up, what actually happens, including the part owners don't expect.</p>
         <span class="pc-meta">Jul 2026 · 8 min read</span>
       </a>
 
@@ -253,21 +253,21 @@
       <a class="post-card reveal" href="make-money-in-sales-no-experience.html">
         <span class="pc-cat">For Aspiring Reps</span>
         <h3 class="pc-title">How to Make Money in Sales With No Experience</h3>
-        <p class="pc-excerpt">You don't need a degree or a background — here's how commission sales actually works and how to start from zero.</p>
+        <p class="pc-excerpt">You don't need a degree or a background, here's how commission sales actually works and how to start from zero.</p>
         <span class="pc-meta">Jul 2026 · 8 min read</span>
       </a>
 
       <a class="post-card reveal" href="is-commission-only-sales-worth-it.html">
         <span class="pc-cat">For Aspiring Reps</span>
         <h3 class="pc-title">Is Commission-Only Sales Worth It? An Honest Breakdown</h3>
-        <p class="pc-excerpt">No base pay, uncapped upside — the honest breakdown of when it's worth it and when it isn't.</p>
+        <p class="pc-excerpt">No base pay, uncapped upside, the honest breakdown of when it's worth it and when it isn't.</p>
         <span class="pc-meta">Jul 2026 · 7 min read</span>
       </a>
 
       <a class="post-card reveal" href="how-to-sell-to-local-businesses.html">
         <span class="pc-cat">For Aspiring Reps</span>
         <h3 class="pc-title">How to Sell to Local Businesses: What Actually Works</h3>
-        <p class="pc-excerpt">Local sales is its own sport — faster, more personal, more honest. The playbook that works.</p>
+        <p class="pc-excerpt">Local sales is its own sport, faster, more personal, more honest. The playbook that works.</p>
         <span class="pc-meta">Jul 2026 · 8 min read</span>
       </a>
 

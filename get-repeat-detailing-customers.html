@@ -38,27 +38,42 @@
     {
       "@type": "Question",
       "name": "How often do detailing customers need to come back?",
-      "acceptedAnswer": { "@type": "Answer", "text": "It depends on the service and the customer, but a maintenance detail every one to three months is typical for people who care about keeping their car clean. That natural cycle is what makes repeat business so achievable in detailing — the demand to return is already there, and most shops just don't capture it with a reason or a reminder." }
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the service and the customer, but a maintenance detail every one to three months is typical for people who care about keeping their car clean. That natural cycle is what makes repeat business so achievable in detailing, the demand to return is already there, and most shops just don't capture it with a reason or a reminder."
+      }
     },
     {
       "@type": "Question",
       "name": "What's a good loyalty reward for a detailing shop?",
-      "acceptedAnswer": { "@type": "Answer", "text": "The cleanest reward is a free version of your lowest-cost service, like a basic wash or an interior refresh, after a set number of paid visits, usually six to eight. It feels valuable to the customer but costs you very little, because the paid visits leading up to it earn you far more in profit than the free one costs to deliver." }
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The cleanest reward is a free version of your lowest-cost service, like a basic wash or an interior refresh, after a set number of paid visits, usually six to eight. It feels valuable to the customer but costs you very little, because the paid visits leading up to it earn you far more in profit than the free one costs to deliver."
+      }
     },
     {
       "@type": "Question",
       "name": "Won't giving away free details hurt my margin?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No, the math works strongly in your favor when the threshold is set right. If a customer completes eight paid details before earning a free basic wash, you have earned well over a thousand dollars in profit before handing over a reward that costs you around fifteen dollars. A loyalty reward isn't a giveaway; it's one of the cheapest ways to keep a high-value customer coming back." }
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, the math works strongly in your favor when the threshold is set right. If a customer completes eight paid details before earning a free basic wash, you've earned well over $1,000 in profit before handing over a reward that costs you around $15. A loyalty reward isn't a giveaway; it's one of the cheapest ways to keep a high-value customer coming back."
+      }
     },
     {
       "@type": "Question",
       "name": "Should I offer discounts to bring detailing customers back?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Discounts work once but train customers to wait for the next deal and eat into your margin, which is a bad trade for a high-ticket service. A loyalty program is a better lever: it rewards customers for returning without lowering your everyday price or teaching them that your rates are negotiable." }
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Discounts work once but train customers to wait for the next deal and eat into your margin, a bad trade for a high-ticket service. A loyalty program is a better lever: it rewards customers for returning without lowering your everyday price or teaching them that your rates are negotiable."
+      }
     },
     {
       "@type": "Question",
       "name": "How do referrals work for a detailing business?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Each successful referral is a brand-new high-ticket customer who already trusts you because a friend recommended you. Because each one is worth so much, you can reward referrals generously, for example a free service after three or four successful referrals. Your happiest customers become your most effective and lowest-cost marketing channel." }
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Each successful referral is a brand-new high-ticket customer who already trusts you because a friend recommended you. Because each one is worth so much, you can reward referrals generously, for example, a free service after three or four successful referrals. Your happiest customers become your most effective and lowest-cost marketing channel."
+      }
     }
   ]
 }
@@ -68,7 +83,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  /* ============ KNETIX BLOG POST — DESIGN TOKENS (matched to rep.html) ============ */
+  /* ============ KNETIX BLOG POST: DESIGN TOKENS (matched to rep.html) ============ */
   :root{
     --ink:#16110d; --ink-2:#1e1712; --ink-3:#261d16;
     --maroon:#8a2f2f; --maroon-2:#a83b3b;
@@ -82,7 +97,7 @@
 
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{background:var(--ink);color:var(--cream);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body{background:var(--ink);color:var(--cream);font-family:var(--font-body);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   a{color:inherit;text-decoration:none}
   ::selection{background:var(--maroon);color:var(--cream)}
 
@@ -92,7 +107,7 @@
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px}
   @media(max-width:640px){.wrap{padding:0 22px}}
 
-  .eyebrow{font-family:var(--display);font-weight:500;font-size:.74rem;letter-spacing:.42em;text-transform:uppercase;color:var(--tan);display:flex;align-items:center;gap:14px}
+  .eyebrow{font-family:var(--font-mono);font-weight:500;font-size:var(--fs-xs);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--tan);display:flex;align-items:center;gap:14px}
   .eyebrow::before{content:"";width:34px;height:1px;background:var(--maroon-2)}
 
   h1,h2,h3{font-family:var(--body);font-weight:800;letter-spacing:-.02em;line-height:1.05}
@@ -105,17 +120,17 @@
   .brand .kmark{width:34px;height:34px;flex:none}
   .brand .btxt{display:flex;flex-direction:column;line-height:1}
   .brand .btxt b{font-family:var(--display);font-weight:700;font-size:1.15rem;letter-spacing:.16em}
-  .brand .btxt span{font-family:var(--display);font-weight:400;font-size:.56rem;letter-spacing:.42em;color:var(--tan-dim);margin-top:3px}
+  .brand .btxt span{font-family:var(--font-mono);font-weight:400;font-size:var(--fs-xs);letter-spacing:var(--tracking-label);color:var(--tan);margin-top:3px}
   .nav-links{display:flex;align-items:center;gap:30px}
   .nav-links a{font-family:var(--display);font-weight:500;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-dim);transition:color .2s}
   .nav-links a:hover{color:var(--tan)}
-  @media(max-width:520px){.nav-links{gap:18px}.nav-links a{font-size:.72rem}}
+  @media(max-width:520px){.nav-links{gap:18px}.nav-links a{font-size:var(--fs-xs)}}
 
   /* ============ ARTICLE ============ */
   .post{max-width:var(--readw);margin:0 auto;padding:64px 0 20px}
   .post-head .eyebrow{justify-content:flex-start}
   .post h1{font-size:clamp(2rem,5vw,3.2rem);margin:22px 0 0}
-  .post-meta{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:22px;padding-bottom:26px;border-bottom:1px solid var(--line);font-family:var(--display);font-weight:500;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tan-dim)}
+  .post-meta{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:22px;padding-bottom:26px;border-bottom:1px solid var(--line);font-family:var(--font-mono);font-weight:500;font-size:.78rem;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--tan)}
   .post-meta span{position:relative}
   .post-meta .by{color:var(--tan)}
 
@@ -128,7 +143,7 @@
   .article-body ul,.article-body ol{padding-left:1.2em;color:var(--cream-dim);font-size:1.08rem;line-height:1.7}
   .article-body li+li{margin-top:8px}
   .article-body a{color:var(--tan);border-bottom:1px solid var(--line-strong);transition:color .2s,border-color .2s}
-  .article-body a:hover{color:var(--maroon-2);border-bottom-color:var(--maroon-2)}
+  .article-body a:hover{color:var(--maroon-300);border-bottom-color:var(--maroon-2)}
   .article-body blockquote{border-left:2px solid var(--maroon);padding:6px 0 6px 22px;color:var(--cream);font-size:1.2rem;font-style:italic}
   .article-body strong{color:var(--cream)}
   .article-body img{max-width:100%;height:auto;border:1px solid var(--line)}
@@ -140,10 +155,10 @@
   .post-faq h2{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:10px}
   .faq-list{border-top:1px solid var(--line)}
   details{border-bottom:1px solid var(--line)}
-  summary{list-style:none;cursor:pointer;padding:22px 4px;display:flex;justify-content:space-between;gap:20px;align-items:center;font-family:var(--body);font-weight:600;font-size:1.08rem;color:var(--cream);transition:color .2s}
+  summary{list-style:none;cursor:pointer;padding:22px 4px;display:flex;justify-content:space-between;gap:20px;align-items:center;font-family:var(--font-body);font-weight:600;font-size:1.08rem;color:var(--cream);transition:color .2s}
   summary::-webkit-details-marker{display:none}
   summary:hover{color:var(--tan)}
-  summary .pm{font-family:var(--display);font-weight:300;font-size:1.7rem;color:var(--maroon-2);line-height:1;transition:transform .25s;flex:none}
+  summary .pm{font-family:var(--display);font-weight:300;font-size:1.7rem;color:var(--maroon-500);line-height:1;transition:transform .25s;flex:none}
   details[open] summary .pm{transform:rotate(45deg)}
   details .ans{padding:0 4px 24px;color:var(--cream-dim);line-height:1.7}
 
@@ -151,7 +166,7 @@
   .post-cta{max-width:var(--readw);margin:60px auto 0;background:var(--ink-2);border:1px solid var(--line);padding:44px 40px;text-align:center}
   .post-cta h2{font-size:clamp(1.6rem,3.4vw,2.3rem)}
   .post-cta p{color:var(--cream-dim);max-width:46ch;margin:16px auto 26px}
-  .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-weight:600;font-size:.9rem;letter-spacing:.12em;text-transform:uppercase;padding:15px 30px;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,background .2s ease}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-weight:600;font-size:.9rem;letter-spacing:var(--tracking-label);text-transform:uppercase;padding:15px 30px;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,background .2s ease}
   .btn-primary{background:var(--maroon);color:var(--cream)}
   .btn-primary:hover{background:var(--maroon-2);transform:translateY(-2px)}
   .btn:focus-visible{outline:2px solid var(--tan);outline-offset:3px}
@@ -161,11 +176,11 @@
   /* ============ FOOTER (matched to rep.html) ============ */
   footer{border-top:1px solid var(--line);padding:46px 0 40px;background:var(--ink-2)}
   .foot{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
-  .foot .fl{font-family:var(--display);font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem;color:var(--tan-dim)}
+  .foot .fl{font-family:var(--font-mono);font-weight:500;letter-spacing:var(--tracking-label);text-transform:uppercase;font-size:.78rem;color:var(--tan)}
   .foot .fr{display:flex;gap:24px}
-  .foot .fr a{font-family:var(--display);font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem;color:var(--cream-dim);transition:color .2s}
+  .foot .fr a{font-family:var(--font-mono);font-weight:500;letter-spacing:var(--tracking-label);text-transform:uppercase;font-size:.78rem;color:var(--cream-dim);transition:color .2s}
   .foot .fr a:hover{color:var(--tan)}
-  .copies{text-align:center;color:var(--tan-dim);font-size:.78rem;margin-top:30px;letter-spacing:.04em}
+  .copies{font-family:var(--font-mono);text-align:center;color:var(--tan);font-size:.78rem;margin-top:30px;letter-spacing:var(--tracking-label)}
 
   @media(prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}html{scroll-behavior:auto}}
 </style>
@@ -210,9 +225,9 @@
     </div>
 
     <div class="article-body">
-      <p>Most detailing shops live and die by the next booking. You run ads, you post before-and-afters, you fill the schedule — and the customer whose car you just made look brand new drives off and you never hear from them again. Then you do it all over next week, paying to find the next stranger.</p>
+      <p>Most detailing shops live and die by the next booking. You run ads, you post before-and-afters, you fill the schedule, and the customer whose car you just made look brand new drives off and you never hear from them again. Then you do it all over next week, paying to find the next stranger.</p>
 
-      <p>Here's the thing almost every shop misses: the money in detailing isn't in the next new customer. It's in the same car coming back. A detailer who gets one customer to return every couple of months is worth several times a one-time job — for a fraction of the effort, because you've already done the hard part of earning their trust.</p>
+      <p>Here's the thing almost every shop misses: the money in detailing isn't in the next new customer. It's in the same car coming back. A detailer who gets one customer to return every couple of months is worth several times a one-time job, for a fraction of the effort, because you've already done the hard part of earning their trust.</p>
 
       <p>This is the repeat-customer problem, and detailing has it worse than almost any trade. It's also very fixable. Here's why repeat customers matter so much in this business, and exactly how to build them.</p>
 
@@ -220,17 +235,17 @@
 
       <p>Two things make repeat business uniquely valuable for a detailing shop.</p>
 
-      <p><strong>First, your margins are big.</strong> A full detail might run a customer $200, and the products you burn through — soap, clay, polish, dressings — might cost you $30. That's roughly $170 of profit sitting in a single job. Get that same customer back four times a year and you're looking at close to $680 in profit from one relationship, versus $170 from someone you detail once and never see again. Same car, same quality of work. The only difference is whether they come back.</p>
+      <p><strong>First, your margins are big.</strong> A full detail might run a customer $200, and the products you burn through, soap, clay, polish, dressings, might cost you $30. That's roughly $170 of profit sitting in a single job. Get that same customer back four times a year and you're looking at close to $680 in profit from one relationship, versus $170 from someone you detail once and never see again. Same car, same quality of work. The only difference is whether they come back.</p>
 
-      <p><strong>Second, cars get dirty again on a schedule.</strong> A maintenance detail every one to three months isn't a hard sell; it's how people who care about their cars actually operate. The demand to return is already built in. Most shops just never give the customer a reason or a reminder, so "when it's dirty again" quietly turns into "never" — or worse, the shop down the road.</p>
+      <p><strong>Second, cars get dirty again on a schedule.</strong> A maintenance detail every one to three months isn't a hard sell; it's how people who care about their cars actually operate. The demand to return is already built in. Most shops just never give the customer a reason or a reminder, so "when it's dirty again" quietly turns into "never", or worse, the shop down the road.</p>
 
       <p>And none of this counts what it costs to <em>replace</em> that customer. Every new booking you win through ads or social takes money and time. An existing happy customer costs you almost nothing to bring back. When you're constantly chasing new faces instead of keeping the ones you've earned, you're paying full price for growth you already had.</p>
 
       <h2>Why "one and done" is the default — and the discount trap</h2>
 
-      <p>Detailing is transactional by nature. A dirty car comes in, a clean car leaves, the customer is thrilled — and there's no built-in reason for them to think about you again until the next mess. Nothing about a great detail job automatically brings someone back. Left alone, most customers drift.</p>
+      <p>Detailing is transactional by nature. A dirty car comes in, a clean car leaves, the customer is thrilled, and there's no built-in reason for them to think about you again until the next mess. Nothing about a great detail job automatically brings someone back. Left alone, most customers drift.</p>
 
-      <p>The instinct a lot of shops reach for is discounting. Text everyone a 20%-off deal to fill a slow week. It works once, but it teaches your customers a bad lesson: that your real price is negotiable, and the smart move is to wait for the next coupon. You end up training your best customers to pay you less. Discounts pull demand forward and shrink your margin at the same time — the opposite of what a high-ticket shop wants.</p>
+      <p>The instinct a lot of shops reach for is discounting. Text everyone a 20%-off deal to fill a slow week. It works once, but it teaches your customers a bad lesson: that your real price is negotiable, and the smart move is to wait for the next coupon. You end up training your best customers to pay you less. Discounts pull demand forward and shrink your margin at the same time, the opposite of what a high-ticket shop wants.</p>
 
       <p>There's a better lever, and it's the one big retailers, coffee chains, and smart local shops all use: give people a reason to come back that rewards loyalty instead of undercutting your pricing.</p>
 
@@ -239,31 +254,31 @@
       <p>Here's what actually moves the needle, in rough order of impact.</p>
 
       <h3>1. Give them a reason to return before they drive off</h3>
-      <p>The moment to lock in the next visit is when the customer is happiest — standing next to their spotless car. A simple loyalty offer ("every so many details, one's on us") plants that reason while the good feeling is fresh. It reframes the relationship from a one-off into something ongoing.</p>
+      <p>The moment to lock in the next visit is when the customer is happiest, standing next to their spotless car. A simple loyalty offer ("every so many details, one's on us") plants that reason while the good feeling is fresh. It reframes the relationship from a one-off into something ongoing.</p>
 
       <h3>2. Set the reward so the math works for you</h3>
-      <p>This is where shops get nervous: "won't I lose money giving away free details?" Run the numbers and you'll see you won't. Say your reward is a free basic wash after eight paid visits, and that wash costs you about $15 in product and time. Across those eight visits at $170 profit each, you've banked roughly $1,190 in profit before you ever hand over the free one. A $15 reward against $1,190 in profit isn't a cost — it's one of the cheapest customer-retention tools you'll ever run. If eight feels far away to customers, six works too; the point is that the paid visits dwarf the free one many times over.</p>
+      <p>This is where shops get nervous: "won't I lose money giving away free details?" Run the numbers and you'll see you won't. Say your reward is a free basic wash after eight paid visits, and that wash costs you about $15 in product and time. Across those eight visits at $170 profit each, you've banked roughly $1,190 in profit before you ever hand over the free one. A $15 reward against $1,190 in profit isn't a cost. It's one of the cheapest customer-retention tools you'll ever run. If eight feels far away to customers, six works too; the point is that the paid visits dwarf the free one many times over.</p>
 
       <h3>3. Turn happy customers into referrals</h3>
-      <p>A referral in detailing isn't a small thing — it's an entirely new high-ticket customer who trusts you before they even call, because a friend vouched for you. Because each one is so valuable, you can afford to reward referrals generously and often. Three or four successful referrals earning that customer a free service is a great trade when each of those referrals is worth hundreds to you. Your existing customers become your best and cheapest marketing.</p>
+      <p>A referral in detailing isn't a small thing. It's an entirely new high-ticket customer who trusts you before they even call, because a friend vouched for you. Because each one is so valuable, you can afford to reward referrals generously and often. Three or four successful referrals earning that customer a free service is a great trade when each of those referrals is worth hundreds to you. Your existing customers become your best and cheapest marketing.</p>
 
       <h3>4. Stay in front of them between visits</h3>
-      <p>Out of sight is out of mind. A quick text when a customer's car is due — "it's been about two months, want to get you back on the schedule?" — is the nudge that turns intention into a booking. It costs you nothing, and it's the difference between a customer who meant to come back and one who actually does.</p>
+      <p>Out of sight is out of mind. A quick text when a customer's car is due, "it's been about two months, want to get you back on the schedule?", is the nudge that turns intention into a booking. It costs you nothing, and it's the difference between a customer who meant to come back and one who actually does.</p>
 
       <h3>5. Think in packages and plans</h3>
-      <p>Once you're capturing repeat customers, maintenance packages or monthly memberships turn irregular visits into predictable, recurring revenue — the holy grail for any detailing shop trying to smooth out a feast-or-famine schedule.</p>
+      <p>Once you're capturing repeat customers, maintenance packages or monthly memberships turn irregular visits into predictable, recurring revenue, the holy grail for any detailing shop trying to smooth out a feast-or-famine schedule.</p>
 
       <h2>Why you need a system, not willpower</h2>
 
       <p>Every tactic above works. The problem is running them by hand. You can't remember which of your hundreds of customers is on visit six versus visit two, who referred whom, or whose car is due this week. Punch cards get lost in glove boxes. A spreadsheet is something you'll update for a month and then abandon.</p>
 
-      <p>This is exactly what a loyalty and referral system is for. It tracks every customer and every visit automatically, tells you when someone's earned a reward, keeps a running count of referrals, and can text customers when they're due — all without you thinking about it. Instead of hoping customers come back, you've built a machine that gives them a reason to, reminds them to, and rewards them for it.</p>
+      <p>This is exactly what a loyalty and referral system is for. It tracks every customer and every visit automatically, tells you when someone's earned a reward, keeps a running count of referrals, and can text customers when they're due, all without you thinking about it. Instead of hoping customers come back, you've built a machine that gives them a reason to, reminds them to, and rewards them for it.</p>
 
       <p>That's the whole idea behind what we build for detailing shops at KNETIX: a <a href="loyalty.html">done-for-you loyalty and referral system</a>, branded to your shop and live in a day, that turns one-time jobs into regulars without adding a thing to your plate.</p>
 
       <h2>The bottom line</h2>
 
-      <p>The next new customer will always feel urgent. But the profit in detailing lives in the customer you already have — the same car, coming back, again and again. Wowing someone once is the expensive part, and you're already doing it. Capturing them afterward is cheap, and it compounds. Give people a reason to return, make the reward math work in your favor, turn them into referrals, and stay in touch — and the schedule starts filling itself with cars you've seen before.</p>
+      <p>The next new customer will always feel urgent. But the profit in detailing lives in the customer you already have, the same car, coming back, again and again. Wowing someone once is the expensive part, and you're already doing it. Capturing them afterward is cheap, and it compounds. Give people a reason to return, make the reward math work in your favor, turn them into referrals, and stay in touch, and the schedule starts filling itself with cars you've seen before.</p>
     </div>
   </div>
 </article>
@@ -275,23 +290,23 @@
     <div class="faq-list">
       <details>
         <summary>How often do detailing customers need to come back?<span class="pm">+</span></summary>
-        <div class="ans">It depends on the service and the customer, but a maintenance detail every one to three months is typical for people who care about keeping their car clean. That natural cycle is what makes repeat business so achievable in detailing — the demand to return is already there, and most shops just don't capture it with a reason or a reminder.</div>
+        <div class="ans">It depends on the service and the customer, but a maintenance detail every one to three months is typical for people who care about keeping their car clean. That natural cycle is what makes repeat business so achievable in detailing, the demand to return is already there, and most shops just don't capture it with a reason or a reminder.</div>
       </details>
       <details>
         <summary>What's a good loyalty reward for a detailing shop?<span class="pm">+</span></summary>
-        <div class="ans">The cleanest reward is a free version of your lowest-cost service, like a basic wash or an interior refresh, after a set number of paid visits — usually six to eight. It feels valuable to the customer but costs you very little, because the paid visits leading up to it earn you far more in profit than the free one costs to deliver.</div>
+        <div class="ans">The cleanest reward is a free version of your lowest-cost service, like a basic wash or an interior refresh, after a set number of paid visits, usually six to eight. It feels valuable to the customer but costs you very little, because the paid visits leading up to it earn you far more in profit than the free one costs to deliver.</div>
       </details>
       <details>
         <summary>Won't giving away free details hurt my margin?<span class="pm">+</span></summary>
-        <div class="ans">No — the math works strongly in your favor when the threshold is set right. If a customer completes eight paid details before earning a free basic wash, you've earned well over $1,000 in profit before handing over a reward that costs you around $15. A loyalty reward isn't a giveaway; it's one of the cheapest ways to keep a high-value customer coming back.</div>
+        <div class="ans">No, the math works strongly in your favor when the threshold is set right. If a customer completes eight paid details before earning a free basic wash, you've earned well over $1,000 in profit before handing over a reward that costs you around $15. A loyalty reward isn't a giveaway; it's one of the cheapest ways to keep a high-value customer coming back.</div>
       </details>
       <details>
         <summary>Should I offer discounts to bring detailing customers back?<span class="pm">+</span></summary>
-        <div class="ans">Discounts work once but train customers to wait for the next deal and eat into your margin — a bad trade for a high-ticket service. A loyalty program is a better lever: it rewards customers for returning without lowering your everyday price or teaching them that your rates are negotiable.</div>
+        <div class="ans">Discounts work once but train customers to wait for the next deal and eat into your margin, a bad trade for a high-ticket service. A loyalty program is a better lever: it rewards customers for returning without lowering your everyday price or teaching them that your rates are negotiable.</div>
       </details>
       <details>
         <summary>How do referrals work for a detailing business?<span class="pm">+</span></summary>
-        <div class="ans">Each successful referral is a brand-new high-ticket customer who already trusts you because a friend recommended you. Because each one is worth so much, you can reward referrals generously — for example, a free service after three or four successful referrals. Your happiest customers become your most effective and lowest-cost marketing channel.</div>
+        <div class="ans">Each successful referral is a brand-new high-ticket customer who already trusts you because a friend recommended you. Because each one is worth so much, you can reward referrals generously, for example, a free service after three or four successful referrals. Your happiest customers become your most effective and lowest-cost marketing channel.</div>
       </details>
     </div>
   </div>
@@ -312,7 +327,7 @@
 <section class="post-foot-pad">
   <div class="post-cta">
     <h2>Turn one-time details into regulars</h2>
-    <p>KNETIX sets up a done-for-you loyalty and referral system for your detailing shop — branded to you, live in a day, and built to bring the same cars back again and again.</p>
+    <p>KNETIX sets up a done-for-you loyalty and referral system for your detailing shop, branded to you, live in a day, and built to bring the same cars back again and again.</p>
     <a class="btn btn-primary" href="loyalty.html">See how it works
       <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </a>

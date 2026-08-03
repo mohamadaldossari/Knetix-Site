@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.knetixmarketing.com/rep.html">
 <meta property="og:image" content="https://www.knetixmarketing.com/knetixwhopbanner.png">
-<meta property="og:image:alt" content="KNETIX Rep Program — get paid to close local businesses">
+<meta property="og:image:alt" content="KNETIX Rep Program, get paid to close local businesses">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="KNETIX Rep Program — Get paid to close local businesses">
 <meta name="twitter:description" content="Commission-only. Get certified free, close local businesses, earn 50% of every setup fee. No cap.">
@@ -28,7 +28,7 @@
       "name": "Is it really commission-only?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. There's no base and no cost to join. You earn 50% of the one-time setup fee on every business you sign — a standard close is around $225 to you, a premium one around $375. The recurring monthly fee stays with the company; your money is the setup fee."
+        "text": "Yes. There's no base and no cost to join. You earn 50% of the one-time setup fee on every business you sign, a standard close is around $225 to you, a premium one around $375. The recurring monthly fee stays with the company; your money is the setup fee."
       }
     },
     {
@@ -36,7 +36,7 @@
       "name": "Do I need sales experience?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. The certification takes you from zero — what the product is, who to target, how to reach out, how to handle objections, and how to close. Once you pass, the cockpit hands you scripts and an AI drafter so you're never staring at a blank message."
+        "text": "No. The certification takes you from zero, what the product is, who to target, how to reach out, how to handle objections, and how to close. Once you pass, the cockpit hands you scripts and an AI drafter so you're never staring at a blank message."
       }
     },
     {
@@ -52,7 +52,7 @@
       "name": "Is it remote? Do I need to be in a certain city?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It's fully remote. You can DM shops from anywhere, or walk into local businesses in your own city — whatever converts. You work on your own schedule from your phone."
+        "text": "It's fully remote. You can DM shops from anywhere, or walk into local businesses in your own city, whatever converts. You work on your own schedule from your phone."
       }
     },
     {
@@ -68,7 +68,7 @@
       "name": "When and how do I get paid?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Your commission locks in the moment the client signs and pays their setup fee. The rate at signing is yours on that deal for good. Payout is handled directly — you'll see the full breakdown on your commission tile."
+        "text": "Your commission locks in the moment the client signs and pays their setup fee. The rate at signing is yours on that deal for good. Payout is handled directly, you'll see the full breakdown on your commission tile."
       }
     }
   ]
@@ -79,7 +79,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  /* ============ KNETIX REP — DESIGN TOKENS ============ */
+  /* ============ KNETIX REP: DESIGN TOKENS ============ */
   :root{
     --ink:#16110d;          /* warm near-black background */
     --ink-2:#1e1712;        /* raised panel */
@@ -102,7 +102,7 @@
   body{
     background:var(--ink);
     color:var(--cream);
-    font-family:var(--body);
+    font-family:var(--font-body);
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
@@ -110,7 +110,7 @@
   a{color:inherit;text-decoration:none}
   ::selection{background:var(--maroon);color:var(--cream)}
 
-  /* page frame — the cream hairline that echoes the KNETIX brand plates */
+  /* page frame, the cream hairline that echoes the KNETIX brand plates */
   .frame{position:fixed;inset:14px;border:1px solid var(--line-strong);pointer-events:none;z-index:200}
   @media(max-width:640px){.frame{inset:8px}}
 
@@ -118,8 +118,8 @@
   @media(max-width:640px){.wrap{padding:0 22px}}
 
   .eyebrow{
-    font-family:var(--display);font-weight:500;font-size:.74rem;
-    letter-spacing:.42em;text-transform:uppercase;color:var(--tan);
+    font-family:var(--font-mono);font-weight:500;font-size:var(--fs-xs);
+    letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--tan);
     display:flex;align-items:center;gap:14px;
   }
   .eyebrow::before{content:"";width:34px;height:1px;background:var(--maroon-2)}
@@ -130,8 +130,8 @@
   /* ============ BUTTONS ============ */
   .btn{
     display:inline-flex;align-items:center;gap:10px;
-    font-family:var(--display);font-weight:600;font-size:.9rem;
-    letter-spacing:.12em;text-transform:uppercase;
+    font-family:var(--font-mono);font-weight:600;font-size:.9rem;
+    letter-spacing:var(--tracking-label);text-transform:uppercase;
     padding:15px 30px;border:1px solid transparent;cursor:pointer;
     transition:transform .15s ease,background .2s ease,color .2s ease,border-color .2s ease;
   }
@@ -150,7 +150,7 @@
   .brand .kmark{width:34px;height:34px;flex:none}
   .brand .btxt{display:flex;flex-direction:column;line-height:1}
   .brand .btxt b{font-family:var(--display);font-weight:700;font-size:1.15rem;letter-spacing:.16em}
-  .brand .btxt span{font-family:var(--display);font-weight:400;font-size:.56rem;letter-spacing:.42em;color:var(--tan-dim);margin-top:3px}
+  .brand .btxt span{font-family:var(--font-mono);font-weight:400;font-size:var(--fs-xs);letter-spacing:var(--tracking-label);color:var(--tan);margin-top:3px}
   .nav-links{display:flex;align-items:center;gap:34px}
   .nav-links a{font-family:var(--display);font-weight:500;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-dim);transition:color .2s}
   .nav-links a:hover{color:var(--tan)}
@@ -160,8 +160,8 @@
   /* ============ MARQUEE ============ */
   .marquee{border-bottom:1px solid var(--line);background:var(--ink-2);overflow:hidden;padding:11px 0}
   .marquee-track{display:flex;gap:0;white-space:nowrap;width:max-content;animation:scroll 34s linear infinite}
-  .marquee-track span{font-family:var(--display);font-weight:500;font-size:.8rem;letter-spacing:.28em;text-transform:uppercase;color:var(--tan-dim);padding:0 26px}
-  .marquee-track span::after{content:"◆";color:var(--maroon-2);margin-left:52px;font-size:.55rem;vertical-align:middle}
+  .marquee-track span{font-family:var(--font-mono);font-weight:500;font-size:.8rem;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--tan);padding:0 26px}
+  .marquee-track span::after{content:"◆";color:var(--maroon-300);margin-left:52px;font-size:var(--fs-xs);vertical-align:middle}
   @keyframes scroll{to{transform:translateX(-50%)}}
 
   /* ============ HERO ============ */
@@ -169,20 +169,20 @@
   .hero-glow{position:absolute;top:-10%;right:-8%;width:640px;height:640px;background:radial-gradient(circle,rgba(138,47,47,.20),transparent 65%);pointer-events:none}
   .hero .wrap{position:relative}
   .hero h1{font-size:clamp(2.9rem,8vw,6.2rem);margin:26px 0 0;max-width:15ch}
-  .hero h1 em{font-style:normal;color:var(--maroon-2)}
+  .hero h1 em{font-style:normal;color:var(--maroon-500)}
   .hero .lede{font-size:clamp(1.05rem,2vw,1.3rem);color:var(--cream-dim);max-width:52ch;margin-top:26px}
   .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
   .trust{display:flex;gap:26px;flex-wrap:wrap;margin-top:44px;padding-top:26px;border-top:1px solid var(--line)}
-  .trust div{font-family:var(--display);font-weight:500;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--cream-dim);display:flex;align-items:center;gap:9px}
+  .trust div{font-family:var(--font-mono);font-weight:500;font-size:.82rem;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--cream-dim);display:flex;align-items:center;gap:9px}
   .trust div::before{content:"";width:6px;height:6px;background:var(--tan);transform:rotate(45deg);flex:none}
 
   /* ============ SECTION SHELL ============ */
   section.blk{padding:94px 0;border-top:1px solid var(--line)}
-  .sec-tag{font-family:var(--display);font-weight:500;font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--tan-dim);margin-bottom:20px}
-  .sec-tag b{color:var(--maroon-2);font-weight:700;margin-right:6px}
+  .sec-tag{font-family:var(--font-mono);font-weight:500;font-size:var(--fs-xs);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--tan);margin-bottom:20px}
+  .sec-tag b{color:var(--maroon-300);font-weight:700;margin-right:6px}
   .sec-h{font-size:clamp(2rem,4.4vw,3.3rem);max-width:18ch}
   .reading-list{list-style:none;display:grid;gap:15px;max-width:60ch;margin-top:30px}
-  .reading-list a{font-family:var(--body);font-size:1.02rem;line-height:1.5;color:var(--cream-dim);border-bottom:1px solid var(--line-strong);padding-bottom:3px;transition:color .2s,border-color .2s}
+  .reading-list a{font-family:var(--font-body);font-size:1.02rem;line-height:1.5;color:var(--cream-dim);border-bottom:1px solid var(--line-strong);padding-bottom:3px;transition:color .2s,border-color .2s}
   .reading-list a:hover{color:var(--tan);border-bottom-color:var(--tan)}
 
   /* ============ PAY ============ */
@@ -192,11 +192,11 @@
   .pay-cell{padding:42px 26px;text-align:center;border-left:1px solid var(--line)}
   .pay-cell:first-child{border-left:none}
   .pay-cell .fig{font-family:var(--display);font-weight:700;font-size:clamp(3.2rem,9vw,5.6rem);line-height:.9;color:var(--cream)}
-  .pay-cell .cap{font-family:var(--display);font-weight:500;font-size:.82rem;letter-spacing:.24em;text-transform:uppercase;color:var(--tan);margin-top:16px}
+  .pay-cell .cap{font-family:var(--font-mono);font-weight:500;font-size:.82rem;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--tan);margin-top:16px}
   .pay-note{text-align:center;margin-top:8px;padding-top:40px}
   .pay-note .rule{width:120px;height:2px;background:var(--maroon);margin:0 auto 26px}
   .pay-note b{font-family:var(--display);font-weight:600;font-size:clamp(1.1rem,2.5vw,1.5rem);letter-spacing:.06em;color:var(--cream)}
-  .pay-note span{color:var(--tan-dim)}
+  .pay-note span{color:var(--text-secondary)}
   @media(max-width:760px){
     .pay-grid{grid-template-columns:1fr}
     .pay-cell{border-left:none;border-top:1px solid var(--line);padding:34px 20px}
@@ -207,9 +207,9 @@
   .prod{display:grid;grid-template-columns:1fr 1fr;gap:66px;align-items:start}
   @media(max-width:860px){.prod{grid-template-columns:1fr;gap:40px}}
   .prod p{color:var(--cream-dim);margin-top:22px;max-width:46ch}
-  .niche-label{font-family:var(--display);font-weight:500;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--tan-dim);margin-bottom:18px}
+  .niche-label{font-family:var(--font-mono);font-weight:500;font-size:var(--fs-xs);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--tan);margin-bottom:18px}
   .niche-grid{display:flex;flex-wrap:wrap;gap:10px}
-  .niche{font-family:var(--display);font-weight:500;font-size:.86rem;letter-spacing:.06em;padding:9px 15px;border:1px solid var(--line);color:var(--cream-dim);transition:.2s}
+  .niche{font-family:var(--font-mono);font-weight:500;font-size:.86rem;letter-spacing:var(--tracking-label);padding:9px 15px;border:1px solid var(--line);color:var(--cream-dim);transition:.2s}
   .niche:hover{border-color:var(--maroon-2);color:var(--cream);background:var(--ink-2)}
 
   /* ============ PATH ============ */
@@ -220,7 +220,7 @@
   .step:first-child{border-left:none}
   @media(max-width:860px){.step{border-left:none;border-top:1px solid var(--line)} .step:first-child,.step:nth-child(2){border-top:none} }
   @media(max-width:520px){.step:nth-child(2){border-top:1px solid var(--line)}}
-  .step .sn{font-family:var(--display);font-weight:700;font-size:2.7rem;color:var(--maroon-2);line-height:1}
+  .step .sn{font-family:var(--display);font-weight:700;font-size:2.7rem;color:var(--maroon-500);line-height:1}
   .step h3{font-size:1.28rem;margin:18px 0 12px}
   .step p{color:var(--cream-dim);font-size:.96rem}
 
@@ -241,19 +241,19 @@
   .who ul{list-style:none;margin-top:26px;display:flex;flex-direction:column;gap:16px}
   .who li{display:flex;gap:14px;align-items:flex-start;color:var(--cream-dim)}
   .who li b{color:var(--cream);font-weight:600}
-  .who li .ck{color:var(--maroon-2);font-family:var(--display);font-weight:700;flex:none;margin-top:1px}
+  .who li .ck{color:var(--maroon-300);font-family:var(--display);font-weight:700;flex:none;margin-top:1px}
   .who-card{background:var(--ink-2);border:1px solid var(--line);padding:44px 40px;text-align:center}
   .who-card .big{font-family:var(--display);font-weight:700;font-size:clamp(3.4rem,9vw,5rem);color:var(--cream);line-height:.9}
-  .who-card .lbl{font-family:var(--display);font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--tan);font-size:.84rem;margin-top:14px}
+  .who-card .lbl{font-family:var(--font-mono);font-weight:500;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--tan);font-size:.84rem;margin-top:14px}
   .who-card p{color:var(--cream-dim);font-size:.94rem;margin-top:22px}
 
   /* ============ FAQ ============ */
   .faq-list{margin-top:48px;border-top:1px solid var(--line)}
   details{border-bottom:1px solid var(--line)}
-  summary{list-style:none;cursor:pointer;padding:26px 4px;display:flex;justify-content:space-between;gap:20px;align-items:center;font-family:var(--body);font-weight:600;font-size:clamp(1.02rem,2vw,1.22rem);color:var(--cream);transition:color .2s}
+  summary{list-style:none;cursor:pointer;padding:26px 4px;display:flex;justify-content:space-between;gap:20px;align-items:center;font-family:var(--font-body);font-weight:600;font-size:clamp(1.02rem,2vw,1.22rem);color:var(--cream);transition:color .2s}
   summary::-webkit-details-marker{display:none}
   summary:hover{color:var(--tan)}
-  summary .pm{font-family:var(--display);font-weight:300;font-size:1.7rem;color:var(--maroon-2);line-height:1;transition:transform .25s;flex:none}
+  summary .pm{font-family:var(--display);font-weight:300;font-size:1.7rem;color:var(--maroon-500);line-height:1;transition:transform .25s;flex:none}
   details[open] summary .pm{transform:rotate(45deg)}
   details .ans{padding:0 4px 28px;color:var(--cream-dim);max-width:66ch}
 
@@ -267,11 +267,11 @@
   /* ============ FOOTER ============ */
   footer{border-top:1px solid var(--line);padding:46px 0 40px;background:var(--ink-2)}
   .foot{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
-  .foot .fl{font-family:var(--display);font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem;color:var(--tan-dim)}
+  .foot .fl{font-family:var(--font-mono);font-weight:500;letter-spacing:var(--tracking-label);text-transform:uppercase;font-size:.78rem;color:var(--tan)}
   .foot .fr{display:flex;gap:24px}
-  .foot .fr a{font-family:var(--display);font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem;color:var(--cream-dim);transition:color .2s}
+  .foot .fr a{font-family:var(--font-mono);font-weight:500;letter-spacing:var(--tracking-label);text-transform:uppercase;font-size:.78rem;color:var(--cream-dim);transition:color .2s}
   .foot .fr a:hover{color:var(--tan)}
-  .copies{text-align:center;color:var(--tan-dim);font-size:.78rem;margin-top:30px;letter-spacing:.04em}
+  .copies{font-family:var(--font-mono);text-align:center;color:var(--tan);font-size:.78rem;margin-top:30px;letter-spacing:var(--tracking-label)}
 
   /* ============ REVEAL ============ */
   .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
@@ -345,7 +345,7 @@
   <div class="wrap">
     <p class="sec-tag reveal"><b>01</b> The pay</p>
     <h2 class="pay-h reveal">You close. You get paid.</h2>
-    <p class="pay-sub reveal">Every deal has a one-time setup fee. You earn 50% of it the moment the client signs. That's your payday — the same effort on a premium shop pays more than double a low-ticket one.</p>
+    <p class="pay-sub reveal">Every deal has a one-time setup fee. You earn 50% of it the moment the client signs. That's your payday, the same effort on a premium shop pays more than double a low-ticket one.</p>
     <div class="pay-grid">
       <div class="pay-cell reveal"><div class="fig">$225</div><div class="cap">Standard close</div></div>
       <div class="pay-cell reveal"><div class="fig">$375</div><div class="cap">Premium close</div></div>
@@ -353,7 +353,7 @@
     </div>
     <div class="pay-note reveal">
       <div class="rule"></div>
-      <b>50% of every fee. No cap.</b> <span>&nbsp;— the more you close, the more you make.</span>
+      <b>50% of every fee. No cap.</b> <span>&nbsp;, the more you close, the more you make.</span>
     </div>
   </div>
 </section>
@@ -365,7 +365,7 @@
     <div class="prod">
       <div class="reveal">
         <h2 class="sec-h">A digital loyalty card for their whole shop.</h2>
-        <p>Customers scan a QR code, sign up in 30 seconds, and every visit gets tracked. The owner gets a private dashboard with every regular's name, phone, and visit count — plus a referral system that turns their own customers into their marketing.</p>
+        <p>Customers scan a QR code, sign up in 30 seconds, and every visit gets tracked. The owner gets a private dashboard with every regular's name, phone, and visit count, plus a referral system that turns their own customers into their marketing.</p>
         <p>It's easy to pitch because the math is on the owner's side from month one. You're not selling software they have to learn. You're selling more returning customers, done for them.</p>
       </div>
       <div class="reveal">
@@ -396,7 +396,7 @@
     <h2 class="sec-h reveal">From joining to your first commission.</h2>
     <div class="path">
       <div class="step reveal"><div class="sn">01</div><h3>Join</h3><p>Jump in the Discord, meet the community, and read how the program works. Free, no commitment.</p></div>
-      <div class="step reveal"><div class="sn">02</div><h3>Get certified</h3><p>Work through the free course — what you sell, who to target, outreach, objections, and the close. Pass the final and you're in.</p></div>
+      <div class="step reveal"><div class="sn">02</div><h3>Get certified</h3><p>Work through the free course, what you sell, who to target, outreach, objections, and the close. Pass the final and you're in.</p></div>
       <div class="step reveal"><div class="sn">03</div><h3>Close</h3><p>Get your sales cockpit account, claim leads from the pool, and work them with the scripts and AI drafter built in.</p></div>
       <div class="step reveal"><div class="sn">04</div><h3>Get paid</h3><p>Client signs, you lock in 50% of the setup fee. It shows on your commission tile and the leaderboard.</p></div>
     </div>
@@ -412,7 +412,7 @@
       <div class="feat reveal">
         <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V7z"/></svg></div>
         <h3>Free certification</h3>
-        <p>A full course that takes you from zero to closing — what KNETIX is, who to target, and exactly what to say. No experience assumed.</p>
+        <p>A full course that takes you from zero to closing, what KNETIX is, who to target, and exactly what to say. No experience assumed.</p>
       </div>
       <div class="feat reveal">
         <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="1"/><path d="M3 9h18M8 21h8"/></svg></div>
@@ -422,7 +422,7 @@
       <div class="feat reveal">
         <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v10H7l-3 3z"/></svg></div>
         <h3>Scripts &amp; AI drafter</h3>
-        <p>Proven openers, follow-ups, and objection handlers for every situation — plus an AI that drafts replies in the KNETIX voice when you're stuck.</p>
+        <p>Proven openers, follow-ups, and objection handlers for every situation, plus an AI that drafts replies in the KNETIX voice when you're stuck.</p>
       </div>
       <div class="feat reveal">
         <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
@@ -452,7 +452,7 @@
         <h2 class="sec-h">You bring the hustle. We bring the rest.</h2>
         <ul>
           <li><span class="ck">→</span><span><b>No experience needed.</b> If you can send a DM and hold a conversation, you can do this. We train the rest.</span></li>
-          <li><span class="ck">→</span><span><b>You like talking to people.</b> The best reps are just genuine and consistent — not slick.</span></li>
+          <li><span class="ck">→</span><span><b>You like talking to people.</b> The best reps are just genuine and consistent, not slick.</span></li>
           <li><span class="ck">→</span><span><b>You want uncapped upside.</b> Commission-only means the ceiling is however hard you work.</span></li>
           <li><span class="ck">→</span><span><b>You want in early.</b> This program is young. Get in now, build a reputation, and grow into a mentor role as it scales.</span></li>
         </ul>
@@ -460,7 +460,7 @@
       <div class="who-card reveal">
         <div class="big">$0</div>
         <div class="lbl">To start</div>
-        <p>Joining is free. Getting certified is free. You only ever make money when a shop you closed signs — and so do we. Our incentives point the same way as yours.</p>
+        <p>Joining is free. Getting certified is free. You only ever make money when a shop you closed signs, and so do we. Our incentives point the same way as yours.</p>
       </div>
     </div>
   </div>
@@ -474,11 +474,11 @@
     <div class="faq-list reveal">
       <details>
         <summary>Is it really commission-only?<span class="pm">+</span></summary>
-        <div class="ans">Yes. There's no base and no cost to join. You earn 50% of the one-time setup fee on every business you sign — a standard close is around $225 to you, a premium one around $375. The recurring monthly fee stays with the company; your money is the setup fee.</div>
+        <div class="ans">Yes. There's no base and no cost to join. You earn 50% of the one-time setup fee on every business you sign, a standard close is around $225 to you, a premium one around $375. The recurring monthly fee stays with the company; your money is the setup fee.</div>
       </details>
       <details>
         <summary>Do I need sales experience?<span class="pm">+</span></summary>
-        <div class="ans">No. The certification takes you from zero — what the product is, who to target, how to reach out, how to handle objections, and how to close. Once you pass, the cockpit hands you scripts and an AI drafter so you're never staring at a blank message.</div>
+        <div class="ans">No. The certification takes you from zero, what the product is, who to target, how to reach out, how to handle objections, and how to close. Once you pass, the cockpit hands you scripts and an AI drafter so you're never staring at a blank message.</div>
       </details>
       <details>
         <summary>How much can I actually make?<span class="pm">+</span></summary>
@@ -486,7 +486,7 @@
       </details>
       <details>
         <summary>Is it remote? Do I need to be in a certain city?<span class="pm">+</span></summary>
-        <div class="ans">It's fully remote. You can DM shops from anywhere, or walk into local businesses in your own city — whatever converts. You work on your own schedule from your phone.</div>
+        <div class="ans">It's fully remote. You can DM shops from anywhere, or walk into local businesses in your own city, whatever converts. You work on your own schedule from your phone.</div>
       </details>
       <details>
         <summary>How do I get started?<span class="pm">+</span></summary>
@@ -494,7 +494,7 @@
       </details>
       <details>
         <summary>When and how do I get paid?<span class="pm">+</span></summary>
-        <div class="ans">Your commission locks in the moment the client signs and pays their setup fee. The rate at signing is yours on that deal for good. Payout is handled directly — you'll see the full breakdown on your commission tile.</div>
+        <div class="ans">Your commission locks in the moment the client signs and pays their setup fee. The rate at signing is yours on that deal for good. Payout is handled directly, you'll see the full breakdown on your commission tile.</div>
       </details>
     </div>
   </div>
