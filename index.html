@@ -130,6 +130,19 @@
   .foot-links{display:flex;flex-wrap:wrap;gap:14px 28px}
   .foot-links a{font-family:var(--font-mono);font-size:var(--fs-sm);color:var(--text-secondary);transition:color var(--dur-fast) var(--ease-out)}
   .foot-links a:hover{color:var(--cream)}
+
+/* ============ STAGE 4: MICRO-INTERACTIONS (motion tokens only) ============ */
+  .btn,.btn-primary,.nav-cta,.post-cta .btn{transition:background var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out),box-shadow var(--dur-base) var(--ease-out)}
+  .btn:hover,.btn-primary:hover,.nav-cta:hover{transform:translateY(-1px);box-shadow:var(--shadow-md)}
+  .btn:active,.btn-primary:active,.nav-cta:active{transform:translateY(0)}
+  .fcard,.feat,.pcard,.post-card,.card,.who-card,.bento article{
+    transition:border-color var(--dur-base) var(--ease-out),background var(--dur-base) var(--ease-out),
+    transform var(--dur-base) var(--ease-out)}
+  .fcard:hover,.pcard:hover,a.post-card:hover,.bento article:hover{border-color:var(--border-strong)}
+  .tlink,.reading-list a,.foot-links a,.foot .fr a,.body-col a,.article-body a{
+    transition:color var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out)}
 </style>
 </head>
 <body>
@@ -156,7 +169,7 @@
   </nav>
 </header>
 
-<section class="hero">
+<section class="hero" data-reveal>
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-copy">
@@ -180,11 +193,11 @@
   </div>
 </section>
 
-<section>
+<section data-reveal>
   <div class="wrap">
     <h2 class="sec-h">Two ways in.</h2>
-    <div class="split">
-      <div class="card lead">
+    <div class="split" data-reveal-stagger>
+      <div class="card lead" data-reveal>
         <h3>Own a shop?</h3>
         <p>We build your loyalty program, referral engine, bookings, and customer texting, then hand you the keys. You run your business. The system brings people back.</p>
         <a class="tlink" href="/loyalty.html">Explore the platform</a>
@@ -198,23 +211,23 @@
   </div>
 </section>
 
-<section>
+<section data-reveal>
   <div class="wrap">
     <h2 class="sec-h">Everything a repeat-visit business needs.</h2>
-    <div class="bento">
-      <article class="b-wide">
+    <div class="bento" data-reveal-stagger>
+      <article class="b-wide" data-reveal>
         <h3>Loyalty and referrals</h3>
         <p>Customers scan a QR, join in thirty seconds, and track their own progress. Every customer gets a personal referral link that credits them automatically.</p>
       </article>
-      <article class="b-narrow">
+      <article class="b-narrow" data-reveal>
         <h3>Bookings</h3>
         <p>A public booking page under your brand, with automatic confirmations, reminders, and cancellation notices by text.</p>
       </article>
-      <article class="b-narrow">
+      <article class="b-narrow" data-reveal>
         <h3>Payments</h3>
         <p>Customers can pay online. Money lands in your own Stripe account, and you stay the merchant of record.</p>
       </article>
-      <article class="b-wide">
+      <article class="b-wide" data-reveal>
         <h3>Texting from your own number</h3>
         <p>Every client gets a dedicated local number. Loyalty and booking updates send automatically, and promo blasts go only to customers who opted in.</p>
       </article>
@@ -222,14 +235,14 @@
   </div>
 </section>
 
-<section class="band">
+<section class="band" data-reveal>
   <div class="wrap">
     <h2>Already working in real shops.</h2>
     <p>30+ shops and 2,000+ customers are on KNETIX today, from barbershops to nail studios to mobile detailers.</p>
   </div>
 </section>
 
-<section class="closer">
+<section class="closer" data-reveal>
   <div class="wrap">
     <h2>See it before you commit.</h2>
     <p>Every new client starts with a working system, built for their brand, before any long-term commitment. Look at the math, see how it works, and decide with the numbers in front of you.</p>
@@ -240,7 +253,7 @@
   </div>
 </section>
 
-<footer>
+<footer data-reveal>
   <div class="wrap">
     <div class="foot-links">
       <a href="/loyalty.html">Loyalty</a>
@@ -251,5 +264,6 @@
   </div>
 </footer>
 
+<script defer src="/motion.js"></script>
 </body>
 </html>

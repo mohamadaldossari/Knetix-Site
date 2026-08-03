@@ -195,6 +195,19 @@
   .fig figcaption{margin-top:12px}
   .post-cta{margin-top:76px;border-radius:var(--radius-lg)}
   .post-cta p{max-width:52ch}
+
+/* ============ STAGE 4: MICRO-INTERACTIONS (motion tokens only) ============ */
+  .btn,.btn-primary,.nav-cta,.post-cta .btn{transition:background var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out),box-shadow var(--dur-base) var(--ease-out)}
+  .btn:hover,.btn-primary:hover,.nav-cta:hover{transform:translateY(-1px);box-shadow:var(--shadow-md)}
+  .btn:active,.btn-primary:active,.nav-cta:active{transform:translateY(0)}
+  .fcard,.feat,.pcard,.post-card,.card,.who-card,.bento article{
+    transition:border-color var(--dur-base) var(--ease-out),background var(--dur-base) var(--ease-out),
+    transform var(--dur-base) var(--ease-out)}
+  .fcard:hover,.pcard:hover,a.post-card:hover,.bento article:hover{border-color:var(--border-strong)}
+  .tlink,.reading-list a,.foot-links a,.foot .fr a,.body-col a,.article-body a{
+    transition:color var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out)}
 </style>
 </head>
 <body>
@@ -378,7 +391,7 @@
   </div>
 </article>
 
-<section class="post-faq">
+<section class="post-faq" data-reveal>
   <div class="wrap">
     <h2>Frequently asked</h2>
     <div class="faq-list">
@@ -406,7 +419,7 @@
   </div>
 </section>
 
-<section class="post-related" aria-labelledby="related-h">
+<section class="post-related" aria-labelledby="related-h" data-reveal>
   <h2 id="related-h">Related reading</h2>
   <div class="article-body">
     <ul>
@@ -418,7 +431,7 @@
   </div>
 </section>
 
-<section class="post-foot-pad">
+<section class="post-foot-pad" data-reveal>
   <div class="post-cta">
     <h2>Want one running in your shop?</h2>
     <p>KNETIX sets up the whole thing for you, branded to your business, live in about a day, and built so your daily job is one tap. Same system running in 30+ local shops.</p>
@@ -428,7 +441,7 @@
   </div>
 </section>
 
-<footer>
+<footer data-reveal>
   <div class="wrap">
     <div class="foot">
       <div class="fl">KNETIX &middot; Blog</div>
@@ -440,5 +453,6 @@
     <p class="copies">&copy; 2026 KNETIX. Loyalty and referrals for local business.</p>
   </div>
 </footer>
+<script defer src="/motion.js"></script>
 </body>
 </html>

@@ -150,6 +150,19 @@
   .stats span{font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--tan);margin-top:12px}
   .contact-card{margin-top:76px;border-radius:var(--radius-lg);padding:44px 40px}
   .contact-card p{font-size:var(--fs-lg);line-height:var(--lh-normal);max-width:56ch}
+
+/* ============ STAGE 4: MICRO-INTERACTIONS (motion tokens only) ============ */
+  .btn,.btn-primary,.nav-cta,.post-cta .btn{transition:background var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out),box-shadow var(--dur-base) var(--ease-out)}
+  .btn:hover,.btn-primary:hover,.nav-cta:hover{transform:translateY(-1px);box-shadow:var(--shadow-md)}
+  .btn:active,.btn-primary:active,.nav-cta:active{transform:translateY(0)}
+  .fcard,.feat,.pcard,.post-card,.card,.who-card,.bento article{
+    transition:border-color var(--dur-base) var(--ease-out),background var(--dur-base) var(--ease-out),
+    transform var(--dur-base) var(--ease-out)}
+  .fcard:hover,.pcard:hover,a.post-card:hover,.bento article:hover{border-color:var(--border-strong)}
+  .tlink,.reading-list a,.foot-links a,.foot .fr a,.body-col a,.article-body a{
+    transition:color var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out)}
 </style>
 </head>
 <body>
@@ -176,7 +189,7 @@
   </nav>
 </header>
 
-<section class="about-hero">
+<section class="about-hero" data-reveal>
   <div class="about-glow" aria-hidden="true"></div>
   <div class="wrap">
     <p class="eyebrow">About</p>
@@ -188,10 +201,10 @@
 <div class="wrap">
   <div class="body-col">
 
-    <div class="stats">
-      <div><b>30+</b><span>Local shops</span></div>
-      <div><b>2,000+</b><span>Customers signed up</span></div>
-      <div><b>~1 day</b><span>To go live</span></div>
+    <div class="stats" data-reveal-stagger>
+      <div data-reveal><b>30+</b><span>Local shops</span></div>
+      <div data-reveal><b>2,000+</b><span>Customers signed up</span></div>
+      <div data-reveal><b>~1 day</b><span>To go live</span></div>
     </div>
 
     <h2>What we actually do</h2>
@@ -238,7 +251,7 @@
   </div>
 </div>
 
-<footer>
+<footer data-reveal>
   <div class="wrap">
     <div class="foot">
       <div class="fl">KNETIX</div>
@@ -251,5 +264,6 @@
     <p class="copies">&copy; 2026 KNETIX. Loyalty and referrals for local business.</p>
   </div>
 </footer>
+<script defer src="/motion.js"></script>
 </body>
 </html>

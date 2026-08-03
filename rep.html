@@ -355,6 +355,23 @@
     .get-grid .feat:nth-child(6){display:block}
     .get-grid .feat:nth-child(6) h3{margin-bottom:9px}
   }
+
+/* ============ STAGE 4: MICRO-INTERACTIONS (motion tokens only) ============ */
+  .btn,.btn-primary,.nav-cta,.post-cta .btn{transition:background var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out),box-shadow var(--dur-base) var(--ease-out)}
+  .btn:hover,.btn-primary:hover,.nav-cta:hover{transform:translateY(-1px);box-shadow:var(--shadow-md)}
+  .btn:active,.btn-primary:active,.nav-cta:active{transform:translateY(0)}
+  .fcard,.feat,.pcard,.post-card,.card,.who-card,.bento article{
+    transition:border-color var(--dur-base) var(--ease-out),background var(--dur-base) var(--ease-out),
+    transform var(--dur-base) var(--ease-out)}
+  .fcard:hover,.pcard:hover,a.post-card:hover,.bento article:hover{border-color:var(--border-strong)}
+  .tlink,.reading-list a,.foot-links a,.foot .fr a,.body-col a,.article-body a{
+    transition:color var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out)}
+  /* The legacy .reveal system set opacity:0 and depended on per-page JS, which
+     hid content when JS was off. motion.js is now the single reveal system and
+     injects its own hiding rules only when it runs, so this stays visible. */
+  .reveal{opacity:1;transform:none}
 </style>
 </head>
 <body>
@@ -401,7 +418,7 @@
 
 <!-- ============ HERO ============ -->
 <div id="top"></div>
-<section class="hero">
+<section class="hero" data-reveal>
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="wrap">
     <p class="eyebrow">Rep Program</p>
@@ -422,7 +439,7 @@
 </section>
 
 <!-- ============ THE PAY ============ -->
-<section class="blk" id="pay">
+<section class="blk" id="pay" data-reveal>
   <div class="wrap">
     <h2 class="pay-h reveal">You close. You get paid.</h2>
     <p class="pay-sub reveal">Every deal has a one-time setup fee. You earn 50% of it the moment the client signs. That's your payday, the same effort on a premium shop pays more than double a low-ticket one.</p>
@@ -438,11 +455,11 @@
       <div class="earn-out">
         <div class="earn-row">
           <span class="earn-cap">Standard shops</span>
-          <span class="earn-fig num" id="earnStd">$225</span>
+          <span class="earn-fig num" data-count id="earnStd">$225</span>
         </div>
         <div class="earn-row is-lead">
           <span class="earn-cap">Premium shops</span>
-          <span class="earn-fig num" id="earnPrm">$375</span>
+          <span class="earn-fig num" data-count id="earnPrm">$375</span>
         </div>
         <p class="earn-foot">Your monthly take at <span id="earnDeals">1</span> <span id="earnWord">deal</span> closed, based on 50% of the setup fee.</p>
       </div>
@@ -462,7 +479,7 @@
 </section>
 
 <!-- ============ 02 · THE PRODUCT ============ -->
-<section class="blk" id="product">
+<section class="blk" id="product" data-reveal>
   <div class="wrap">
     <div class="prod">
       <div class="reveal">
@@ -472,7 +489,7 @@
       </div>
       <div class="reveal">
         <p class="niche-label">Shops you'll be closing</p>
-        <div class="niche-grid">
+        <div class="niche-grid" data-reveal-stagger>
           <span class="niche">Barbershops</span>
           <span class="niche">Nail salons</span>
           <span class="niche">Car detailing</span>
@@ -492,11 +509,11 @@
 </section>
 
 <!-- ============ THE PATH ============ -->
-<section class="blk" id="path">
+<section class="blk" id="path" data-reveal>
   <div class="wrap">
     <h2 class="sec-h reveal">From joining to your first commission.</h2>
-    <ol class="flow">
-      <li class="flow-step reveal">
+    <ol class="flow" data-reveal-stagger>
+      <li class="flow-step reveal" data-reveal>
         <span class="flow-n">Step 01</span>
         <div class="flow-body">
           <h3>Join</h3>
@@ -529,12 +546,12 @@
 </section>
 
 <!-- ============ 04 · WHAT YOU GET ============ -->
-<section class="blk" id="get">
+<section class="blk" id="get" data-reveal>
   <div class="wrap">
     <h2 class="sec-h reveal">Everything to close, in one place.</h2>
-    <div class="get-grid">
-      <div class="feat reveal">
-        <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V7z"/></svg></div>
+    <div class="get-grid" data-reveal-stagger>
+      <div class="feat reveal" data-reveal>
+        <div class="fi" data-reveal><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V7z"/></svg></div>
         <h3>Free certification</h3>
         <p>A full course that takes you from zero to closing, what KNETIX is, who to target, and exactly what to say. No experience assumed.</p>
       </div>
@@ -568,7 +585,7 @@
 </section>
 
 <!-- ============ 05 · WHO IT'S FOR ============ -->
-<section class="blk" id="who">
+<section class="blk" id="who" data-reveal>
   <div class="wrap">
     <div class="who">
       <div class="reveal">
@@ -590,7 +607,7 @@
 </section>
 
 <!-- ============ FAQ ============ -->
-<section class="blk" id="faq">
+<section class="blk" id="faq" data-reveal>
   <div class="wrap">
     <h2 class="sec-h reveal">The things everyone asks first.</h2>
     <div class="faq-list reveal">
@@ -623,7 +640,7 @@
 </section>
 
 <!-- ============ KEEP READING ============ -->
-<section class="blk" id="reading">
+<section class="blk" id="reading" data-reveal>
   <div class="wrap">
     <h2 class="sec-h reveal">Before your first knock.</h2>
     <ul class="reading-list reveal">
@@ -635,7 +652,7 @@
 </section>
 
 <!-- ============ FINAL CTA ============ -->
-<section class="final">
+<section class="final" data-reveal>
   <div class="final-glow" aria-hidden="true"></div>
   <div class="wrap">
     <p class="eyebrow reveal" style="justify-content:center">Get started</p>
@@ -650,7 +667,7 @@
 </section>
 
 <!-- ============ FOOTER ============ -->
-<footer>
+<footer data-reveal>
   <div class="wrap">
     <div class="foot">
       <div class="fl">KNETIX &middot; Rep Program</div>
@@ -700,5 +717,6 @@
     paint();
   })();
 </script>
+<script defer src="/motion.js"></script>
 </body>
 </html>

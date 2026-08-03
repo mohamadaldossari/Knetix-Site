@@ -188,6 +188,23 @@
     .blog-grid{grid-template-columns:1fr}
     .blog-grid .post-card,.blog-grid .post-card:first-child{grid-column:auto}
   }
+
+/* ============ STAGE 4: MICRO-INTERACTIONS (motion tokens only) ============ */
+  .btn,.btn-primary,.nav-cta,.post-cta .btn{transition:background var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out),box-shadow var(--dur-base) var(--ease-out)}
+  .btn:hover,.btn-primary:hover,.nav-cta:hover{transform:translateY(-1px);box-shadow:var(--shadow-md)}
+  .btn:active,.btn-primary:active,.nav-cta:active{transform:translateY(0)}
+  .fcard,.feat,.pcard,.post-card,.card,.who-card,.bento article{
+    transition:border-color var(--dur-base) var(--ease-out),background var(--dur-base) var(--ease-out),
+    transform var(--dur-base) var(--ease-out)}
+  .fcard:hover,.pcard:hover,a.post-card:hover,.bento article:hover{border-color:var(--border-strong)}
+  .tlink,.reading-list a,.foot-links a,.foot .fr a,.body-col a,.article-body a{
+    transition:color var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out)}
+  /* The legacy .reveal system set opacity:0 and depended on per-page JS, which
+     hid content when JS was off. motion.js is now the single reveal system and
+     injects its own hiding rules only when it runs, so this stays visible. */
+  .reveal{opacity:1;transform:none}
 </style>
 </head>
 <body>
@@ -215,7 +232,7 @@
 </header>
 
 <!-- ============ INTRO ============ -->
-<section class="blog-intro">
+<section class="blog-intro" data-reveal>
   <div class="blog-glow" aria-hidden="true"></div>
   <div class="wrap">
     <p class="eyebrow">Blog</p>
@@ -236,42 +253,42 @@
 -->
 
 <!-- ============ CATEGORY: FOR BUSINESS OWNERS ============ -->
-<section class="blog-cat" id="for-business">
+<section class="blog-cat" id="for-business" data-reveal>
   <div class="wrap">
     <p class="sec-tag reveal"><b>01</b> For Business Owners</p>
     <h2 class="cat-h reveal">Turn one-time customers into regulars.</h2>
     <p class="cat-sub reveal">Loyalty, referrals, and retention tactics for barbershops, salons, cafés, and every local shop with repeat customers.</p>
-    <div class="blog-grid">
+    <div class="blog-grid" data-reveal-stagger>
 
-      <a class="post-card reveal" href="get-repeat-detailing-customers.html">
+      <a class="post-card reveal" href="get-repeat-detailing-customers.html" data-reveal>
         <span class="pc-cat">For Business Owners</span>
         <h3 class="pc-title">How to Get Repeat Customers for Your Detailing Business</h3>
         <p class="pc-excerpt">The real money in detailing is the same car coming back, here's how to build repeat customers and referrals that stick.</p>
         <span class="pc-meta">Jul 2026 · 7 min read</span>
       </a>
 
-      <a class="post-card reveal" href="keep-nail-clients-coming-back.html">
+      <a class="post-card reveal" href="keep-nail-clients-coming-back.html" data-reveal>
         <span class="pc-cat">For Business Owners</span>
         <h3 class="pc-title">How to Get Nail Clients to Keep Coming Back</h3>
         <p class="pc-excerpt">Nail clients are easy to lose to whoever's cheaper, here's how to keep them loyal, rebooking, and referring.</p>
         <span class="pc-meta">Jul 2026 · 7 min read</span>
       </a>
 
-      <a class="post-card reveal" href="get-barber-clients-to-come-back.html">
+      <a class="post-card reveal" href="get-barber-clients-to-come-back.html" data-reveal>
         <span class="pc-cat">For Business Owners</span>
         <h3 class="pc-title">How to Get Barber Clients to Come Back Every Time</h3>
         <p class="pc-excerpt">Regulars, not walk-ins, fill a chair, how barbers keep clients coming back on schedule.</p>
         <span class="pc-meta">Jul 2026 · 7 min read</span>
       </a>
 
-      <a class="post-card reveal" href="vape-shop-repeat-customers.html">
+      <a class="post-card reveal" href="vape-shop-repeat-customers.html" data-reveal>
         <span class="pc-cat">For Business Owners</span>
         <h3 class="pc-title">How Vape Shops Build Repeat Customers</h3>
         <p class="pc-excerpt">Vape customers buy weekly, but from whoever's convenient. Here's how to lock them in.</p>
         <span class="pc-meta">Jul 2026 · 6 min read</span>
       </a>
 
-      <a class="post-card reveal" href="what-happens-when-a-shop-runs-a-loyalty-program.html">
+      <a class="post-card reveal" href="what-happens-when-a-shop-runs-a-loyalty-program.html" data-reveal>
         <span class="pc-cat">For Business Owners</span>
         <h3 class="pc-title">What Actually Happens When a Local Shop Runs a Loyalty Program</h3>
         <p class="pc-excerpt">30+ shops, 2,000+ customers signed up, what actually happens, including the part owners don't expect.</p>
@@ -283,7 +300,7 @@
 </section>
 
 <!-- ============ CATEGORY: FOR ASPIRING REPS ============ -->
-<section class="blog-cat" id="for-reps">
+<section class="blog-cat" id="for-reps" data-reveal>
   <div class="wrap">
     <p class="sec-tag reveal"><b>02</b> For Aspiring Reps</p>
     <h2 class="cat-h reveal">Get paid to close local businesses.</h2>
@@ -316,7 +333,7 @@
 </section>
 
 <!-- ============ FOOTER ============ -->
-<footer>
+<footer data-reveal>
   <div class="wrap">
     <div class="foot">
       <div class="fl">KNETIX &middot; Blog</div>
@@ -337,5 +354,6 @@
   },{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
+<script defer src="/motion.js"></script>
 </body>
 </html>
