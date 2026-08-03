@@ -269,7 +269,7 @@
 .kf-back-btn{background:transparent;border:1px solid var(--border);color:var(--tan);font-family:var(--font-mono);font-size:12px;font-weight:500;letter-spacing:var(--tracking-label);text-transform:uppercase;padding:14px 22px;border-radius:2px;cursor:pointer;transition:border-color .2s,color .2s;outline:none;}
 .kf-back-btn:hover{border-color:var(--beige);color:var(--beige);}
 .kf-next-btn{flex:1;background:var(--red);color:var(--cream);border:none;font-family:var(--font-mono);font-size:13px;font-weight:700;letter-spacing:var(--tracking-label);text-transform:uppercase;padding:16px 32px;border-radius:2px;cursor:pointer;transition:background .2s,transform .15s,box-shadow .25s,opacity .2s;outline:none;display:flex;align-items:center;justify-content:center;gap:8px;}
-.kf-next-btn:hover:not(:disabled){background:var(--red-h);transform:translateY(-1px);box-shadow:0 8px 28px rgba(176,48,48,.3);}
+.kf-next-btn:hover:not(:disabled){background:var(--red-h);transform:translateY(-1px);box-shadow:var(--shadow-md);}
 .kf-next-btn:disabled{opacity:.35;cursor:not-allowed;}
 
 .kf-success-card{background:var(--card);border:1px solid var(--border);padding:52px 44px;text-align:center;position:relative;overflow:hidden;animation:kf-in .5s cubic-bezier(.16,1,.3,1) both;}
@@ -300,6 +300,84 @@
   .nav-right .btn-primary{background:var(--maroon-700);color:var(--cream);border-radius:var(--radius-pill);border-color:transparent}
   .nav-right .btn-primary:hover{background:var(--maroon-500);transform:none}
   @media(max-width:900px){.wrap.nav{gap:12px;padding:8px 10px 8px 16px}}
+
+/* ============ STAGE 3: LOYALTY VISUAL REDESIGN ============ */
+  .hero{position:relative;overflow:hidden;padding:74px 0 96px}
+  .hero::before{content:"";position:absolute;top:-24%;right:-8%;width:680px;height:680px;
+    background:radial-gradient(circle,rgba(123,30,38,.22),transparent 66%);pointer-events:none;z-index:0}
+  .hero .wrap{position:relative;z-index:1}
+  .hero-grid{gap:64px}
+  .hero-sub{font-size:var(--fs-lg);line-height:var(--lh-normal);max-width:56ch;margin-bottom:38px}
+  .hero-cta{margin-bottom:40px}
+  .hero-tags{gap:14px 28px;padding-top:26px;border-top:1px solid var(--border)}
+  /* the phone render relies on phoneIn to reach opacity 1, so reduced motion must not strand it hidden */
+  @media(prefers-reduced-motion:reduce){.render{opacity:1}}
+
+  section{padding:104px 0}
+
+  /* calculator */
+  .calc-panel{border-radius:var(--radius-lg);padding:44px 42px 38px}
+  .calc-copy p{font-size:var(--fs-lg);line-height:var(--lh-normal);max-width:34ch}
+  .cf-price{border-radius:var(--radius-sm)}
+  .track{gap:4px;height:20px;margin:4px 0 30px}
+  .seg{border-radius:2px;transition:background var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out)}
+  .seg.paid{background:var(--red);border-color:var(--red)}
+  .seg.free{border:1px dashed var(--red);background:rgba(176,48,48,.18)}
+  .calc-big{font-family:var(--font-display);font-weight:700;font-size:var(--fs-5xl);line-height:var(--lh-tight);
+    color:var(--red);font-variant-numeric:tabular-nums}
+  .calc-big span{font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:var(--tracking-label);
+    text-transform:uppercase;color:var(--beige);margin-top:12px}
+  .calc-sub{font-size:.98rem;line-height:var(--lh-normal);max-width:24ch}
+  input[type=range]::-webkit-slider-thumb{border-radius:var(--radius-pill);width:20px;height:20px;
+    border:2px solid var(--cream);transition:transform var(--dur-fast) var(--ease-out)}
+  input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.12)}
+  input[type=range]::-moz-range-thumb{border-radius:var(--radius-pill);width:18px;height:18px;border:2px solid var(--cream)}
+
+  /* how it works, now paired with the customer dial */
+  .how-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:64px;align-items:center}
+  .how-copy .steps{margin-top:34px}
+  .dial{display:flex;flex-direction:column;align-items:center;gap:16px}
+  .dial svg{width:100%;max-width:250px;height:auto;display:block}
+  .dial-arc{transition:stroke-dasharray var(--dur-slow) var(--ease-out)}
+  .dial figcaption{font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:var(--tracking-label);
+    text-transform:uppercase;color:var(--beige)}
+  @media(max-width:900px){.how-grid{grid-template-columns:1fr;gap:44px}}
+
+  /* feature bento */
+  .feat{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:38px}
+  .feat .fcard{grid-column:span 2;border-radius:var(--radius-md);padding:30px 28px;
+    transition:border-color var(--dur-base) var(--ease-out),background var(--dur-base) var(--ease-out),transform var(--dur-base) var(--ease-out)}
+  .feat .fcard:hover{border-color:var(--border-strong);background:var(--card);transform:translateY(-2px)}
+  .feat .fcard.is-hero{grid-column:span 4;grid-row:span 2;display:flex;flex-direction:column;padding:36px 34px}
+  .feat .fcard.is-tall{grid-column:span 2;grid-row:span 2}
+  .feat .fcard.is-wide{grid-column:span 4}
+  .feat .fcard.is-hero h3{font-size:var(--fs-2xl)}
+  .feat .fcard h3{font-size:var(--fs-lg);letter-spacing:-.01em}
+  .feat .fcard p{font-size:.98rem;line-height:var(--lh-normal)}
+  .dash{margin-top:26px;flex:1;display:flex;align-items:flex-end}
+  .dash svg{width:100%;height:auto;display:block;border-radius:var(--radius-sm)}
+  @media(max-width:900px){
+    .feat{grid-template-columns:1fr 1fr}
+    .feat .fcard,.feat .fcard.is-hero,.feat .fcard.is-tall,.feat .fcard.is-wide{grid-column:span 2;grid-row:auto}
+  }
+  @media(max-width:600px){
+    .feat{grid-template-columns:1fr}
+    .feat .fcard,.feat .fcard.is-hero,.feat .fcard.is-tall,.feat .fcard.is-wide{grid-column:auto}
+  }
+
+  /* sms, pricing, faq rhythm */
+  .sms-grid{gap:64px}
+  .sms-list li{font-size:1.02rem;line-height:var(--lh-normal);padding:17px 0}
+  .price .lead{font-size:var(--fs-lg);line-height:var(--lh-normal);max-width:54ch;margin-bottom:40px}
+  .pcard{border-radius:var(--radius-lg);padding:36px 34px;transition:border-color var(--dur-base) var(--ease-out)}
+  .pcard:hover{border-color:var(--border-strong)}
+  .faq{margin-top:30px}
+  summary{padding:26px 0;transition:color var(--dur-fast) var(--ease-out)}
+  summary:hover{color:var(--beige)}
+  details p{font-size:1.02rem;line-height:var(--lh-normal);max-width:66ch;padding-bottom:26px}
+  .reading-list a{font-size:1.05rem}
+  .final{padding:120px 0}
+  .final p{font-size:var(--fs-lg);line-height:var(--lh-normal)}
 </style>
 </head>
 <body>
@@ -385,7 +463,8 @@
 <div class="rule"></div>
 
 <section id="how">
-  <div class="wrap reveal">
+  <div class="wrap reveal how-grid">
+    <div class="how-copy">
     <div class="eyebrow">How it works</div>
     <h2 style="font-size:clamp(38px,5vw,60px);max-width:640px;color:var(--cream)">Live in 24 <span class="serif">hours.</span></h2>
     <div class="steps">
@@ -393,6 +472,20 @@
       <div class="step"><div class="n">STEP 02</div><h3>We build and brand it</h3><p>Within 24 hours it is live in your colours, font and logo, with your QR code. You set up nothing.</p></div>
       <div class="step"><div class="n">STEP 03</div><h3>Start collecting regulars</h3><p>Print the QR, tap +1 on every visit. Every customer is tracked and yours to keep.</p></div>
     </div>
+    </div>
+      <figure class="dial" aria-label="Customer loyalty screen showing seven of ten visits complete">
+        <svg viewBox="0 0 240 240" role="img" aria-label="Seven of ten visits complete toward a reward">
+          <circle cx="120" cy="120" r="92" fill="none" stroke="var(--border-strong)" stroke-width="14"/>
+          <circle class="dial-arc" cx="120" cy="120" r="92" fill="none" stroke="var(--red)" stroke-width="14"
+                  stroke-linecap="round" transform="rotate(-90 120 120)"
+                  stroke-dasharray="404.6 578" />
+          <text x="120" y="118" text-anchor="middle" fill="var(--cream)"
+                font-family="var(--font-display)" font-weight="700" font-size="62">7</text>
+          <text x="120" y="148" text-anchor="middle" fill="var(--muted)"
+                font-family="var(--font-mono)" font-size="15" letter-spacing="2">OF 10 VISITS</text>
+        </svg>
+        <figcaption>What your customer sees</figcaption>
+      </figure>
   </div>
 </section>
 
@@ -401,27 +494,73 @@
     <div class="eyebrow b">What you get</div>
     <h2 style="font-size:clamp(34px,4.4vw,52px);color:var(--cream)">Everything, <span class="serif">handled.</span></h2>
     <div class="feat">
-      <div class="fcard">
+      <div class="fcard is-hero">
+        <div class="fi"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="6" y="3" width="12" height="18" rx="2.5"/><path d="M10.5 18h3"/></svg></div>
+        <h3>Owner dashboard</h3><p>Search, log a visit, redeem a reward, all from your phone.</p>
+        <div class="dash" role="img" aria-label="Owner dashboard showing a searchable customer list with visit counts and a redeem action">
+          <svg viewBox="0 0 520 300" preserveAspectRatio="xMidYMid meet">
+            <rect x="0" y="0" width="520" height="300" rx="10" fill="var(--surface)" stroke="var(--border-strong)"/>
+            <rect x="0" y="0" width="520" height="42" rx="10" fill="var(--card)"/>
+            <rect x="0" y="32" width="520" height="10" fill="var(--card)"/>
+            <circle cx="22" cy="21" r="4" fill="var(--red)"/>
+            <rect x="36" y="17" width="74" height="8" rx="4" fill="var(--beige)" opacity=".55"/>
+            <rect x="330" y="12" width="170" height="18" rx="9" fill="var(--bg)" stroke="var(--border)"/>
+            <circle cx="344" cy="21" r="4" fill="none" stroke="var(--muted)" stroke-width="1.6"/>
+            <path d="M347 24l4 4" stroke="var(--muted)" stroke-width="1.6" stroke-linecap="round"/>
+            <rect x="356" y="18" width="62" height="6" rx="3" fill="var(--muted)" opacity=".7"/>
+            <g>
+              <rect x="20" y="60" width="180" height="8" rx="4" fill="var(--cream)" opacity=".85"/>
+              <rect x="20" y="78" width="110" height="6" rx="3" fill="var(--muted)"/>
+            </g>
+            <g>
+              <rect x="20" y="104" width="480" height="44" rx="8" fill="var(--card)"/>
+              <circle cx="46" cy="126" r="13" fill="var(--burgundy)"/>
+              <rect x="70" y="116" width="96" height="7" rx="3.5" fill="var(--cream)" opacity=".9"/>
+              <rect x="70" y="130" width="140" height="6" rx="3" fill="var(--muted)"/>
+              <rect x="300" y="120" width="54" height="12" rx="6" fill="var(--bg)" stroke="var(--border)"/>
+              <rect x="308" y="124" width="38" height="4" rx="2" fill="var(--beige)" opacity=".7"/>
+              <rect x="378" y="115" width="102" height="22" rx="11" fill="var(--red)"/>
+              <rect x="398" y="123" width="62" height="6" rx="3" fill="var(--cream)"/>
+            </g>
+            <g opacity=".82">
+              <rect x="20" y="158" width="480" height="44" rx="8" fill="var(--card)"/>
+              <circle cx="46" cy="180" r="13" fill="var(--surface)" stroke="var(--border-strong)"/>
+              <rect x="70" y="170" width="80" height="7" rx="3.5" fill="var(--cream)" opacity=".75"/>
+              <rect x="70" y="184" width="126" height="6" rx="3" fill="var(--muted)"/>
+              <rect x="300" y="174" width="54" height="12" rx="6" fill="var(--bg)" stroke="var(--border)"/>
+              <rect x="308" y="178" width="30" height="4" rx="2" fill="var(--beige)" opacity=".55"/>
+              <rect x="378" y="169" width="102" height="22" rx="11" fill="var(--bg)" stroke="var(--border-strong)"/>
+              <rect x="404" y="177" width="50" height="6" rx="3" fill="var(--beige)" opacity=".6"/>
+            </g>
+            <g opacity=".55">
+              <rect x="20" y="212" width="480" height="44" rx="8" fill="var(--card)"/>
+              <circle cx="46" cy="234" r="13" fill="var(--surface)" stroke="var(--border-strong)"/>
+              <rect x="70" y="224" width="104" height="7" rx="3.5" fill="var(--cream)" opacity=".6"/>
+              <rect x="70" y="238" width="112" height="6" rx="3" fill="var(--muted)"/>
+              <rect x="300" y="228" width="54" height="12" rx="6" fill="var(--bg)" stroke="var(--border)"/>
+              <rect x="378" y="223" width="102" height="22" rx="11" fill="var(--bg)" stroke="var(--border-strong)"/>
+            </g>
+            <rect x="20" y="272" width="140" height="6" rx="3" fill="var(--muted)" opacity=".8"/>
+          </svg>
+        </div>
+      </div>
+      <div class="fcard is-tall">
         <div class="fi"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3M14 17.5h.01M17.5 14v3.5M20.5 14v.01M17.5 20.5h.01M20.5 17.5v3"/></svg></div>
         <h3>QR sign-up</h3><p>Customers scan and join in 30 seconds. No app, ever.</p>
       </div>
-      <div class="fcard">
+      <div class="fcard ">
         <div class="fi"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="9.5" r="1.2" fill="currentColor" stroke="none"/><circle cx="15" cy="9.5" r="1.2" fill="currentColor" stroke="none"/><circle cx="12" cy="15" r="1.2" fill="currentColor" stroke="none"/></svg></div>
         <h3>Your branding</h3><p>Your colours, font, logo and name. KNETIX stays invisible.</p>
       </div>
-      <div class="fcard">
-        <div class="fi"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="6" y="3" width="12" height="18" rx="2.5"/><path d="M10.5 18h3"/></svg></div>
-        <h3>Owner dashboard</h3><p>Search, log a visit, redeem a reward, all from your phone.</p>
-      </div>
-      <div class="fcard">
+      <div class="fcard ">
         <div class="fi"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="6" cy="12" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="18" cy="18" r="2.4"/><path d="M8.1 10.9 15.9 7.1M8.1 13.1l7.8 3.8"/></svg></div>
         <h3>Referral engine</h3><p>Every customer gets a link. Their friends credit them automatically.</p>
       </div>
-      <div class="fcard">
+      <div class="fcard is-wide">
         <div class="fi"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5.5h16v10H9.5L5 19v-3.5H4z"/><path d="M8 9.5h8M8 12.5h5"/></svg></div>
         <h3>SMS built in</h3><p>Auto-texts and promo blasts, from your own local number.</p>
       </div>
-      <div class="fcard">
+      <div class="fcard ">
         <div class="fi"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.66 3.13 3 7 3s7-1.34 7-3V6M5 12v6c0 1.66 3.13 3 7 3s7-1.34 7-3v-6"/></svg></div>
         <h3>Your data</h3><p>Every name, phone and visit. Searchable, exportable, yours.</p>
       </div>
