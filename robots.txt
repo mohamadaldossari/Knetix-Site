@@ -1,3 +1,32 @@
+# Search + AI citation crawlers are explicitly allowed.
+# Training crawlers (GPTBot, ClaudeBot, Google-Extended, Applebot-Extended,
+# CCBot) are also allowed by the wildcard rule — deliberate decision.
+
 User-agent: *
 Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
 Sitemap: https://www.knetixmarketing.com/sitemap.xml
