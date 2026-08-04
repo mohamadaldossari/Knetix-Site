@@ -79,12 +79,6 @@
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px}
   @media(max-width:640px){.wrap{padding:0 22px}}
 
-  .eyebrow{
-    font-family:var(--font-mono);font-weight:500;font-size:var(--fs-xs);
-    letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--tan);
-    display:flex;align-items:center;gap:14px;
-  }
-  .eyebrow::before{content:"";width:34px;height:1px;background:var(--maroon-2)}
 
   h1,h2,h3{font-family:var(--font-display);font-weight:700;letter-spacing:-.02em;line-height:1.02}
 
@@ -113,8 +107,6 @@
   /* ============ CATEGORY SECTION ============ */
   .blog-cat{padding:64px 0 30px}
   .blog-cat:last-of-type{padding-bottom:96px}
-  .sec-tag{font-family:var(--font-mono);font-weight:500;font-size:var(--fs-xs);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--tan);margin-bottom:14px}
-  .sec-tag b{color:var(--maroon-300);font-weight:700;margin-right:6px}
   .cat-h{font-size:clamp(1.7rem,3.6vw,2.6rem);max-width:20ch}
   .cat-sub{color:var(--cream-dim);max-width:52ch;margin-top:14px;font-size:1rem}
 
@@ -230,6 +222,10 @@
   .blog-cat:last-of-type{padding-bottom:112px}
   .blog-grid{gap:18px;margin-top:52px}
   .blog-grid .post-card{padding:34px 30px}
+
+  /* kickers removed */
+  .blog-intro h1{margin-top:0}
+  .cat-h{margin-top:0}
 </style>
 </head>
 <body>
@@ -260,7 +256,6 @@
 <section class="blog-intro" data-reveal>
   <div class="blog-glow" aria-hidden="true"></div>
   <div class="wrap">
-    <p class="eyebrow">Blog</p>
     <h1>Grow the shop. <em>Grow the income.</em></h1>
     <p class="lede">Straight-talking guides on customer loyalty, referrals, and repeat revenue for local businesses, and how to build a real income closing them as a KNETIX rep. No fluff, no filler.</p>
   </div>
@@ -280,7 +275,6 @@
 <!-- ============ CATEGORY: FOR BUSINESS OWNERS ============ -->
 <section class="blog-cat" id="for-business" data-reveal>
   <div class="wrap">
-    <p class="sec-tag reveal"><b>01</b> For Business Owners</p>
     <h2 class="cat-h reveal">Turn one-time customers into regulars.</h2>
     <p class="cat-sub reveal">Loyalty, referrals, and retention tactics for barbershops, salons, cafés, and every local shop with repeat customers.</p>
     <div class="blog-grid" data-reveal-stagger>
@@ -327,7 +321,6 @@
 <!-- ============ CATEGORY: FOR ASPIRING REPS ============ -->
 <section class="blog-cat" id="for-reps" data-reveal>
   <div class="wrap">
-    <p class="sec-tag reveal"><b>02</b> For Aspiring Reps</p>
     <h2 class="cat-h reveal">Get paid to close local businesses.</h2>
     <p class="cat-sub reveal">Outreach, objection-handling, and closing playbooks for building a commission income as a KNETIX sales rep.</p>
     <div class="blog-grid">

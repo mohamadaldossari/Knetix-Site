@@ -117,12 +117,6 @@
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px}
   @media(max-width:640px){.wrap{padding:0 22px}}
 
-  .eyebrow{
-    font-family:var(--font-mono);font-weight:500;font-size:var(--fs-xs);
-    letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--tan);
-    display:flex;align-items:center;gap:14px;
-  }
-  .eyebrow::before{content:"";width:34px;height:1px;background:var(--maroon-2)}
 
   h1,h2,h3{font-family:var(--font-display);font-weight:700;letter-spacing:-.02em;line-height:1.02}
   .num{font-family:var(--font-display);font-weight:700;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
@@ -177,8 +171,6 @@
 
   /* ============ SECTION SHELL ============ */
   section.blk{padding:94px 0;border-top:1px solid var(--line)}
-  .sec-tag{font-family:var(--font-mono);font-weight:500;font-size:var(--fs-xs);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--tan);margin-bottom:20px}
-  .sec-tag b{color:var(--maroon-300);font-weight:700;margin-right:6px}
   .sec-h{font-size:clamp(2rem,4.4vw,3.3rem);max-width:18ch}
   .reading-list{list-style:none;display:grid;gap:15px;max-width:60ch;margin-top:30px}
   .reading-list a{font-family:var(--font-body);font-size:1.02rem;line-height:1.5;color:var(--cream-dim);border-bottom:1px solid var(--line-strong);padding-bottom:3px;transition:color .2s,border-color .2s}
@@ -410,6 +402,10 @@
   .niches .wrap{padding-top:18px;padding-bottom:18px}
   .faq-list{overflow:hidden}
   .final{padding:128px 0}
+
+  /* kickers removed: headings now open their sections */
+  .hero h1{margin:0}
+  .final h2{margin-top:0!important}
 </style>
 </head>
 <body>
@@ -459,7 +455,6 @@
 <section class="hero" data-reveal>
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="wrap">
-    <p class="eyebrow">Rep Program</p>
     <h1>Get paid to close <em>local businesses.</em></h1>
     <p class="lede">KNETIX sets up done-for-you loyalty and referral systems for local shops. You reach out, show them how it works, and close them. You keep half of every setup fee.</p>
     <div class="hero-cta">
@@ -693,7 +688,6 @@
 <section class="final" data-reveal>
   <div class="final-glow" aria-hidden="true"></div>
   <div class="wrap">
-    <p class="eyebrow reveal" style="justify-content:center">Get started</p>
     <h2 class="reveal" style="margin-top:22px">Ready to close your first deal?</h2>
     <p class="reveal">Free to join. Free to get certified. Jump in, get trained, and start getting paid to close local shops.</p>
     <div class="reveal" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">

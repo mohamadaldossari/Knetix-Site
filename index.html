@@ -45,7 +45,6 @@
   :focus-visible{outline:2px solid var(--focus-ring);outline-offset:3px}
   .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
   h1,h2,h3{font-family:var(--font-display);letter-spacing:var(--tracking-tight);color:var(--cream)}
-  .eyebrow{font-family:var(--font-mono);font-size:var(--fs-xs);font-weight:500;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--tan)}
   section{padding:92px 0}
 
   /* ============ FLOATING PILL NAV ============ */
@@ -179,6 +178,9 @@
   .proof{margin-top:52px;padding-top:30px;gap:16px 34px}
   .band{padding:104px 0}
   @media(max-width:900px){.hero-art img{max-width:320px}.hero-art::before{inset:8% 6%}}
+
+  /* kicker removed: the heading now opens the section */
+  .hero h1{margin-top:0}
 </style>
 </head>
 <body>
@@ -209,7 +211,6 @@
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow">BUILT FOR LOCAL SERVICE BUSINESSES</p>
         <h1>Turn one-time visitors into <em class="accent">regulars.</em></h1>
         <p>KNETIX builds fully branded loyalty and referral systems for barbershops, nail salons, detailers, and every local shop that lives on repeat visits. We set everything up for you. Your customers scan, join in seconds, and every visit counts toward a reward. No app to download.</p>
         <div class="actions">

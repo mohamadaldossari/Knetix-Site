@@ -61,8 +61,6 @@
   @media(max-width:640px){.frame{inset:8px}}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px}
   @media(max-width:640px){.wrap{padding:0 22px}}
-  .eyebrow{font-family:var(--font-mono);font-weight:500;font-size:var(--fs-xs);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--tan);display:flex;align-items:center;gap:14px}
-  .eyebrow::before{content:"";width:34px;height:1px;background:var(--maroon-2)}
   h1,h2,h3{font-family:var(--font-display);font-weight:700;letter-spacing:-.02em;line-height:1.05}
   header{position:sticky;top:0;z-index:100;background:rgba(22,17,13,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
   nav{max-width:var(--maxw);margin:0 auto;padding:16px 40px;display:flex;align-items:center;justify-content:space-between}
@@ -190,6 +188,9 @@
   .stats div{padding:38px 18px;border-left:1px solid var(--line)}
   .contact-card{margin-top:88px;padding:48px 44px}
   .foot-pad{padding-bottom:104px}
+
+  /* kicker removed */
+  .about-hero h1{margin-top:0}
 </style>
 </head>
 <body>
@@ -219,7 +220,6 @@
 <section class="about-hero" data-reveal>
   <div class="about-glow" aria-hidden="true"></div>
   <div class="wrap">
-    <p class="eyebrow">About</p>
     <h1>We help local shops <em>keep the customers they've earned.</em></h1>
     <p class="lede">KNETIX builds done-for-you loyalty and referral systems for local businesses, the kind where the same people come back every few weeks, and where losing one of them quietly costs more than most owners realise.</p>
   </div>
