@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "instrument serif",
+        "createdAt": "2026-08-04T01:26:43.009Z",
+        "reason": "Owner ruling: the italic serif cream accent is a core brand element"
+      }
+    ]
+  }
+}
