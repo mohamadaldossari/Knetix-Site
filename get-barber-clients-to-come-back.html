@@ -213,6 +213,35 @@
   .fcard:hover,.pcard:hover,a.post-card:hover,.bento article:hover{border-color:var(--border-strong)}
   .tlink,.reading-list a,.foot-links a,.foot .fr a,.body-col a,.article-body a{
     transition:color var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out)}
+
+/* ============ STAGE 5: ROUNDED GEOMETRY, ELEVATION, AIR ============ */
+  /* 1. geometry: tiles to the large radius, controls to the pill */
+  .fcard,.pcard,.card,.post-card,.who-card,.contact-card,.post-cta,.feat,
+  .earn,.calc-panel,.thread,.bento article,.faq-list,.dash svg{border-radius:var(--radius-lg)}
+  .btn,.btn-primary,.btn-ghost,.nav-cta,.niche,
+  .kf-next-btn,.kf-back-btn,.kf-binary-btn,.kf-choice-btn,.kf-reject-cta{border-radius:var(--radius-pill)}
+  .kf-input,.kf-textarea,.cf-price,.cf-price input{border-radius:var(--radius-md)}
+  input[type=range]{border-radius:var(--radius-pill)}
+
+  /* 2. elevation carries separation, borders only where they still earn it */
+  .fcard,.pcard,.card,.post-card,.who-card,.contact-card,.post-cta,.bento article{
+    box-shadow:var(--shadow-sm)}
+  .fcard:hover,.pcard:hover,a.post-card:hover,.card:hover,.bento article:hover{
+    box-shadow:var(--shadow-md)}
+
+  /* 3. air: one idea per section, generous and consistent */
+  section{padding:112px 0}
+  @media(max-width:760px){section{padding:68px 0}}
+
+  .post{padding-top:88px}
+  .article-body{margin-top:48px}
+  .article-body h2{margin-top:72px}
+  .post-faq{margin-top:88px}
+  .post-cta{margin-top:88px;padding:52px 46px}
+  .post-foot-pad{padding-bottom:104px}
+  .fig{margin-top:48px;margin-bottom:48px;padding:30px 26px;background:var(--ink-2);
+    border-radius:var(--radius-lg);box-shadow:var(--shadow-sm)}
+  .fig svg{display:block;width:100%;height:auto}
 </style>
 </head>
 <body>
