@@ -237,6 +237,15 @@
 
   /* kicker removed: the post title opens the page */
   .post h1{margin-top:0}
+
+/* ============ FIX RUN B: CONTRAST, MEASURE, TRACKING, BORDER+SHADOW ============ */
+  /* Elevation now carries separation on every surface that also had a hairline.
+     Borders stay only where a panel has no shadow and needs its own edge
+     (.calc-panel, .earn, rep .feat, the page .frame, table-style rules). */
+  nav{border:none}
+  .card,.bento article,.fcard,.pcard,.post-card,.who-card,.contact-card,.post-cta{border:none}
+  .card:hover,.bento article:hover,.fcard:hover,.pcard:hover,a.post-card:hover{
+    border:none;box-shadow:var(--shadow-md)}
 </style>
 </head>
 <body>

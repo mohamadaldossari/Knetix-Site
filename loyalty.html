@@ -438,6 +438,26 @@
   /* kickers removed: headings now open their sections */
   .hero h1{margin-top:0}
   #math .calc-copy h2,#how h2,.price h2,#faq h2,#reading h2,.final h2{margin-top:0}
+
+/* ============ FIX RUN B: CONTRAST, MEASURE, TRACKING, BORDER+SHADOW ============ */
+  /* Elevation now carries separation on every surface that also had a hairline.
+     Borders stay only where a panel has no shadow and needs its own edge
+     (.calc-panel, .earn, rep .feat, the page .frame, table-style rules). */
+  nav{border:none}
+  .card,.bento article,.fcard,.pcard,.post-card,.who-card,.contact-card,.post-cta{border:none}
+  .card:hover,.bento article:hover,.fcard:hover,.pcard:hover,a.post-card:hover{
+    border:none;box-shadow:var(--shadow-md)}
+
+  /* contrast: sub-24px maroon moves to the token built for it */
+  .fcard .fi{color:var(--maroon-300)}
+  /* the SMS mockup labels were stacked opacity on tinted bubbles, near 1.2:1.
+     Solid token colours instead, both above 4.5:1. */
+  .bub small{opacity:1;color:var(--tan)}
+  .bub.me small{opacity:1;color:var(--cream)}
+  /* measure: bring the long containers into a 65ch to 75ch reading band */
+  .price-note{max-width:54ch}
+  details p{max-width:54ch}
+  .reading-list{max-width:54ch}
 </style>
 </head>
 <body>

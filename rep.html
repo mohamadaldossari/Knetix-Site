@@ -406,6 +406,19 @@
   /* kickers removed: headings now open their sections */
   .hero h1{margin:0}
   .final h2{margin-top:0!important}
+
+/* ============ FIX RUN B: CONTRAST, MEASURE, TRACKING, BORDER+SHADOW ============ */
+  /* Elevation now carries separation on every surface that also had a hairline.
+     Borders stay only where a panel has no shadow and needs its own edge
+     (.calc-panel, .earn, rep .feat, the page .frame, table-style rules). */
+  nav{border:none}
+  .card,.bento article,.fcard,.pcard,.post-card,.who-card,.contact-card,.post-cta{border:none}
+  .card:hover,.bento article:hover,.fcard:hover,.pcard:hover,a.post-card:hover{
+    border:none;box-shadow:var(--shadow-md)}
+
+  /* tracking: body copy drops wide tracking, uppercase mono labels keep theirs */
+  .pay-note b{letter-spacing:normal}
+  .niche{letter-spacing:normal}
 </style>
 </head>
 <body>
