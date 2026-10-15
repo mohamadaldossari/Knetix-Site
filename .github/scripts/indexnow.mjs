@@ -603,9 +603,10 @@ async function main() {
     console.log('Mode: changed (push) ' + payload.before + '..' + sha);
     result = computeChangedUrls(cwd, payload.before, sha);
   } else if (event === 'workflow_dispatch') {
-    const inputMode = env.INPUT_MODE || 'changed';
+    // Manual runs have one mode, full. Anything else is refused rather than guessed.
+    const inputMode = env.INPUT_MODE || 'full';
     if (inputMode !== 'full') {
-      throw new Error('Mode "' + inputMode + '" is not supported on workflow_dispatch; run it with mode full.');
+      throw new Error('Mode "' + inputMode + '" is not supported; manual runs only support mode full.');
     }
     mode = 'full';
     sha = resolveCommit(cwd, env.GITHUB_SHA);

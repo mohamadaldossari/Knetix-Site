@@ -14,6 +14,9 @@ node_modules/
 package-lock.json
 .vercel/
 
+# Claude Code per-machine settings. Local only, never shared.
+.claude/settings.local.json
+
 # Note: .superdesign/ is deliberately NOT ignored — it is tracked design
 # documentation, not tool scratch.
 
