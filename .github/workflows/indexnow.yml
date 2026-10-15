@@ -1,0 +1,43 @@
+name: IndexNow
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: full submits every eligible sitemap URL. changed only works on push runs and is rejected here; to retry a failed push run, use Re-run jobs on that run.
+        type: choice
+        options:
+          - changed
+          - full
+        default: full
+        required: true
+      dry_run:
+        description: Run every gate but do not POST to IndexNow
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  deployments: read
+
+# No concurrency group on purpose: GitHub keeps only one pending run per group
+# and cancels older pending runs, which would drop that push's URLs. Runs share
+# no state, so parallel submissions are safe.
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Submit changed URLs
+        run: node .github/scripts/indexnow.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INPUT_MODE: ${{ inputs.mode }}
+          INPUT_DRY_RUN: ${{ inputs.dry_run }}

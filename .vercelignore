@@ -8,3 +8,7 @@
 # Same reasoning as .superdesign/ above. Listed ahead of the file landing so
 # there is no window in which it could be deployed.
 SEO-AI-PLAYBOOK.md
+
+# .github/ holds the IndexNow workflow and its script. They are CI tooling
+# that runs on GitHub Actions, not site content, so they are never deployed.
+.github/
