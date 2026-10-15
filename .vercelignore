@@ -29,3 +29,7 @@ SEO-AI-PLAYBOOK.md
 # Agent instruction files for this repo. Read by the tooling, never site content.
 AGENTS.md
 CLAUDE.md
+
+# Noindex authoring template, never a real page. The IndexNow script reads it
+# from the repo (and skips it), so nothing depends on it being served.
+blog-post-template.html
