@@ -12,3 +12,9 @@ SEO-AI-PLAYBOOK.md
 # .github/ holds the IndexNow workflow and its script. They are CI tooling
 # that runs on GitHub Actions, not site content, so they are never deployed.
 .github/
+
+# Agent and design-tool configuration. Tracked for the tooling, never site
+# content; without these lines Vercel serves them as public files.
+.claude/
+.codex/
+.impeccable/
