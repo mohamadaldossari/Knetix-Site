@@ -27,6 +27,7 @@ Mohamad Aldossari is the product owner and final authority on every design, cont
 - Canonical host is `https://www.knetixmarketing.com`. The apex 308-redirects to www. Every canonical tag, og:url and sitemap entry uses www.
 - `/index.html` 308-redirects to `/` (vercel.json). Internal links use `/` for the homepage.
 - `blog-post-template.html` is a noindex template, never a real page. It stays out of sitemap.xml and is not deployed (listed in `.vercelignore`); the IndexNow script reads it from the repo and skips it.
+- Share images: business and brand pages use `https://www.knetixmarketing.com/og-knetix.png` (1200x630) for og:image and twitter:image, with `og:image:width` 1200 and `og:image:height` 630. Rep-facing pages (rep.html and the rep posts) use `knetixwhopbanner.png` with no width or height tags. An Article's JSON-LD `image` matches its og:image.
 - Design rules live in `.superdesign/design-system.md` (tracked, not deployed).
 - SEO and publishing checklist lives in `SEO-AI-PLAYBOOK.md` (local only, gitignored, never commit it).
 
@@ -35,7 +36,7 @@ Mohamad Aldossari is the product owner and final authority on every design, cont
 - Vercel serves every file it is not told to ignore. Only public pages and assets may be served.
 - Every dot-folder, dot-file and internal file that is not part of the live site is listed in `.vercelignore`. Today that is `.agents/`, `.claude/`, `.codex/`, `.gemini/`, `.github/`, `.impeccable/`, `.superdesign/`, `.gitignore`, `SEO-AI-PLAYBOOK.md`, `AGENTS.md`, `CLAUDE.md` and `blog-post-template.html`.
 - Adding a new tool folder, config file or internal doc: add its `.vercelignore` line in the same commit, before or with the file, so there is no window in which it is served.
-- Never ignore anything public: the public HTML pages, `tokens.css`, `motion.js`, `fonts/`, the images pages use (`knetixwhopbanner.png`, `phone-hero.webp`), favicons (`favicon.ico`, `favicon-96.png`, `favicon-192.png`, `apple-touch-icon.png`), `robots.txt`, `sitemap.xml`, `llms.txt`, or the IndexNow key file `1494f227c88e0c47afe15734bfde3105.txt`.
+- Never ignore anything public: the public HTML pages, `tokens.css`, `motion.js`, `fonts/`, the images pages use (`og-knetix.png`, `knetixwhopbanner.png`, `phone-hero.webp`), favicons (`favicon.ico`, `favicon-96.png`, `favicon-192.png`, `apple-touch-icon.png`), `robots.txt`, `sitemap.xml`, `llms.txt`, or the IndexNow key file `1494f227c88e0c47afe15734bfde3105.txt`.
 - The `phone-hero.png` source image lives in `.superdesign/brand/`, not at the root; pages use `phone-hero.webp`.
 - `.claude/settings.local.json` is per-machine and gitignored. Never commit it.
 

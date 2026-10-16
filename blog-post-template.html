@@ -17,8 +17,12 @@
                              date shown in the meta line (e.g. Jul 20, 2026).
        {{CATEGORY}}          "For Business Owners" or "For Aspiring Reps".
        {{READ_TIME}}         e.g. "6 min read".
-       {{OG_IMAGE}}          Full share-image URL
-                             (default https://www.knetixmarketing.com/knetixwhopbanner.png).
+       Share image           Defaults to https://www.knetixmarketing.com/og-knetix.png
+                             (1200x630) in og:image, twitter:image and the JSON-LD
+                             image. For a rep-facing post ("For Aspiring Reps"), use
+                             https://www.knetixmarketing.com/knetixwhopbanner.png in
+                             all three and delete the og:image:width and
+                             og:image:height lines (that banner is 1568x588).
        {{ARTICLE_BODY}}      The post HTML, use <h2>, <p>, <ul>, <blockquote>.
        {{FAQ_QUESTION_1}} /  One Q/A pair is scaffolded in BOTH the visible FAQ
        {{FAQ_ANSWER_1}}      section and the FAQPage JSON-LD, keep the two in
@@ -47,11 +51,13 @@
 <meta property="og:description" content="{{POST_DESCRIPTION}}">
 <meta property="og:type" content="article">
 <meta property="og:url" content="{{CANONICAL_URL}}">
-<meta property="og:image" content="{{OG_IMAGE}}">
+<meta property="og:image" content="https://www.knetixmarketing.com/og-knetix.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{POST_TITLE}}">
 <meta name="twitter:description" content="{{POST_DESCRIPTION}}">
-<meta name="twitter:image" content="{{OG_IMAGE}}">
+<meta name="twitter:image" content="https://www.knetixmarketing.com/og-knetix.png">
 <meta name="theme-color" content="#16110d">
 <script type="application/ld+json">
 {
@@ -59,7 +65,7 @@
   "@type": "Article",
   "headline": "{{POST_TITLE}}",
   "description": "{{POST_DESCRIPTION}}",
-  "image": "{{OG_IMAGE}}",
+  "image": "https://www.knetixmarketing.com/og-knetix.png",
   "datePublished": "{{PUBLISH_DATE}}",
   "author": { "@type": "Organization", "name": "KNETIX", "logo": "https://www.knetixmarketing.com/favicon-192.png" },
   "publisher": { "@type": "Organization", "name": "KNETIX", "url": "https://www.knetixmarketing.com/", "logo": "https://www.knetixmarketing.com/favicon-192.png" },
