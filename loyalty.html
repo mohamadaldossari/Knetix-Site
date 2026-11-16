@@ -466,6 +466,11 @@
   .price-note{max-width:54ch}
   details p{max-width:54ch}
   .reading-list{max-width:54ch}
+
+/* Site form intake: consent beside the submit button, the Turnstile check above it */
+  .kf-consent{display:flex;gap:12px;align-items:flex-start;margin-top:18px;font-size:.78rem;line-height:1.55;color:var(--cream-dim);cursor:pointer}
+  .kf-consent input{margin-top:3px;width:18px;height:18px;flex:none;accent-color:#8B2E2E}
+  .kf-turnstile{margin-top:18px;min-height:65px}
 </style>
 </head>
 <body>
@@ -866,9 +871,10 @@ let formData = {
   businessName: '',
   ownerName: '',
   email: '',
-  phoneOrIg: '',
+  phone: '',
   businessType: null,
   location: '',
+  province: '',
   reward: '',
   servicePrice: '',
   hasLogo: null,
@@ -876,6 +882,49 @@ let formData = {
 };
 let currentStep = STEPS.BUSINESS_NAME;
 let submitting = false;
+
+/* Site form intake (KNETIX inbound): the only configuration here is the public Turnstile site key and the route URL.
+   Every rule (fields, consent, Turnstile, limits) is checked again on the server. */
+const INTAKE_URL = 'https://app.knetixmarketing.com/api/sales/inbound/site-form';
+const TURNSTILE_SITE_KEY = '0x4AAAAAAF3s653sjvEiKmU2';
+const PROVINCES = [
+  ['AB','Alberta'],['BC','British Columbia'],['MB','Manitoba'],['NB','New Brunswick'],['NL','Newfoundland and Labrador'],
+  ['NS','Nova Scotia'],['NT','Northwest Territories'],['NU','Nunavut'],['ON','Ontario'],['PE','Prince Edward Island'],
+  ['QC','Quebec'],['SK','Saskatchewan'],['YT','Yukon']
+];
+const CONSENT_LINES = [
+  "By checking this box, I agree that KNETIX may contact me about my request and about its products and services by phone call, including automated calls and calls made by an AI assistant, by text message and by email, at the phone number and email address I gave.",
+  "Calls may be recorded and transcribed. Message frequency varies; message and data rates may apply.",
+  "Consent is not a condition of purchase.",
+  "I can withdraw my consent at any time by replying STOP to any text message, by using the unsubscribe link in any email, or by telling KNETIX on a call.",
+  "KNETIX: 14111 134 St NW, Edmonton, AB T6V 1W3, mohamad@knetixmarketing.com."
+];
+let consentGiven = false;
+let turnstileToken = '';
+let turnstileWidget = null;
+
+function phoneDigits(v) {
+  const d = String(v || '').replace(/\D/g, '');
+  return d.length === 11 && d.charAt(0) === '1' ? d.slice(1) : d;
+}
+
+function mountTurnstile() {
+  turnstileToken = '';
+  if (turnstileWidget !== null && window.turnstile) { try { window.turnstile.remove(turnstileWidget); } catch (e) {} turnstileWidget = null; }
+  const el = document.getElementById('kfTurnstile');
+  if (!el || !window.turnstile) return;
+  try {
+    turnstileWidget = window.turnstile.render(el, {
+      sitekey: TURNSTILE_SITE_KEY,
+      theme: 'dark',
+      callback: function (t) { turnstileToken = t; updateNextBtn(); },
+      'expired-callback': function () { turnstileToken = ''; updateNextBtn(); },
+      'error-callback': function () { turnstileToken = ''; updateNextBtn(); }
+    });
+  } catch (e) { turnstileWidget = null; }
+}
+
+window.kfTurnstileReady = function () { if (currentStep === STEPS.NOTES) render(); };
 
 const SEQUENCE = [
   STEPS.BUSINESS_NAME,
@@ -910,13 +959,13 @@ function updateProgress() {
 function canAdvance() {
   switch (currentStep) {
     case STEPS.BUSINESS_NAME: return formData.businessName.trim().length > 1;
-    case STEPS.OWNER_CONTACT: return formData.ownerName.trim().length > 1 && /\S+@\S+\.\S+/.test(formData.email);
+    case STEPS.OWNER_CONTACT: return formData.ownerName.trim().length > 1 && /\S+@\S+\.\S+/.test(formData.email) && phoneDigits(formData.phone).length === 10;
     case STEPS.BUSINESS_TYPE: return formData.businessType !== null;
-    case STEPS.LOCATION:      return formData.location.trim().length > 1;
+    case STEPS.LOCATION:      return formData.location.trim().length > 1 && formData.province !== '';
     case STEPS.REWARD:        return formData.reward.trim().length > 1;
     case STEPS.SERVICE_PRICE: return formData.servicePrice.trim().length > 0;
     case STEPS.LOGO:          return formData.hasLogo !== null;
-    case STEPS.NOTES:         return true;
+    case STEPS.NOTES:         return consentGiven && turnstileToken !== '';
     default: return false;
   }
 }
@@ -936,40 +985,36 @@ function goBack() {
   if (idx > 0) goTo(SEQUENCE[idx - 1]);
 }
 
-/* ── FORMSPREE SUBMISSION — same endpoint as audit form ── */
+/* Submission to the KNETIX intake route (validated again on the server). */
 async function handleSubmit() {
   if (submitting) return;
   submitting = true;
   render();
 
-  // Base payload — endpoint field names mapped from formData
+  // The intake route's fields. The loyalty answers travel in the message.
+  const parts = [
+    'Loyalty signup from knetixmarketing.com.',
+    formData.businessType ? 'Business type: ' + formData.businessType + '.' : '',
+    formData.location ? 'City: ' + formData.location.trim() + '.' : '',
+    formData.reward ? 'Reward: ' + formData.reward.trim() + '.' : '',
+    formData.servicePrice ? 'Typical price: ' + formData.servicePrice.trim() + '.' : '',
+    formData.hasLogo ? 'Logo: ' + formData.hasLogo + '.' : '',
+    formData.notes.trim() ? 'Notes: ' + formData.notes.trim() : ''
+  ];
   const payload = {
-    business_name:  formData.businessName,
-    contact_name:   formData.ownerName,
-    contact_email:  formData.email,
-    reward:         formData.reward,
-    service_price:  formData.servicePrice,
-    business_type:  formData.businessType,
-    location:       formData.location,
-    has_logo:       formData.hasLogo,
-    notes:          formData.notes,
+    name:           formData.ownerName.trim(),
+    business_name:  formData.businessName.trim(),
+    phone:          formData.phone.trim(),
+    email:          formData.email.trim(),
+    province:       formData.province,
+    message:        parts.filter(Boolean).join(' ').slice(0, 1000),
+    consent:        consentGiven === true,
+    turnstileToken: turnstileToken,
     fax:            (document.getElementById('kf-fax') || {}).value || ''
   };
 
-  // Split the combined phone/Instagram field into exactly one of the two
-  const v = formData.phoneOrIg.trim();
-  if (v) {
-    if (v.charAt(0) === '@' || v.toLowerCase().indexOf('instagram') !== -1) {
-      payload.instagram_url = v;
-    } else if ((v.match(/\d/g) || []).length >= 6) {
-      payload.contact_phone = v;
-    } else {
-      payload.instagram_url = v;
-    }
-  }
-
   try {
-    const response = await fetch('https://app.knetixmarketing.com/api/leads/inbound', {
+    const response = await fetch(INTAKE_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -977,15 +1022,15 @@ async function handleSubmit() {
       body: JSON.stringify(payload)
     });
 
-    const result = await response.json();
+    const result = await response.json().catch(function () { return {}; });
     if (response.ok && result.ok) {
       goTo(STEPS.SUCCESS);
     } else {
       throw new Error(result.error || 'Submission failed');
     }
   } catch (error) {
-    console.error('Formspree error:', error);
-    alert('Submission failed. Please try again or email mohamad@knetixmarketing.com directly.');
+    console.error('Intake error:', error && error.message);
+    alert((error && error.message && error.message !== 'Failed to fetch' ? error.message + ' ' : 'Submission failed. ') + 'You can also email mohamad@knetixmarketing.com directly.');
   } finally {
     submitting = false;
     if (currentStep !== STEPS.SUCCESS) render();
@@ -1039,8 +1084,8 @@ function renderStep() {
         + '<div><label class="kf-input-label">Email</label><input class="kf-input" type="email" placeholder="you@business.com" value="' + escapeHtml(formData.email) + '" oninput="formData.email=this.value;updateNextBtn();" autocomplete="email" /></div>'
         + '</div>'
         + '<div class="kf-input-wrap" style="margin-bottom:0">'
-        + '<label class="kf-input-label">Phone or Instagram (optional)</label>'
-        + '<input class="kf-input" type="text" placeholder="+1 555 000 0000 or @handle" value="' + escapeHtml(formData.phoneOrIg) + '" oninput="formData.phoneOrIg=this.value;" />'
+        + '<label class="kf-input-label">Mobile number (Canada)</label>'
+        + '<input class="kf-input" type="tel" placeholder="780 555 0123" value="' + escapeHtml(formData.phone) + '" oninput="formData.phone=this.value;updateNextBtn();" autocomplete="tel" inputmode="tel" />'
         + '</div>'
         + navRow()
         + '</div></div>';
@@ -1063,10 +1108,15 @@ function renderStep() {
       return '<div class="kf-card"><div class="kf-step-inner">'
         + '<p class="kf-question-label">Question ' + current + ' of ' + total + '</p>'
         + '<h2 class="kf-question">Where are you based?</h2>'
-        + '<p class="kf-sub">Local or online — we work with service businesses anywhere in the world.</p>'
-        + '<div class="kf-input-wrap" style="margin-bottom:0">'
-        + '<label class="kf-input-label">City &amp; country</label>'
-        + '<input class="kf-input" type="text" placeholder="e.g. Edmonton, Canada" value="' + escapeHtml(formData.location) + '" oninput="formData.location=this.value;updateNextBtn();" />'
+        + '<p class="kf-sub">We work with service businesses across Canada.</p>'
+        + '<div class="kf-input-group">'
+        + '<div><label class="kf-input-label">City</label>'
+        + '<input class="kf-input" type="text" placeholder="e.g. Edmonton" value="' + escapeHtml(formData.location) + '" oninput="formData.location=this.value;updateNextBtn();" autocomplete="address-level2" /></div>'
+        + '<div><label class="kf-input-label">Province or territory</label>'
+        + '<select class="kf-input" onchange="formData.province=this.value;updateNextBtn();">'
+        + '<option value=""' + (formData.province === '' ? ' selected' : '') + '>Choose one</option>'
+        + PROVINCES.map(function (p) { return '<option value="' + p[0] + '"' + (formData.province === p[0] ? ' selected' : '') + '>' + p[1] + '</option>'; }).join('')
+        + '</select></div>'
         + '</div>'
         + navRow()
         + '</div></div>';
@@ -1119,6 +1169,9 @@ function renderStep() {
         + '<label class="kf-input-label">Notes (optional)</label>'
         + '<textarea class="kf-textarea" placeholder="Tell us anything that\'ll help us set you up right." oninput="formData.notes=this.value;">' + escapeHtml(formData.notes) + '</textarea>'
         + '</div>'
+        + '<div id="kfTurnstile" class="kf-turnstile"></div>'
+        + '<label class="kf-consent"><input type="checkbox" id="kfConsent"' + (consentGiven ? ' checked' : '') + ' onchange="consentGiven=this.checked;updateNextBtn();" />'
+        + '<span>' + CONSENT_LINES.map(escapeHtml).join('<br>') + '</span></label>'
         + navRow(true, true)
         + '</div></div>';
 
@@ -1139,6 +1192,9 @@ function render() {
   if (!content) return;
   content.innerHTML = renderStep();
   updateProgress();
+  // Not while submitting: the token in hand is the one being sent. After a failed submit the next render mounts a
+  // fresh check (a token is single use).
+  if (currentStep === STEPS.NOTES && !submitting) mountTurnstile();
 }
 
 function updateNextBtn() {
@@ -1148,10 +1204,12 @@ function updateNextBtn() {
 
 function resetFunnel() {
   formData = {
-    businessName: '', ownerName: '', email: '', phoneOrIg: '',
-    businessType: null, location: '', reward: '', servicePrice: '',
+    businessName: '', ownerName: '', email: '', phone: '',
+    businessType: null, location: '', province: '', reward: '', servicePrice: '',
     hasLogo: null, notes: ''
   };
+  consentGiven = false;
+  turnstileToken = '';
   currentStep = STEPS.BUSINESS_NAME;
   render();
 }
@@ -1177,6 +1235,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.clas
 
 render();
 </script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=kfTurnstileReady" async defer></script>
 <script defer src="/motion.js"></script>
 </body>
 </html>
